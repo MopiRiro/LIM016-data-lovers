@@ -1,3 +1,4 @@
+/* Pseudo selector :root */
 body {
     margin: 0px 0px 0px 0px;
 }
@@ -21,8 +22,7 @@ section {
     text-align: right;
     width: 25%;
 }
-button {
-}
+
 button input {
     width: 15px;
     height: 15px;
