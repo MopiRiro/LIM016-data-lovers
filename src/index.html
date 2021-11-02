@@ -2,33 +2,56 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Data Lovers-Luz y Pilar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/c26e936b31.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
-      <h1>Studio Gibli</h1>
-      <nav></nav>
+      <div class="menu_bar">
+        <a href="#" class="bt-menu"><i class="fas fa-bars"></i>Studio Ghibli<span class="spanLibrary">Library</span></a>
+      </div>
+  
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fas fa-info-circle"></i>About</a></li>
+          <li><a href="#"><i class="fas fa-users"></i>Characteres</a></li>
+          <li><a href="#"><i class="fas fa-film"></i>Films</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-      <section id="pagina-principal">
+      <section id="pagina-principal" class="container-flex">
         <h2>Pagina principal</h2>
 
       </section>
 
-      <section id="pagina-peliculas">
+      <section id="pagina-peliculas" class="container-flex">
         <h2>Pagina Films</h2>
 
       </section>
 
-      <section id="pagina-personajes">
-        <h2>Pagina Characters</h2>
-
+      <section id="pagina-personajes" class="container-flex">
+        <h2>Personajes</h2>
+        <div>Ordenar por</div>
+        <select>
+          <option selected="selected">Selecciona</option>
+          <option>Película</option>
+          <option>Productor</option>
+          <option>Director</option>
+          <option>Ascendente</option>
+          <option>Descendente</option>
+        </select>
       </section>
 
-      <section id="pagina-about">
-        <h2>Pagina About</h2>
+      <section id="pagina-about" class="container-flex">
+        <h2>Ranking Rotten Tomatoes</h2>
+        <h3>Los mejores calificados</h3>
 
       </section>
     </main>
