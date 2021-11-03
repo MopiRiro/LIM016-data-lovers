@@ -37,16 +37,21 @@
       </section>
 
       <section id="pagina-personajes" class="container-flex">
-        <h2>Personajes</h2>
-        <div>Ordenar por</div>
-        <select>
-          <option selected="selected">Selecciona</option>
-          <option>Película</option>
-          <option>Productor</option>
-          <option>Director</option>
-          <option>Ascendente</option>
-          <option>Descendente</option>
-        </select>
+        <div>
+          <p>Ordenar por</p>
+            <select>
+              <option selected="selected">Selecciona</option>
+              <option>Película</option>
+              <option>Productor</option>
+              <option>Director</option>
+              <option>Ascendente</option>
+              <option>Descendente</option>
+            </select>
+        </div>
+        <div>
+          <input type="text" id="buscador" placeholder="Busca tus personajes aquí" />
+          <button type="button" id="search">Find!</button>
+        </div>
       </section>
 
       <section id="pagina-about" class="container-flex">
@@ -60,7 +65,7 @@
       <address>
         @Copyright 2021 - Página creada por Pilar Rivera y Luz Torres
       </address>
-      <section>
+      <section class="section-footer">
         <button type="submit" id="facebook">
           <a href="http://" target="_blank"><input type="image" src="./img/logo-facebook.png"/></a>
         </button>

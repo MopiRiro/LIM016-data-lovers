@@ -46,7 +46,7 @@ address {
     font-family:'Roboto Slab', serif;;
     font-size: 1.2rem;
 }
-section {
+.section-footer {
     display: inline-block;
     text-align: right;
     width: 25%;
@@ -176,8 +176,14 @@ header nav ul li a:hover {
 
     
 }
+/*CUERPO DE PAGINA*/
+#pagina-personajes {
+	display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+}
 
-.container-flex{
-	width: 100%;
-	display: flex;
+#pagina-personajes > div {
+	width: 50%;
+    padding: 10px;
 }
