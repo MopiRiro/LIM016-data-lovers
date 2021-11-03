@@ -1,3 +1,6 @@
+import data from './data/ghibli/ghibli.js'
+
+
 // estas funciones son de ejemplo
 
 export const example = () => {
@@ -7,3 +10,5 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
+
+//Funciones para pagina personajes 
