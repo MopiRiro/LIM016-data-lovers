@@ -1,15 +1,6 @@
-/* Pseudo selector :root */
 body {
     margin: 0px 0px 0px 0px;
-}
-nav {
-    background-color: #219EBC;
-    padding: 20px 20px 10px 20px;
-}
-#home {
-    height: 80%;
-    width: 100%;
-    text-align: center;
+    font-family: 'Roboto Slab', serif;
 }
 picture {
     width: 100%;
@@ -27,9 +18,7 @@ address {
     font-size: 12px;
 }
 section {
-    display: inline-block;
-    text-align: right;
-    width: 25%;
+    display: flex;
 }
 button input {
     width: 15px;
