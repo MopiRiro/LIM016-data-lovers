@@ -8,18 +8,29 @@ export const anotherExample = () => {
   return 'OMG';
 };
 
+
+
 //Funciones para pagina personajes
+    // export const dataPersonajes = (data) =>{
+      
+    // }
 
-
-
-export const dataPersonajes = (data) =>{
-
-
+export const filterByFilms = (data,films) => {
   
 }
 
 export const filterByProducer = (data,producer) => {
-  return data.films.filter((item) => {
-      return item.producer === producer;
-  });
+  
+}
+
+export const filterByDirector = (data,director) => {
+  
+}
+
+export const filterByUpward = (data,upward) => {
+  
+}
+
+export const filterByFalling = (data,falling) => {
+  
 }
