@@ -34,7 +34,7 @@ body{
 	}
 	
 
-#home {
+/* #home {
     height: 80%;
     width: 100%;
     text-align: center;
@@ -64,8 +64,69 @@ button input {
     width: 15px;
     height: 15px;
     border: none;
+} */
+
+
+footer {
+    width: 100%;
+    background-color: var(--BlueGreen);
+    background-size: cover;
+	font-family: 'Roboto Slab', serif;
 }
 
+.contenedor-footer {
+    display:flex;
+    /* se ponen uno de bajo del otro cuando no quepan en una sola linea*/
+    flex-wrap: wrap;
+    /* Para que ocupen el ancho completo*/
+    justify-content: space-between;
+    max-width: 120rem;
+    margin: auto;
+    margin-top: 40rem;
+}
+
+.box_footer{
+    display:flex;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+.box_footer .logo img{
+    width: 15rem;
+    margin-top: 3rem;
+}
+
+.box_footer h2{
+    margin-bottom: 3rem;
+    color: var(--White);
+    font-weight: 700;
+}
+.box_footer span{
+    
+    color: var(--White);
+    
+}
+
+.box_footer a{
+    margin: 0.5rem;
+    color:var(--White);
+    font-size: 1.5rem;
+    font-weight: 600;
+
+}
+
+.box_footer a:hover{
+    opacity: 0.8%;
+}
+
+.box_footer a .fab{
+    margin-right:1rem;
+    font-size: 1.5rem;
+}
+/* .box_footer a .fas{
+    margin-right:1rem;
+    font-size: 1.5rem;
+} */
 
 
 /*Navegador*/
