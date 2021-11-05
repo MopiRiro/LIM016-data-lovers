@@ -3,9 +3,26 @@ import { dataPersonajes, example } from './data.js';
 
 import data from './data/ghibli/ghibli.js'
 
-let cboPersonajes = document.getElementById("cboPersonajes");
+    /*Interacción con el DOM */
+    let cboPersonajes = document.getElementById("cboPersonajes");
 
-
+    
+    /*Aginando a variables la data extraida de Studio Ghibli */
+    let dataFilms = data.films;
+    // console.log(data.films);
+    let titleFilms = dataFilms.map(x => x.title);
+    // console.log(titleFilms);
+    let descriptionFilms = dataFilms.map(x => x.description);
+    // console.log(descriptionFilms);
+    let directorFilms = dataFilms.map(x => x.director);
+    // console.log(directorFilms);
+    let producerFilms = dataFilms.map(x => x.producer);
+    // console.log(producerFilms);
+    let posterFilms = dataFilms.map(x => x.poster);
+    // console.log(posterFilms);
+    let release_dateFilms = dataFilms.map(x => x.release_date);
+    let rt_scoreFilms = dataFilms.map(x => x.rt_score);
+    let peopleFilms = dataFilms.map(x => x.people);
 
 
 
@@ -55,9 +72,7 @@ let cboPersonajes = document.getElementById("cboPersonajes");
     }
 
 /*Pagina 3 */
-console.log(data.films);
 
-const dataPersonajes=data.films; 
 
 
 console.log(example, data);
