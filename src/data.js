@@ -19,12 +19,14 @@ export const filterByFilms = (data,films) => {
   
 }
 
-export const filterByProducer = (data,producer) => {
-  
+export const filterByProducer = (producer) => {
+  return data.films.filter((item) => {
+    return item.producer === producer;
+});
 }
 
-export const filterByDirector = (data,director) => {
-  
+export const filterByDirector = (director) => {
+ 
 }
 
 export const filterByUpward = (data,upward) => {

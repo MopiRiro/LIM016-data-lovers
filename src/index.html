@@ -74,7 +74,7 @@
       <section id="pagina-personajes" class="container-flex">
             <div>
               <p>Ordenar por</p>
-                <select id="cboPersonajes">
+                <select id="cboPersonajes" onchange="ShowSelected()">
                   <option selected="selected">Selecciona</option>
                   <option>Pelicula</option>
                   <option>Productor</option>
@@ -83,6 +83,7 @@
                   <option>Descendente</option>
                 </select>
             </div>
+            <div><h2 id="resultado-cbo"></h2></div>
             <div>
               <input type="text" id="buscador" placeholder="Busca tus personajes aquí" />
               <button type="button" id="search">Find!</button>

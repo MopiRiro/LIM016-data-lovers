@@ -4,7 +4,7 @@ import { dataPersonajes, example } from './data.js';
 import data from './data/ghibli/ghibli.js'
 
     /*Interacción con el DOM */
-    let cboPersonajes = document.getElementById("cboPersonajes");
+    // let cboPersonajes = document.getElementById("cboPersonajes");
 
     
     /*Aginando a variables la data extraida de Studio Ghibli */
@@ -24,6 +24,22 @@ import data from './data/ghibli/ghibli.js'
     let rt_scoreFilms = dataFilms.map(x => x.rt_score);
     let peopleFilms = dataFilms.map(x => x.people);
 
+    /*Pagina 3 */
+
+    let cbo=document.getElementById("cboPersonajes");
+    cbo.addEventListener('change', ()=>{
+        let cbo = document.getElementById("cboPersonajes");
+        let selected = cbo.options[cbo.selectedIndex].text;
+        document.getElementById("resultado-cbo").innerHTML=selected;
+               
+    })
+
+    // function ShowSelected(){
+    //     let cbo = document.getElementById("cboPersonajes");
+    //     let selected = cbo.options[cbo.selectedIndex].text;
+    //     document.getElementById("resultado-cbo").innerHTML=selected;
+               
+    // }
 
 
     // Slider
@@ -71,7 +87,7 @@ import data from './data/ghibli/ghibli.js'
 
     }
 
-/*Pagina 3 */
+
 
 
 
