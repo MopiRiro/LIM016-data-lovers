@@ -1,4 +1,4 @@
-import { dataPersonajes, example } from './data.js';
+import { example } from './data.js';
 
 
 import data from './data/ghibli/ghibli.js'
@@ -24,6 +24,13 @@ import data from './data/ghibli/ghibli.js'
     let rt_scoreFilms = dataFilms.map(x => x.rt_score);
     let peopleFilms = dataFilms.map(x => x.people);
 
+    /* Data personajes y sus detalles */
+    // let dataPeopleFilms=data.films.people; 
+    // let idPeople=dataPeopleFilms.map(x => x.id);
+    // console.log(idPeople);
+    
+
+
     /*Pagina 3 */
 
     let cbo=document.getElementById("cboPersonajes");
@@ -34,12 +41,7 @@ import data from './data/ghibli/ghibli.js'
                
     })
 
-    // function ShowSelected(){
-    //     let cbo = document.getElementById("cboPersonajes");
-    //     let selected = cbo.options[cbo.selectedIndex].text;
-    //     document.getElementById("resultado-cbo").innerHTML=selected;
-               
-    // }
+    
 
 
     // Slider
