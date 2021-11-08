@@ -130,7 +130,6 @@ header {
 	width:100%;
     font-family: 'Roboto Slab', serif;
     background: var(--BlueGreen);
-	   
 }
 
 a .fas{
@@ -148,7 +147,6 @@ header .menu_bar {
     float:left;
 	display:block;
 	padding: 2rem 4rem;
-    
 }
 
 header div a .fas{
@@ -161,7 +159,6 @@ header div a{
 	text-decoration: none;
     color: var(--White);
 	/* padding: 1rem 2rem; */
-
 }
 
 
