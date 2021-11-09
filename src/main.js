@@ -2,9 +2,10 @@ import { example } from './data.js';
 
 
 import data from './data/ghibli/ghibli.js'
+console.log(example, data);
 
     /*Interacción con el DOM */
-    // let cboPersonajes = document.getElementById("cboPersonajes");
+    
 
     
     /*Aginando a variables la data extraida de Studio Ghibli */
@@ -19,15 +20,13 @@ import data from './data/ghibli/ghibli.js'
     let producerFilms = dataFilms.map(x => x.producer);
     // console.log(producerFilms);
     let posterFilms = dataFilms.map(x => x.poster);
-    // console.log(posterFilms);
+    console.log(posterFilms);
     let release_dateFilms = dataFilms.map(x => x.release_date);
     let rt_scoreFilms = dataFilms.map(x => x.rt_score);
     let peopleFilms = dataFilms.map(x => x.people);
+    // console.log(peopleFilms);
 
-    /* Data personajes y sus detalles */
-    // let dataPeopleFilms=data.films.people; 
-    // let idPeople=dataPeopleFilms.map(x => x.id);
-    // console.log(idPeople);
+
     
 
 
@@ -40,12 +39,7 @@ import data from './data/ghibli/ghibli.js'
         document.getElementById("resultado-cbo").innerHTML=selected;
     })
 
-    // function ShowSelected(){
-    //     let cbo = document.getElementById("cboPersonajes");
-    //     let selected = cbo.options[cbo.selectedIndex].text;
-    //     document.getElementById("resultado-cbo").innerHTML=selected;
-    // }
-
+    
 
     // Slider
     const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
@@ -71,20 +65,10 @@ import data from './data/ghibli/ghibli.js'
             slidefun(counter);
         }
     );
-/*
-    function currentSlide(n) {
-        counter = n;
-        slidefun(counter);
-        resetTimer();
-    }
-    function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(autoslide, 8000);
-    }
-*/
+
+
     function slidefun(n) {
         let i;
-        console.log("LUZSIFER")
         for (i = 0; i < myslide.length; i++){
             myslide[i].style.display = "none";
         }
@@ -102,7 +86,28 @@ import data from './data/ghibli/ghibli.js'
     }
 
 
+    let img = document.createElement("img");                 
+    img.src=posterFilms[0];                     
+    document.getElementById("div1").appendChild(img);
 
-    start();
+    let img2 = document.createElement("img");                 
+    img2.src=posterFilms[1];                     
+    document.getElementById("div2").appendChild(img2);
 
-console.log(example, data);
+    let img3 = document.createElement("img");                 
+    img3.src=posterFilms[2];                     
+    document.getElementById("div3").appendChild(img3);
+
+    let img4 = document.createElement("img");                 
+    img4.src=posterFilms[3];                     
+    document.getElementById("div4").appendChild(img4);
+
+
+
+    
+    // for (let i = 0; i < posterFilms.length; i++) {
+    //     // let img = document.createElement("img");                 
+    //     img.src=posterFilms[i]; 
+    //     document.getElementById("div1").createElement("img");
+    //     img.classList.add("div1");
+    //    }
