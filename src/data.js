@@ -8,13 +8,6 @@ export const anotherExample = () => {
   return 'OMG';
 };
 
-
-
-//Funciones para pagina personajes
-    // export const dataPersonajes = (data) =>{
-      
-    // }
-
 export const filterByFilms = (data,films) => {
   
 }
@@ -35,4 +28,8 @@ export const filterByUpward = (data,upward) => {
 
 export const filterByFalling = (data,falling) => {
   
+}
+
+export const searchData = (data, condition, value) => {
+  return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
 }
