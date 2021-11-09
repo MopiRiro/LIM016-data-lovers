@@ -1,7 +1,8 @@
 import { example } from './data.js';
 
-
 import data from './data/ghibli/ghibli.js'
+
+console.log(example, data);
 
     /*Interacción con el DOM */
     // let cboPersonajes = document.getElementById("cboPersonajes");
@@ -29,6 +30,9 @@ import data from './data/ghibli/ghibli.js'
     // let idPeople=dataPeopleFilms.map(x => x.id);
     // console.log(idPeople);
     
+    // Films
+    let films = document.getElementById(sortMovies);
+    //films.addEventListener("click",)
 
 
     /*Pagina 3 */
@@ -47,62 +51,50 @@ import data from './data/ghibli/ghibli.js'
     // }
 
 
-    // Slider
-    const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
-
-    let counter = 1;
-    let timer = setInterval(autoslide, 8000);
-    function autoslide() {
+// Slider
+const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
+let counter = 1;
+let timer = setInterval(autoslide, 8000);
+function autoslide() {
+    counter += 1;
+    slidefun(counter);
+};
+//Botones del slider
+const next = document.getElementById("next");
+next.addEventListener("click",
+    function () {
         counter += 1;
         slidefun(counter);
     }
-    //Botones del slider
-    const next = document.getElementById("next");
-    next.addEventListener("click",
-        function () {
-            counter += 1;
-            slidefun(counter);
-        }
-    );
-    const prev = document.getElementById("prev");
-    prev.addEventListener("click",
-        function () {
-            counter -= 1;
-            slidefun(counter);
-        }
-    );
-/*
-    function currentSlide(n) {
-        counter = n;
+);
+const prev = document.getElementById("prev");
+prev.addEventListener("click",
+    function () {
+        counter -= 1;
         slidefun(counter);
-        resetTimer();
     }
-    function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(autoslide, 8000);
+);
+function slidefun(n) {
+    let i;
+    for (i = 0; i < myslide.length; i++){
+        myslide[i].style.display = "none";
     }
-*/
-    function slidefun(n) {
-        let i;
-        console.log("LUZSIFER")
-        for (i = 0; i < myslide.length; i++){
-            myslide[i].style.display = "none";
-        }
-        for (i = 0; i < dot.length; i++){
-            dot[i].classList.remove('active');
-        }
-        if(n > myslide.length){
-            counter = 1;
-        }
-        if(n < 1){
-            counter = myslide.length;
-        }
-        myslide[counter-1].style.display = "block";
-        dot[counter-1].classList.add('active');
+    for (i = 0; i < dot.length; i++){
+        dot[i].classList.remove('active');
     }
+    if(n > myslide.length){
+        counter = 1;
+    }
+    if(n < 1){
+        counter = myslide.length;
+    }
+    myslide[counter-1].style.display = "block";
+    dot[counter-1].classList.add('active');
+}
 
 
+    //start();
 
-    start();
-
-console.log(example, data);
+// Films
+const ghibli = data;
+console.log(data);

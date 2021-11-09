@@ -68,12 +68,21 @@
 
       <section id="pagina-peliculas" class="container-flex">
         <h2>Pagina Films</h2>
-
+        <div>
+          <div>
+            <label for="">Sort movies by:</label>
+            <select name="sortMovies" id="sortMovies">
+              <option value="releaseAscending">Release Date (Ascending)</option>
+              <option value="releaseDescending">Release Date (Descending)</option>
+            </select>
+          </div>
+          <div class="filmsContainer"></div>
+        </div>
       </section>
 
       <section id="pagina-personajes" class="container-flex">
             <div>
-              <p>Ordenar por</p>
+              <p>Sort by:</p>
                 <select id="cboPersonajes" onchange="ShowSelected()">
                   <option selected="selected">Selecciona</option>
                   <option>Pelicula</option>
@@ -100,7 +109,6 @@
 
 
         <footer>
-       
           <div class="contenedor-footer">
               <div class="box_footer">
                 <div class="logo">
