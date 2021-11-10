@@ -18,19 +18,17 @@ REM -> es realtivo al documento
 Al ver que los rem y los px guardaban una relación se creo un 'hack'
 reiniciamos el tamaño del html que rodea todo el documento*/
 html {
-    font-size: 62.5%;
-}
+    font-size: 62.5%;}
 
 body{
 	font-size: 16px; 
-	background-color: var(--White);
+	background-color: var(--White);		
 	/*Unidades de medida 
 	px -> habitualmente usado pero ya esta descontinuado
 	em ->porcentaje del elemento al que pertenece(tamaño del padre)
 	rem -> es relativo al documento (toma com referencia al tamaño del documento)
 	1 rem = 10 px -> esto permite que los sitios web se adapten mas a una gran cantidad de navegadores*/
 	}
-	
 footer {
     width: 100%;
     background-color: var(--BlueGreen);
@@ -66,9 +64,7 @@ footer {
     font-weight: 700;
 }
 .box_footer span{
-    
     color: var(--White);
-    
 }
 
 .box_footer a{
@@ -76,7 +72,6 @@ footer {
     color:var(--White);
     font-size: 1.5rem;
     font-weight: 600;
-
 }
 
 .box_footer a:hover{
@@ -87,7 +82,6 @@ footer {
     margin-right:1rem;
     font-size: 1.5rem;
 }
-
 
 /*Navegador*/
 header {
@@ -104,7 +98,7 @@ header nav {
 	width:90%;
 	max-width:100rem;
 	margin: auto;
-	padding: 2rem 2rem;
+	padding: 1rem 2rem;
 }
 
 header .menu_bar {
@@ -124,7 +118,6 @@ header div a{
     color: var(--White);
 	/* padding: 1rem 2rem; */
 }
-
 
 header div a span{
     font-size: 2.5rem;
@@ -147,10 +140,6 @@ header nav ul li a {
 	display:block;
 	text-decoration:none;
 }
-
-/* header nav ul li span {
-	margin-right:10px;
-} */
 
 header nav ul li a:hover {
 	background:var(--LightBlue);
@@ -198,9 +187,7 @@ header nav ul li a:hover {
 	a span {
 		font-family: 'Reenie Beanie', cursive;
 		font-size:1.5rem;
-	}
-
-    
+	}    
 }
 
 /* Slider */

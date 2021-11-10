@@ -4,9 +4,11 @@ export const example = () => {
   return 'example';
 };
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+
+//Funciones para pagina personajes
+    // export const dataPersonajes = (data) =>{
+      
+    // }
 
 export const filterByFilms = (data,films) => {
   

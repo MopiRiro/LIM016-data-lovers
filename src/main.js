@@ -1,13 +1,11 @@
 import { example } from './data.js';
 
-
 import data from './data/ghibli/ghibli.js'
 console.log(example, data);
 
-    /*Interacción con el DOM */
-    
+console.log(example, data);
 
-    
+    /*Interacción con el DOM */
     /*Aginando a variables la data extraida de Studio Ghibli */
     let dataFilms = data.films;
     // console.log(data.films);
@@ -28,6 +26,9 @@ console.log(example, data);
 
 
     
+    // Films
+    let films = document.getElementById(sortMovies);
+    //films.addEventListener("click",)
 
 
     /*Pagina 3 */
@@ -41,16 +42,15 @@ console.log(example, data);
 
     
 
-    // Slider
-    const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
-
-    let counter = 1;
-    let timer = setInterval(autoslide, 8000);
-    function autoslide() {
-        counter += 1;
-        slidefun(counter);
-    }
-    //Botones del slider
+// Slider
+const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
+let counter = 1;
+let timer = setInterval(autoslide, 8000);
+function autoslide() {
+    counter += 1;
+    slidefun(counter);
+};
+//Botones del slider
     const next = document.getElementById("next");
     next.addEventListener("click",
         function () {
@@ -82,6 +82,7 @@ console.log(example, data);
         myslide[counter-1].style.display = "block";
         dot[counter-1].classList.add('active');
     }
+
 // Mostrar posters 
 for (let i = 0; i < posterFilms.length; i++) {
     let img = document.createElement("img");
