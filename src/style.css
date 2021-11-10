@@ -9,7 +9,6 @@
     --AcidGreen: #A5BE00;
     --LincolnGreen: #14591D;
 }
-
 * {
 	margin:0;
 	padding:0;
@@ -19,13 +18,12 @@ REM -> es realtivo al documento
 Al ver que los rem y los px guardaban una relación se creo un 'hack'
 reiniciamos el tamaño del html que rodea todo el documento*/
 html {
-    font-size: 62.5%;}
-
+    font-size: 62.5%;
+}
 
 body{
 	font-size: 16px; 
 	background-color: var(--White);
-		
 	/*Unidades de medida 
 	px -> habitualmente usado pero ya esta descontinuado
 	em ->porcentaje del elemento al que pertenece(tamaño del padre)
@@ -205,9 +203,6 @@ header nav ul li a:hover {
     
 }
 
-
-
-
 /* Slider */
 .slider {
 	position: relative;
@@ -269,33 +264,7 @@ header nav ul li a:hover {
 	from {opacity: 0.8}
 	to {opacity: 1}
 }
-.txt {
-	position: absolute;
-	color: #fff;
-	letter-spacing: 2px;
-	line-height: 35px;
-	top: 40%;
-	left: 15%;
-	-webkit-animation-name: posi;
-	-webkit-animation-duration: 2s;
-	animation-name: posi;
-	animation-duration: 2s;
-	z-index: 1;
-}
-@-webkit-keyframes posi {
-	from {left: 25%}
-	to {left: 15%}
-}
-@keyframes posi {
-	from {left: 25%}
-	to {left: 15%}
-}
-.txt h1 {
-	color: #3498db;
-	font-weight: bold;
-	margin: 20px;
-}
-img {
+.myslider img {
 	transform: scale(1.2, 1.2);
 	-webkit-animation-name: zoomin;
 	-webkit-animation-duration: 10s;
@@ -311,29 +280,8 @@ img {
 	to {transform: scale(1.2, 1.2);}
 }
 
-myslider {
+.myslider {
 	height: 500px;
-}
-.txt {
-	line-height: 25px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	animation-name: posi2;
-	animation-duration: 2s;
-	-webkit-animation-name: posi2;
-	-webkit-animation-duration: 2s;
-}
-@-webkit-keyframes posi2 {
-	from {top: 35%;}
-	to {top: 50%}
-}
-@keyframes posi2 {
-	from {top: 35%;}
-	to {top: 50%}
-}
-.txt h1 {
-	font-size: 40px;
 }
 
 /*Celulares 2*/
@@ -357,15 +305,14 @@ myslider {
     padding: 10px;
 }
 
-.container-flex {
-	display: flex;
-	flex-wrap: wrap;
-  }
+#pagina-peliculas {
+	position: relative;
+}
 
-  .container-flex div {
-	flex: 1 0 21%; /* explanation below */
+.container-flex div {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
 	margin: 5px;
 	height: 100px;
-  }
-  
-  
+}
