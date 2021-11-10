@@ -9,6 +9,9 @@
     --AcidGreen: #A5BE00;
     --LincolnGreen: #14591D;
 }
+
+
+
 * {
 	margin:0;
 	padding:0;
@@ -292,14 +295,30 @@ header nav ul li a:hover {
     padding: 10px;
 }
 
-#pagina-peliculas {
-	position: relative;
-}
+	#pagina-peliculas {
+		background-color: var(--LightBlue);
+	}
 
-.container-flex div {
+	/* Contenedor de poster-peliculas */
+	#div1 {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	margin: 5px;
-	height: 100px;
-}
+
+	margin: 0.5rem;
+	overflow:auto;
+	height: 100%;
+	
+	}
+
+	#div1 > img{
+		width: 20%;
+		padding: 3rem;
+		
+		
+	}
+
+	
+	  
+
+	

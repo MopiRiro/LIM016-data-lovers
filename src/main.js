@@ -24,12 +24,11 @@ console.log(example, data);
     let peopleFilms = dataFilms.map(x => x.people);
     // console.log(peopleFilms);
 
+    let img_people=peopleFilms[0].map(x=> x.img);
+
 
     
-    // Films
-    let films = document.getElementById(sortMovies);
-    //films.addEventListener("click",)
-
+    
 
     /*Pagina 3 */
 
@@ -92,21 +91,18 @@ for (let i = 0; i < posterFilms.length; i++) {
     img.id = "ghibliFilms";
     document.getElementById("div1").appendChild(img);
     //document.getElementById("ghibliFilms").innerHTML(imgName);
-    console.log("poster: ", img, "name: ",imgName)
+    // console.log("poster: ", img, "name: ",imgName)
 }
-/*
-var node = document.createElement("LI");       //Create a <li> node
-var textnode = document.createTextNode("Water");  //Create a text node
-node.appendChild(textnode);                  //Append the text to <li>
-document.getElementById("myList").appendChild(node); //Append <li> to <ul> with id="myList"
-*/
-/*const adversario = "Lobezno";
-const LOKI_DISFRACES = {
-    "Iron-Man" : "Magneto",
-    "Thor" : "Odín",
-    "Hulk" : "Thanos",
-    "Lobezno" : "Magneto"
+
+
+//Poblar select con data de peliculas
+function cargarPeliculas(){
+    for(var i in titleFilms){
+        document.getElementById("cboPersonajes").innerHTML+="<option value='"+titleFilms[i]+"'>"+titleFilms[i]+"</option>"; 
+    }
 }
-const LOKI_DEFAULT_DISFRAZ = "Loki";
-const loki = LOKI_DISFRACES[adversario] || LOKI_DEFAULT_DISFRAZ;
-console.log(loki);*/
+
+cargarPeliculas();
+
+
+
