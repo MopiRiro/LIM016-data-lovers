@@ -19,7 +19,6 @@ export const filterByProducer = (producer) => {
 }
 
 export const filterByDirector = (director) => {
- 
 }
 
 export const filterByUpward = (data,upward) => {

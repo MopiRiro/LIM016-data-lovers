@@ -20,7 +20,7 @@ console.log(example, data);
     let producerFilms = dataFilms.map(x => x.producer);
     // console.log(producerFilms);
     let posterFilms = dataFilms.map(x => x.poster);
-    console.log(posterFilms);
+    //console.log(posterFilms);
     let release_dateFilms = dataFilms.map(x => x.release_date);
     let rt_scoreFilms = dataFilms.map(x => x.rt_score);
     let peopleFilms = dataFilms.map(x => x.people);
@@ -65,8 +65,6 @@ console.log(example, data);
             slidefun(counter);
         }
     );
-
-
     function slidefun(n) {
         let i;
         for (i = 0; i < myslide.length; i++){
@@ -84,30 +82,30 @@ console.log(example, data);
         myslide[counter-1].style.display = "block";
         dot[counter-1].classList.add('active');
     }
-
-
-    let img = document.createElement("img");                 
-    img.src=posterFilms[0];                     
+// Mostrar posters 
+for (let i = 0; i < posterFilms.length; i++) {
+    let img = document.createElement("img");
+    let imgName = titleFilms[i];
+    let imgTxt = document.createElement("p");
+    img.src = posterFilms[i];
+    img.id = "ghibliFilms";
     document.getElementById("div1").appendChild(img);
-
-    let img2 = document.createElement("img");                 
-    img2.src=posterFilms[1];                     
-    document.getElementById("div2").appendChild(img2);
-
-    let img3 = document.createElement("img");                 
-    img3.src=posterFilms[2];                     
-    document.getElementById("div3").appendChild(img3);
-
-    let img4 = document.createElement("img");                 
-    img4.src=posterFilms[3];                     
-    document.getElementById("div4").appendChild(img4);
-
-
-
-    
-    // for (let i = 0; i < posterFilms.length; i++) {
-    //     // let img = document.createElement("img");                 
-    //     img.src=posterFilms[i]; 
-    //     document.getElementById("div1").createElement("img");
-    //     img.classList.add("div1");
-    //    }
+    //document.getElementById("ghibliFilms").innerHTML(imgName);
+    console.log("poster: ", img, "name: ",imgName)
+}
+/*
+var node = document.createElement("LI");       //Create a <li> node
+var textnode = document.createTextNode("Water");  //Create a text node
+node.appendChild(textnode);                  //Append the text to <li>
+document.getElementById("myList").appendChild(node); //Append <li> to <ul> with id="myList"
+*/
+/*const adversario = "Lobezno";
+const LOKI_DISFRACES = {
+    "Iron-Man" : "Magneto",
+    "Thor" : "Odín",
+    "Hulk" : "Thanos",
+    "Lobezno" : "Magneto"
+}
+const LOKI_DEFAULT_DISFRAZ = "Loki";
+const loki = LOKI_DISFRACES[adversario] || LOKI_DEFAULT_DISFRAZ;
+console.log(loki);*/
