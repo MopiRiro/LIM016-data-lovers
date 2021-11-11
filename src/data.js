@@ -31,6 +31,3 @@ export const filterByFalling = (data,falling) => {
   
 }
 
-export const searchData = (data, condition, value) => {
-  return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
-}

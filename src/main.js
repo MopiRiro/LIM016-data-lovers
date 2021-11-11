@@ -27,7 +27,14 @@ console.log(example, data);
     
 
     /*Pagina 3 */
-    let img_people=peopleFilms[0].map(x=> x.img);
+     let img_people=peopleFilms[0].map(x=> x.img);
+
+    //No funciona :()
+    for (var i = 0; i<peopleFilms.length; i++) {
+        var img_people1=peopleFilms[i].map(x=>x.img);
+     }
+
+     console.log(img_people1);
     // let img_people_1=peopleFilms[1].map(x=> x.img);
 
     let cbo=document.getElementById("cboPersonajes");
@@ -41,13 +48,6 @@ console.log(example, data);
                 img.src = img_people[i];
                 document.getElementById("resultado-cbo-personajes").appendChild(img);
             }
-            
-        // }else if(selected=="My Neighbor Totoro"){
-        //     for (let i = 0; i < img_people_1.length; i++) {
-        //         let img1 = document.createElement("img");
-        //         img1.src = img_people_1[i];
-        //         document.getElementById("resultado-cbo-personajes").appendChild(img1);
-        //     }
         }else{
             console.log("ayudaaa");
         }
@@ -143,5 +143,8 @@ function cargarPeliculas(){
 cargarPeliculas();
 
 
+//Buscador de personajes en tiempo real
+const formulario= document.querySelector('#buscador');
+const btnBuscador=document.querySelector('btnBuscador');
 
 
