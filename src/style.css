@@ -283,14 +283,14 @@ header nav ul li a:hover {
 
 
 /*CUERPO DE PAGINA*/
-#pagina-personajes {
+#contenedor-cabecera {
 	display: -ms-flex;
     display: -webkit-flex;
     display: flex;
 	background-color:var(--LightBlue);
 }
 
-#pagina-personajes > div {
+#contenedor-cabecera > div {
 	width: 50%;
     padding: 10px;
 }
@@ -317,6 +317,32 @@ header nav ul li a:hover {
 		
 		
 	}
+
+	#resultado-cbo-personajes {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+	
+		margin: 0.5rem;
+		overflow:auto;
+		height: 100%;
+		
+		}
+	
+	#resultado-cbo-personajes > img{
+			width: 10%;
+			padding: 2rem;
+	}
+
+	#resultado-cbo-titulo{
+		font-family: 'Roboto Slab', serif;
+		font-size: 3rem;
+		text-align: center;
+		color: var(--AcidGreen);
+		
+	}
+
+
 
 	
 	  

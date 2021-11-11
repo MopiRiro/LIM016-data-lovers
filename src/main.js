@@ -24,19 +24,33 @@ console.log(example, data);
     let peopleFilms = dataFilms.map(x => x.people);
     // console.log(peopleFilms);
 
-    let img_people=peopleFilms[0].map(x=> x.img);
-
-
-    
     
 
     /*Pagina 3 */
+    let img_people=peopleFilms[0].map(x=> x.img);
+    // let img_people_1=peopleFilms[1].map(x=> x.img);
 
     let cbo=document.getElementById("cboPersonajes");
     cbo.addEventListener('change', ()=>{
         let cbo = document.getElementById("cboPersonajes");
         let selected = cbo.options[cbo.selectedIndex].text;
-        document.getElementById("resultado-cbo").innerHTML=selected;
+        document.getElementById("resultado-cbo-titulo").innerHTML=selected;
+        if(selected=="Castle in the Sky"){
+            for (let i = 0; i < img_people.length; i++) {
+                let img = document.createElement("img");
+                img.src = img_people[i];
+                document.getElementById("resultado-cbo-personajes").appendChild(img);
+            }
+            
+        // }else if(selected=="My Neighbor Totoro"){
+        //     for (let i = 0; i < img_people_1.length; i++) {
+        //         let img1 = document.createElement("img");
+        //         img1.src = img_people_1[i];
+        //         document.getElementById("resultado-cbo-personajes").appendChild(img1);
+        //     }
+        }else{
+            console.log("ayudaaa");
+        }
     })
 
     
@@ -95,7 +109,7 @@ for (let i = 0; i < posterFilms.length; i++) {
 }
 
 
-//Poblar select con data de peliculas
+//Poblar select con data de titulos de peliculas
 function cargarPeliculas(){
     for(var i in titleFilms){
         document.getElementById("cboPersonajes").innerHTML+="<option value='"+titleFilms[i]+"'>"+titleFilms[i]+"</option>"; 
@@ -103,6 +117,7 @@ function cargarPeliculas(){
 }
 
 cargarPeliculas();
+
 
 
 
