@@ -299,6 +299,11 @@ header nav ul li a:hover {
 		background-color: var(--LightBlue);
 	}
 
+#sortFilms {
+	display: flex;
+	justify-content: space-evenly;
+}
+
 	/* Contenedor de poster-peliculas */
 	#div1 {
 	display: flex;
