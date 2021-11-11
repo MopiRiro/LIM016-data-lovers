@@ -108,6 +108,30 @@ for (let i = 0; i < posterFilms.length; i++) {
     // console.log("poster: ", img, "name: ",imgName)
 }
 
+//Productores
+let resultProducer = producerFilms.filter((item,index)=>{
+    return producerFilms.indexOf(item) === index;
+})
+console.log(resultProducer);
+function cargarProductores(){
+    for(var i in resultProducer){
+        document.getElementById("cboProducer").innerHTML+="<option value='"+resultProducer[i]+"'>"+resultProducer[i]+"</option>";
+        console.log(resultProducer[i]);
+    }
+}
+cargarProductores();
+
+//Directores
+let resultDirector = directorFilms.filter((item,index)=>{
+    return directorFilms.indexOf(item) === index;
+})
+console.log(resultDirector);
+function cargarDirectores(){
+    for(var i in resultDirector){
+        document.getElementById("cboDirector").innerHTML+="<option value='"+resultDirector[i]+"'>"+resultDirector[i]+"</option>"; 
+    }
+}
+cargarDirectores();
 
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas(){
