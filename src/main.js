@@ -3,7 +3,6 @@ import { example } from './data.js';
 import data from './data/ghibli/ghibli.js'
 console.log(example, data);
 
-console.log(example, data);
 
     /*Interacción con el DOM */
     /*Aginando a variables la data extraida de Studio Ghibli */
@@ -27,6 +26,7 @@ console.log(example, data);
     
 
     /*Pagina 3 */
+<<<<<<< HEAD
      let img_people=peopleFilms[0].map(x=> x.img);
 
     //No funciona :()
@@ -35,8 +35,11 @@ console.log(example, data);
      }
 
      console.log(img_people1);
-    // let img_people_1=peopleFilms[1].map(x=> x.img);
+=======
 
+    let img_people=peopleFilms[0].map(x=> x.img);
+>>>>>>> 360fd6b688d1ad9c8b69b05bf214cc87b6e1117b
+    // let img_people_1=peopleFilms[1].map(x=> x.img);
     let cbo=document.getElementById("cboPersonajes");
     cbo.addEventListener('change', ()=>{
         let cbo = document.getElementById("cboPersonajes");
@@ -104,28 +107,76 @@ for (let i = 0; i < posterFilms.length; i++) {
     img.src = posterFilms[i];
     img.id = "ghibliFilms";
     document.getElementById("div1").appendChild(img);
-    //document.getElementById("ghibliFilms").innerHTML(imgName);
-    // console.log("poster: ", img, "name: ",imgName)
 }
 
 //Productores
 let resultProducer = producerFilms.filter((item,index)=>{
     return producerFilms.indexOf(item) === index;
 })
-console.log(resultProducer);
+/* console.log(resultProducer); */
 function cargarProductores(){
     for(var i in resultProducer){
-        document.getElementById("cboProducer").innerHTML+="<option value='"+resultProducer[i]+"'>"+resultProducer[i]+"</option>";
-        console.log(resultProducer[i]);
+        document.getElementById("cboProducer").innerHTML+="<option id='"+resultProducer[i]+"' value='"+resultProducer[i]+"'>"+resultProducer[i]+"</option>";
+        /* console.log(resultProducer[i]); */
     }
 }
 cargarProductores();
+
+const productor = resultProducer[0];
+console.log(productor);
+let producerFilmsToShow = [];
+const showFilms = {
+    "Isao Takahata"  : () => {
+        for (let i = 0; i < dataFilms.length; i++) {
+            producerFilmsToShow.push();
+            console.log(producerFilmsToShow);
+            /*let img = document.createElement("img");
+            img.src = posterFilms[i];
+            document.getElementById("div1").appendChild(img); */
+        }
+    },
+    "Hayao Miyazaki" : "Hola1",
+    "Toru Hara" : "Hola2",
+    "Toshio Suzuki" : "Hola3",
+    "Yoshiaki Nishimura" : "Hola4"
+}
+const show = showFilms[productor];
+console.log(show);
+
+
+
+//let img_people=peopleFilms[0].map(x=> x.img);
+// let img_people_1=peopleFilms[1].map(x=> x.img);
+/*let cbo=document.getElementById("cboPersonajes");
+    cbo.addEventListener('change', ()=>{
+        let cbo = document.getElementById("cboPersonajes");
+        let selected = cbo.options[cbo.selectedIndex].text;
+        document.getElementById("resultado-cbo-titulo").innerHTML=selected;
+        if(selected=="Castle in the Sky"){
+            for (let i = 0; i < img_people.length; i++) {
+                let img = document.createElement("img");
+                img.src = img_people[i];
+                document.getElementById("resultado-cbo-personajes").appendChild(img);
+            }*/
+            
+        // }else if(selected=="My Neighbor Totoro"){
+        //     for (let i = 0; i < img_people_1.length; i++) {
+        //         let img1 = document.createElement("img");
+        //         img1.src = img_people_1[i];
+        //         document.getElementById("resultado-cbo-personajes").appendChild(img1);
+        //     }
+        /*}else{
+            console.log("ayudaaa");
+        }
+    })*/
+
+
 
 //Directores
 let resultDirector = directorFilms.filter((item,index)=>{
     return directorFilms.indexOf(item) === index;
 })
-console.log(resultDirector);
+//console.log(resultDirector);
 function cargarDirectores(){
     for(var i in resultDirector){
         document.getElementById("cboDirector").innerHTML+="<option value='"+resultDirector[i]+"'>"+resultDirector[i]+"</option>"; 
@@ -139,7 +190,6 @@ function cargarPeliculas(){
         document.getElementById("cboPersonajes").innerHTML+="<option value='"+titleFilms[i]+"'>"+titleFilms[i]+"</option>"; 
     }
 }
-
 cargarPeliculas();
 
 
