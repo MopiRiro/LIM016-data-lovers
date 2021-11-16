@@ -16,7 +16,7 @@
 	margin:0;
 	padding:0;
 }
-/* Para nuestro proyecto usaremos REM: 
+/* Para nuestro proyecto usaremos REM:
 REM -> es realtivo al documento
 Al ver que los rem y los px guardaban una relación se creo un 'hack'
 reiniciamos el tamaño del html que rodea todo el documento*/
@@ -24,9 +24,9 @@ html {
     font-size: 62.5%;}
 
 body{
-	font-size: 16px; 
-	background-color: var(--White);		
-	/*Unidades de medida 
+	font-size: 16px;
+	background-color: var(--White);
+	/*Unidades de medida
 	px -> habitualmente usado pero ya esta descontinuado
 	em ->porcentaje del elemento al que pertenece(tamaño del padre)
 	rem -> es relativo al documento (toma com referencia al tamaño del documento)
@@ -190,7 +190,7 @@ header nav ul li a:hover {
 	a span {
 		font-family: 'Reenie Beanie', cursive;
 		font-size:1.5rem;
-	}    
+	}
 }
 
 /* Slider */
@@ -300,40 +300,48 @@ header nav ul li a:hover {
 	}
 
 #sortFilms {
-	display: flex;
-	justify-content: space-evenly;
+	display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+	background-color:var(--LightBlue);
+}
+
+#sortFilms > div{
+		width: 50%;
+    padding: 0.5rem;
 }
 
 	/* Contenedor de poster-peliculas */
-	#div1 {
+	#div1, #año {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-
 	margin: 0.5rem;
-	overflow:auto;
 	height: 100%;
-	
 	}
 
-	#div1 > img{
+	#div1 > img {
 		width: 20%;
 		padding: 3rem;
-		
-		
 	}
+
+  #div1 > p {
+	  display: flex;
+    /* position: absolute; */
+    width: 10%;
+    background-color: var(--HoneyYellow);
+    text-align: center;
+  }
 
 	#resultado-cbo-personajes {
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
-	
 		margin: 0.5rem;
 		overflow:auto;
 		height: 100%;
-		
 		}
-	
+
 	#resultado-cbo-personajes > img{
 			width: 10%;
 			padding: 2rem;
@@ -344,12 +352,5 @@ header nav ul li a:hover {
 		font-size: 3rem;
 		text-align: center;
 		color: var(--AcidGreen);
-		
 	}
 
-
-
-	
-	  
-
-	
