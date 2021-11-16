@@ -25,36 +25,26 @@ console.log(example, data);
 
     
 
+
     /*Pagina 3 */
-<<<<<<< HEAD
-     let img_people=peopleFilms[0].map(x=> x.img);
 
-    //No funciona :()
-    for (var i = 0; i<peopleFilms.length; i++) {
-        var img_people1=peopleFilms[i].map(x=>x.img);
-     }
-
-     console.log(img_people1);
-=======
-
-    let img_people=peopleFilms[0].map(x=> x.img);
->>>>>>> 360fd6b688d1ad9c8b69b05bf214cc87b6e1117b
-    // let img_people_1=peopleFilms[1].map(x=> x.img);
-    let cbo=document.getElementById("cboPersonajes");
-    cbo.addEventListener('change', ()=>{
-        let cbo = document.getElementById("cboPersonajes");
-        let selected = cbo.options[cbo.selectedIndex].text;
-        document.getElementById("resultado-cbo-titulo").innerHTML=selected;
-        if(selected=="Castle in the Sky"){
-            for (let i = 0; i < img_people.length; i++) {
-                let img = document.createElement("img");
-                img.src = img_people[i];
-                document.getElementById("resultado-cbo-personajes").appendChild(img);
+        let img_people=peopleFilms[0].map(x=> x.img);
+        // let img_people_1=peopleFilms[1].map(x=> x.img);
+        let cbo=document.getElementById("cboPersonajes");
+        cbo.addEventListener('change', ()=>{
+            let cbo = document.getElementById("cboPersonajes");
+            let selected = cbo.options[cbo.selectedIndex].text;
+            document.getElementById("resultado-cbo-titulo").innerHTML=selected;
+            if(selected=="Castle in the Sky"){
+                for (let i = 0; i < img_people.length; i++) {
+                    let img = document.createElement("img");
+                    img.src = img_people[i];
+                    document.getElementById("resultado-cbo-personajes").appendChild(img);
+                }
+            }else{
+                console.log("ayudaaa");
             }
-        }else{
-            console.log("ayudaaa");
-        }
-    })
+        })
 
     
 
@@ -143,35 +133,6 @@ const showFilms = {
 const show = showFilms[productor];
 console.log(show);
 
-
-
-//let img_people=peopleFilms[0].map(x=> x.img);
-// let img_people_1=peopleFilms[1].map(x=> x.img);
-/*let cbo=document.getElementById("cboPersonajes");
-    cbo.addEventListener('change', ()=>{
-        let cbo = document.getElementById("cboPersonajes");
-        let selected = cbo.options[cbo.selectedIndex].text;
-        document.getElementById("resultado-cbo-titulo").innerHTML=selected;
-        if(selected=="Castle in the Sky"){
-            for (let i = 0; i < img_people.length; i++) {
-                let img = document.createElement("img");
-                img.src = img_people[i];
-                document.getElementById("resultado-cbo-personajes").appendChild(img);
-            }*/
-            
-        // }else if(selected=="My Neighbor Totoro"){
-        //     for (let i = 0; i < img_people_1.length; i++) {
-        //         let img1 = document.createElement("img");
-        //         img1.src = img_people_1[i];
-        //         document.getElementById("resultado-cbo-personajes").appendChild(img1);
-        //     }
-        /*}else{
-            console.log("ayudaaa");
-        }
-    })*/
-
-
-
 //Directores
 let resultDirector = directorFilms.filter((item,index)=>{
     return directorFilms.indexOf(item) === index;
@@ -192,9 +153,23 @@ function cargarPeliculas(){
 }
 cargarPeliculas();
 
+//Todas las peliculas con las imagenes de los personaes
+//     let dataImg = [];
+//     for(let i=0; i<data.films.length; i++){
+//     dataImg[i] = data.films[i].people.map(item=>item.img);
+//     }
+//     console.log(dataImg);
 
-//Buscador de personajes en tiempo real
-const formulario= document.querySelector('#buscador');
-const btnBuscador=document.querySelector('btnBuscador');
+// //Buscador de personajes en tiempo real
+// const formulario= document.querySelector('#buscador');
+// const btnBuscador=document.querySelector('#btnBuscador');
 
+// const filtrarPersonajes =()=>{
+//     // console.log(formulario.value);
+//     const texto = formulario.value.toLowerCase();
+//     for (let personajesAll of dataImg ){
+//         let 
+//     }
 
+// }
+// btnBuscador.addEventListener('click', filtrarPersonajes)
