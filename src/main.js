@@ -152,7 +152,6 @@ sortBy.addEventListener("change", () => {
   document.getElementById("div1").innerHTML = '';
   let datafiltrada = filterBy(data, selectedFilms);
   //console.log("data: ", datafiltrada);
-  console.log("selected: ", selected)
   for (let i = 0; i < datafiltrada.length; i++) {
     // Mostrar posters de la data filtrada
     let datafilPoster = datafiltrada[i].poster;

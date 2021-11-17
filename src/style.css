@@ -32,7 +32,7 @@ body{
 	rem -> es relativo al documento (toma com referencia al tamaño del documento)
 	1 rem = 10 px -> esto permite que los sitios web se adapten mas a una gran cantidad de navegadores*/
 	}
-	
+
 footer {
     width: 100%;
     background-color: var(--BlueGreen);
@@ -239,7 +239,7 @@ header nav ul li a:hover {
 	cursor: pointer;
 }
 .active, .dot:hover {
-	border-color: #3498db;
+	border-color: var(--AcidGreen);
 }
 .fade {
 	-webkit-animation-name: fade;
@@ -296,9 +296,9 @@ header nav ul li a:hover {
     padding: 10px;
 }
 
-	#pagina-peliculas {
-		background-color: var(--White);
-	}
+#pagina-peliculas {
+	background-color: var(--White);
+}
 
 #sortFilms {
   display: -ms-flex;
@@ -382,13 +382,15 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 }
 
 	/* Contenedor de poster-peliculas */
-	#div1, #año {
+.containerPoster, #div1, #año {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 	margin: 0.5rem;
 	height: 100%;
-	}
+  align-items: center;
+  justify-content: center;
+}
 
 	/* #div1 > img {
 		width: 20%;
@@ -400,7 +402,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-evenly;
-		width: 20%;
+		width: 15%;
 		padding: 3rem;
 		border-radius: 2rem;
 	  }
@@ -442,10 +444,15 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 			padding: 2rem;
 	}
 
-	#resultado-cbo-titulo{
-		font-family: 'Roboto Slab', serif;
-		font-size: 3rem;
-		text-align: center;
-		color: var(--AcidGreen);
-	}
+#resultado-cbo-personajes > img{
+	width: 10%;
+	padding: 2rem;
+}
+
+#resultado-cbo-titulo{
+	font-family: 'Roboto Slab', serif;
+	font-size: 3rem;
+	text-align: center;
+	color: var(--AcidGreen);
+}
 
