@@ -82,16 +82,9 @@ export const filterBy = (data, items) => {
   }
 };
 
-export const filterPeopleByFilms = (data, item) => {
-  // let dataImg = [];
-  // for(let i=0; i<data.films.length; i++){
-  // dataImg[i] = data.films[i].people.map(item=>item.img);
-  // }
-  // console.log(dataImg);
 
+
+export const filterPeopleByFilms = (data,condition,itemFilms) => {
+  return data.filter(itemFilms => itemFilms[condition]);
 }
-
-// export const filterSearchPeople = (data, value) => {
-  
-// }
 
