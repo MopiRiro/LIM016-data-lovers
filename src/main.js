@@ -1,4 +1,5 @@
-import { filterByProdAndDirec, filterBy } from './data.js';
+import { filterByProdAndDirec, filterBy, filterPeopleByFilms } from './data.js';
+import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
 
 
@@ -23,7 +24,6 @@ let peopleFilms = dataFilms.map(x => x.people);
 
 /*Pagina 3 */
 let img_people = peopleFilms[0].map(x => x.img);
-
 // let img_people_1=peopleFilms[1].map(x=> x.img);
 let cbo = document.getElementById("cboPersonajes");
 cbo.addEventListener('change', () => {
@@ -32,14 +32,32 @@ cbo.addEventListener('change', () => {
   document.getElementById("resultado-cbo-titulo").innerHTML = selected;
   if (selected == "Castle in the Sky") {
     for (let i = 0; i < img_people.length; i++) {
+        console.log(img_people);
       let img = document.createElement("img");
       img.src = img_people[i];
       document.getElementById("resultado-cbo-personajes").appendChild(img);
     }
-  } else {
-    console.log("ayudaaa");
-  }
+  } 
 })
+
+// Todas las peliculas con las imagenes de los personaes
+// let dataImg = [];
+// for(let i=0; i<data.films.length; i++){
+// dataImg[i] = data.films[i].people.map(item=>item.img);
+// }
+// console.log("Data de personajes por pelicula: ",dataImg);
+
+// data.films.forEach((film)=>{
+//   dataImg.push(film.people.map(item=>item.img));
+// })
+
+// /* Intentando el bucle foreach*/
+
+// dataImg.forEach(filterPeopleByFilms(data,condition,itemFilms)=>{
+
+
+    
+//   });
 
 
 // Slider
@@ -84,18 +102,23 @@ function slidefun(n) {
 }
 
 // Mostrar all the posters
-for (let i = 0; i < posterFilms.length; i++) {
+function cargarPosterPeliculas(){
+  for (let i = 0; i < posterFilms.length; i++) {
   let img = document.createElement("img");
   let imgName = titleFilms[i];
   img.src = posterFilms[i];
   img.id = "ghibliFilms";
   document.getElementById("div1").appendChild(img);
-}
+  }
+};
+
+cargarPosterPeliculas();
 
 //Poblar productore
 let resultProducer = producerFilms.filter((item, index) => {
   return producerFilms.indexOf(item) === index;
 })
+
 function cargarProductores() {
   for (var i in resultProducer) {
     document.getElementById("cboProducer").innerHTML += "<option id='" + resultProducer[i] + "' value='" + resultProducer[i] + "'>" + resultProducer[i] + "</option>";
@@ -105,7 +128,7 @@ cargarProductores();
 
 
 const productor = resultProducer[0];
-console.log(productor);
+// console.log(productor);
 let producerFilmsToShow = [];
 const showFilms = {
     "Isao Takahata"  : () => {
@@ -120,7 +143,7 @@ const showFilms = {
 
 }
 const show = showFilms[productor];
-console.log(show);
+// console.log(show);
 
 // mostrar el nombre seleccionado
 let select = document.querySelector("#cboProducer");
@@ -141,12 +164,14 @@ function cargarDirectores() {
 }
 cargarDirectores();
 
+
+
 //Ordering posters
 let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
-  let selected = sortBy.options[sortBy.selectedIndex].text;
-  document.getElementById("div1").innerHTML = selected;
-  let datafiltrada = filterBy(data, selected);
+  let selectedFilms = sortBy.options[sortBy.selectedIndex].text;
+  document.getElementById("div1").innerHTML = '';
+  let datafiltrada = filterBy(data, selectedFilms);
   //console.log("data: ", datafiltrada);
   for (let i = 0; i < datafiltrada.length; i++) {
     // Mostrar posters de la data filtrada
@@ -163,6 +188,7 @@ sortBy.addEventListener("change", () => {
     /* rate.textContent = datafilRate; */
     document.getElementById("div1").appendChild(text);
     /* document.getElementById("año").appendChild(rate); */
+
   }
 });
 
@@ -175,12 +201,6 @@ function cargarPeliculas() {
 cargarPeliculas();
 
 
-//Todas las peliculas con las imagenes de los personaes
-//     let dataImg = [];
-//     for(let i=0; i<data.films.length; i++){
-//     dataImg[i] = data.films[i].people.map(item=>item.img);
-//     }
-//     console.log(dataImg);
 
 // //Buscador de personajes en tiempo real
 // const formulario= document.querySelector('#buscador');
@@ -197,3 +217,6 @@ cargarPeliculas();
 // btnBuscador.addEventListener('click', filtrarPersonajes)
 
 
+//Estadisticas
+// let miCanvas=document.getElementById("Estadisticas");
+// let etiquetas = producerFilms; 

@@ -21,6 +21,7 @@
 
     <nav>
       <ul>
+        <li><a href="#"><i class="fas fa-chart-pie"></i>Estadísticas</a></li>
         <li><a href="#"><i class="fas fa-info-circle"></i>About</a></li>
         <li><a href="#"><i class="fas fa-users"></i>Characteres</a></li>
         <li><a href="#"><i class="fas fa-film"></i>Films</a></li>
@@ -64,39 +65,39 @@
     </section>
 
     <section id="pagina-peliculas">
-      <h2>Pagina Films</h2>
       <div id="sortFilms">
-        <div>
-          <label>Choose a Director:</label>
+        <div class="content-select">
           <select name="" id="cboDirector">
-            <option value="" selected>Select...</option>
+            <option value="" selected>Choose a Director</option>
           </select>
+          <i></i>
         </div>
-        <div>
-          <label>Choose a Producer:</label>
+        <div class="content-select">
           <select name="" id="cboProducer">
-            <option value="" selected>Select...</option>
+            <option value="" selected>Choose a Producer</option>
           </select>
+          <i></i>
         </div>
-        <div>
-          <label>Sort films by:</label>
+        <div class="content-select">
           <select name="" id="sortBy">
-            <option value="" selected>Select...</option>
+            <option value="" selected>Sort films by</option>
             <option value="">Year Ascending</option>
             <option value="">Year Descending</option>
             <option value="">A - Z</option>
             <option value="">Z - A</option>
           </select>
+          <i></i>
         </div>
       </div>
-      <div>
+      <!-- <div>
         <div id="producerName"></div>
         <div id="producerFilms"></div>
-        <!-- <div id="sortName"></div> -->
-      </div>
+        <div id="sortName"></div>
+      </div> -->
       <!-- Se crean solo los posters -->
-      <div class="container-flex">
-        <div id="div1"></div>
+      <div class="containerPoster" id="containerPosterFilms">
+        <div id="div1" class="containerPoster"></div>
+  
       </div>
     </section>
 
@@ -127,6 +128,11 @@
     <section id="pagina-about" class="container-flex">
       <h2>Ranking Rotten Tomatoes</h2>
       <h3>Los mejores calificados</h3>
+    </section>
+
+    <section>
+      <h2>Estadisticas</h2>
+      <canvas id="Estadisticas"></canvas>
     </section>
     <footer>
       <div class="contenedor-footer">
