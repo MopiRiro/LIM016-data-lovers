@@ -32,6 +32,7 @@ body{
 	rem -> es relativo al documento (toma com referencia al tamaño del documento)
 	1 rem = 10 px -> esto permite que los sitios web se adapten mas a una gran cantidad de navegadores*/
 	}
+	
 footer {
     width: 100%;
     background-color: var(--BlueGreen);

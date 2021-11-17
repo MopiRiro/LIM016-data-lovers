@@ -2,7 +2,6 @@ import { filterByProdAndDirec, filterBy, filterPeopleByFilms } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
 
-
 /*Interacción con el DOM */
 /*Aginando a variables la data extraida de Studio Ghibli */
 let dataFilms = data.films;
@@ -126,25 +125,6 @@ function cargarProductores() {
 };
 cargarProductores();
 
-
-const productor = resultProducer[0];
-// console.log(productor);
-let producerFilmsToShow = [];
-const showFilms = {
-    "Isao Takahata"  : () => {
-        for (let i = 0; i < dataFilms.length; i++) {
-            producerFilmsToShow.push();
-            console.log(producerFilmsToShow);
-            /*let img = document.createElement("img");
-            img.src = posterFilms[i];
-            document.getElementById("div1").appendChild(img); */
-        }
-    },
-
-}
-const show = showFilms[productor];
-// console.log(show);
-
 // mostrar el nombre seleccionado
 let select = document.querySelector("#cboProducer");
 let result = document.querySelector('#producerName');
@@ -165,7 +145,6 @@ function cargarDirectores() {
 cargarDirectores();
 
 
-
 //Ordering posters
 let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
@@ -173,18 +152,23 @@ sortBy.addEventListener("change", () => {
   document.getElementById("div1").innerHTML = '';
   let datafiltrada = filterBy(data, selectedFilms);
   //console.log("data: ", datafiltrada);
+  console.log("selected: ", selected)
   for (let i = 0; i < datafiltrada.length; i++) {
     // Mostrar posters de la data filtrada
     let datafilPoster = datafiltrada[i].poster;
     let img = document.createElement("img");
     img.src = datafilPoster;
     document.getElementById("div1").appendChild(img);
+    let datafilTitle = datafiltrada[i].title;
     let datafilRD = datafiltrada[i].release_date;
-    /* let datafilRate = datafiltrada[i].rt_score; */
-    // Mostrar Release Date
+    let datafilRate = datafiltrada[i].rt_score;
+    let datafilDescription = datafiltrada[i].description;
+    let datafilDirector = datafiltrada[i].director;
+    let datafilProducer = datafiltrada[i].producer;
     let text = document.createElement("p");
-    /*   let rate = document.createElement("p"); */
-    text.textContent = datafilRD;
+    let rate = document.createElement("p");
+    text.textContent = "Title: " + datafilTitle + " " + "Release date: " + datafilRD;
+    /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
     /* rate.textContent = datafilRate; */
     document.getElementById("div1").appendChild(text);
     /* document.getElementById("año").appendChild(rate); */
@@ -192,12 +176,35 @@ sortBy.addEventListener("change", () => {
   }
 });
 
+//Ordering posters
+/* let sortBy = document.getElementById("sortBy");
+sortBy.addEventListener("change", () => {
+  let selected = sortBy.options[sortBy.selectedIndex].text;
+  //   document.getElementById("div1").innerHTML = selected;
+  console.log(selected);
+  let datafiltrada = filterBy(data, selected);
+  console.log("data: ", datafiltrada);
+  for (let i = 0; i < datafiltrada.length; i++) {
+    // Mostrar posters de la data filtrada
+    let datafilPoster = datafiltrada[i].poster;
+    let datafilRD = datafiltrada[i].release_date;
+    // let containerPosterFilms=document.getElementById("containerPosterFilms");
+    let div1 = document.getElementById("div1");
+    // let divContenedor=document.createElement("div");
+    let img = document.createElement("img");
+    img.src = datafilPoster;
+    div1.textContent = datafilRD;
+    div1.appendChild(img);
+    console.log(img);
+  }
+}); */
+
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
   for (var i in titleFilms) {
     document.getElementById("cboPersonajes").innerHTML += "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
   }
-}
+};
 cargarPeliculas();
 
 
