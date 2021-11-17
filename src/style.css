@@ -32,6 +32,11 @@ body{
 	rem -> es relativo al documento (toma com referencia al tamaño del documento)
 	1 rem = 10 px -> esto permite que los sitios web se adapten mas a una gran cantidad de navegadores*/
 	}
+
+h2 {
+  text-align: center;
+}
+
 footer {
     width: 100%;
     background-color: var(--BlueGreen);
@@ -216,7 +221,7 @@ header nav ul li a:hover {
 	user-select: none;
 }
 .prev:hover, .next:hover {
-	color: #3498db;
+	color: var(--AcidGreen);
 }
 .next {
 	right: 0;
@@ -238,7 +243,7 @@ header nav ul li a:hover {
 	cursor: pointer;
 }
 .active, .dot:hover {
-	border-color: #3498db;
+	border-color: var(--AcidGreen);
 }
 .fade {
 	-webkit-animation-name: fade;
@@ -281,6 +286,9 @@ header nav ul li a:hover {
 	}
 }
 
+select {
+  /* Centrar texto!!! */
+}
 
 /*CUERPO DE PAGINA*/
 #contenedor-cabecera {
@@ -295,14 +303,14 @@ header nav ul li a:hover {
     padding: 10px;
 }
 
-	#pagina-peliculas {
-		background-color: var(--LightBlue);
-	}
+#pagina-peliculas {
+	background-color: var(--LightBlue);
+}
 
 #sortFilms {
 	display: -ms-flex;
-  display: -webkit-flex;
-  display: flex;
+	display: -webkit-flex;
+	display: flex;
 	background-color:var(--LightBlue);
 }
 
@@ -312,45 +320,58 @@ header nav ul li a:hover {
 }
 
 	/* Contenedor de poster-peliculas */
-	#div1, #año {
+.containerPoster, #div1, #año {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 	margin: 0.5rem;
 	height: 100%;
-	}
+  align-items: center;
+  justify-content: center;
+}
 
-	#div1 > img {
-		width: 20%;
-		padding: 3rem;
-	}
+.containerPoster > img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+	width: 20%;
+	padding: 0;
+  border-radius: 2rem;
+}
 
-  #div1 > p {
-	  display: flex;
-    /* position: absolute; */
-    width: 10%;
-    background-color: var(--HoneyYellow);
-    text-align: center;
-  }
+.containerPoster > p {
+	display: flex;
+  flex-wrap: wrap;
+  box-sizing: content-box;
+  border: solid 2px;
+  justify-content: center;
+  position: relative;
+  width: 10%;
+  text-align: center;
+  /* left: -17%; */
+  bottom: -20%;
+  background-color: whitesmoke;
+  margin-right: 3rem;
+}
 
-	#resultado-cbo-personajes {
-		display: flex;
-		justify-content: space-evenly;
-		flex-wrap: wrap;
-		margin: 0.5rem;
-		overflow:auto;
-		height: 100%;
-		}
+#resultado-cbo-personajes {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin: 0.5rem;
+	overflow:auto;
+	height: 100%;
+}
 
-	#resultado-cbo-personajes > img{
-			width: 10%;
-			padding: 2rem;
-	}
+#resultado-cbo-personajes > img{
+	width: 10%;
+	padding: 2rem;
+}
 
-	#resultado-cbo-titulo{
-		font-family: 'Roboto Slab', serif;
-		font-size: 3rem;
-		text-align: center;
-		color: var(--AcidGreen);
-	}
+#resultado-cbo-titulo{
+	font-family: 'Roboto Slab', serif;
+	font-size: 3rem;
+	text-align: center;
+	color: var(--AcidGreen);
+}
 
