@@ -10,8 +10,6 @@
     --LincolnGreen: #14591D;
 }
 
-
-
 * {
 	margin:0;
 	padding:0;
@@ -147,6 +145,7 @@ header nav ul li a {
 
 header nav ul li a:hover {
 	background:var(--LightBlue);
+  color: var(--AcidGreen);
 }
 
 
@@ -316,7 +315,7 @@ header nav ul li a:hover {
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-}	
+}
 
 .content-select select::-ms-expand {
     display: none;
@@ -326,32 +325,32 @@ header nav ul li a:hover {
 	max-width: 250px;
 	position: relative;
 }
- 
+
 .content-select select{
 	display: inline-block;
 	width: 100%;
 	cursor: pointer;
   	padding: 7px 10px;
   	height: 42px;
-  	outline: 0; 
+  	outline: 0;
   	border: 0;
 	border-radius: 0;
 	background: #f0f0f0;
 	font-size: 1em;
 	color: var(--PrussianBlue);
-	font-family: 
+	font-family:
 	'Roboto Slab', serif;
 	border:2px solid rgba(0,0,0,0.2);
     border-radius: 12px;
     position: relative;
     transition: all 0.25s ease;
 }
- 
+
 .content-select select:hover{
 	background: var(--White);
 }
- 
-/* 
+
+/*
 Creamos la fecha que aparece a la izquierda del select.
 Realmente este elemento es un cuadrado que sólo tienen
 dos bordes con color y que giramos con transform: rotate(-45deg);
@@ -368,7 +367,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	transform: rotate(-45deg); /* Giramos el cuadrado */
 	transition: all 0.25s ease;
 }
- 
+
 .content-select:hover i{
 	margin-top: 3px;
 }
@@ -378,7 +377,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	width: 50%;
     padding: 1rem;
 	margin: 1.5rem;
-	
+
 }
 
 	/* Contenedor de poster-peliculas */
@@ -406,7 +405,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 		padding: 3rem;
 		border-radius: 2rem;
 	  }
-	  
+
 	  .containerPoster > p {
 	  display: flex;
 	  flex-wrap: wrap;
@@ -421,7 +420,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	  background-color: whitesmoke;
 	  margin-right: 3rem;
 	}
-	
+
 
   /* #div1 > p {
 	display: flex;
@@ -456,3 +455,10 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	color: var(--AcidGreen);
 }
 
+#pagina-about{
+  background-color: var(--White);
+}
+
+#about-Titles {
+  background-color: var(--LincolnGreen);
+}
