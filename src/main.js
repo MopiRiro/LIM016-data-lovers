@@ -1,7 +1,9 @@
+
 import { filterByProdAndDirec, filterBy, filterCharacters } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
 //console.log(filterCharacters);
+
 
 /*Interacción con el DOM */
 /*Aginando a variables la data extraida de Studio Ghibli */
@@ -27,18 +29,40 @@ let img_people = peopleFilms[0].map(x => x.img);
 // let img_people_1=peopleFilms[1].map(x=> x.img);
 let cbo = document.getElementById("cboPersonajes");
 cbo.addEventListener('change', () => {
+  document.getElementById("resultado-cbo-personajes").textContent="";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
+  console.log("Selected: ",selected);
+  let filterResult = dataFilms.find(film=>film.title === selected);
+  console.log("Filter Result:",filterResult);
   document.getElementById("resultado-cbo-titulo").innerHTML = selected;
-  if (selected == "Castle in the Sky") {
-    for (let i = 0; i < img_people.length; i++) {
-      console.log(img_people);
-      let img = document.createElement("img");
-      img.src = img_people[i];
-      document.getElementById("resultado-cbo-personajes").appendChild(img);
-    }
-  }
-});
+    for (let i = 0; i < filterResult.people.length; i++) {
+        console.log(filterResult.people[i]);
+        let img = document.createElement("img");
+        img.src = filterResult.people[i].img;
+        document.getElementById("resultado-cbo-personajes").appendChild(img);
+    
+  } 
+})
+
+// Todas las peliculas con las imagenes de los personaes
+let dataImg = [];
+for(let i=0; i<data.films.length; i++){
+dataImg[i] = data.films[i].people.map(item=>item.img);
+}
+console.log("Data de personajes por pelicula: ",dataImg);
+
+// data.films.forEach((film)=>{
+//   dataImg.push(film.people.map(item=>item.img));
+// })
+
+// /* Intentando el bucle foreach*/
+
+// dataImg.forEach(filterPeopleByFilms(data,condition,itemFilms)=>{
+
+
+    
+//   });
 
 // Slider
 const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
@@ -82,21 +106,23 @@ function slidefun(n) {
 }
 
 // Mostrar all the posters
-function cargarPosterPeliculas() {
+function cargarPosterPeliculas(){
   for (let i = 0; i < posterFilms.length; i++) {
-    let img = document.createElement("img");
-    let imgName = titleFilms[i];
-    img.src = posterFilms[i];
-    img.id = "ghibliFilms";
-    document.getElementById("div1").appendChild(img);
+  let img = document.createElement("img");
+  let imgName = titleFilms[i];
+  img.src = posterFilms[i];
+  img.id = "ghibliFilms";
+  document.getElementById("div1").appendChild(img);
   }
 };
+
 cargarPosterPeliculas();
 
-//Poblar productores
+//Poblar productore
 let resultProducer = producerFilms.filter((item, index) => {
   return producerFilms.indexOf(item) === index;
 })
+
 function cargarProductores() {
   for (var i in resultProducer) {
     document.getElementById("cboProducer").innerHTML += "<option id='" + resultProducer[i] + "' value='" + resultProducer[i] + "'>" + resultProducer[i] + "</option>";
@@ -105,11 +131,13 @@ function cargarProductores() {
 cargarProductores();
 
 // mostrar el nombre seleccionado
+
 /* let select = document.querySelector("#cboProducer");
 let result = document.querySelector('#producerName');
 select.addEventListener('change', function () {
   result.textContent = this.value;
 }); */
+
 
 //Directores
 let resultDirector = directorFilms.filter((item, index) => {
@@ -121,6 +149,7 @@ function cargarDirectores() {
   }
 }
 cargarDirectores();
+
 
 //Ordering posters SortBy
 let sortBy = document.getElementById("sortBy");
@@ -152,6 +181,7 @@ sortBy.addEventListener("change", () => {
   }
 });
 
+
 //Ordering posters Director
 let cboDirector = document.getElementById("cboDirector");
 cboDirector.addEventListener("change", () => {
@@ -160,6 +190,7 @@ cboDirector.addEventListener("change", () => {
   let director = "director";
   document.getElementById("div1").innerHTML = '';
   let datafiltrada = filterByProdAndDirec(data, selectedFilm, director);
+
   console.log("data: ", datafiltrada);
   for (let i = 0; i < datafiltrada.length; i++) {
     // Mostrar posters de la data filtrada
@@ -234,6 +265,7 @@ cargarPeliculas();
 //     const texto = formulario.value.toLowerCase();
 //     for (let personajesAll of dataImg ){
 //         let
+
 //     }
 
 // }
@@ -241,5 +273,22 @@ cargarPeliculas();
 
 
 //Estadisticas
-// let miCanvas=document.getElementById("Estadisticas");
-// let etiquetas = producerFilms;
+// function totalCasesChart(ctx){
+//   const chart = new chart (ctx,{
+//       type: bar,
+//       labels:producerFilms,
+//       datasets: {
+//         labels: 'peliculas',
+//         data:[5,6,7]
+//       }
+//   })
+// }
+
+
+// function renderChart(){
+//   const ctx=document.querySelector('#chart').getContext('2d');
+//   totalCasesChart(ctx);
+// }
+
+// renderChart();
+

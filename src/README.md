@@ -42,11 +42,15 @@
 
 *Prototipo baja fidelidad
 ## El prototipo inicial fue diseñado a mano
-![imagen1](img/prototipo1.jpeg)
+
+![imagen1](img/prototipo1-1.jpeg)
+![imagen2](img/prototipo1-2.jpeg)
+![imagen3](img/prototipo1-3.jpeg)
+![imagen4](img/prototipo1-4.jpeg)
 
 *Prototipo alta fidelidad
 ## El segundo prototipo fue diseñado con la herramienta Figma
-![imagen2](img/prototipo2.jpg)
+![imagen5](img/prototipo2.jpg)
 
 
 ## 6. Decisiones de diseño

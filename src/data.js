@@ -69,3 +69,10 @@ export const filterCharacters = (data, condition, items) => {
     }
   }
 };
+
+
+
+export const filterPeopleByFilms = (data,condition,itemFilms) => {
+  return data.filter(itemFilms => itemFilms[condition]);
+}
+
