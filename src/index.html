@@ -21,7 +21,7 @@
 
     <nav>
       <ul>
-        <li><a href="#"><i class="fas fa-chart-pie"></i>Estadísticas</a></li>
+        <li><a href="#pagina-estadistics"><i class="fas fa-chart-pie"></i>Estadistics</a></li>
         <li><a href="#pagina-about"><i class="fas fa-info-circle"></i>About</a></li>
         <li><a href="#pagina-personajes"><i class="fas fa-users"></i>Characteres</a></li>
         <li><a href="#pagina-peliculas"><i class="fas fa-film"></i>Films</a></li>
@@ -65,7 +65,7 @@
     </section>
 
     <section id="pagina-peliculas">
-      <div id="sortFilms">
+      <div id="sortFilms" class="contenedor-cabecera">
         <div class="content-select">
           <select name="" id="cboDirector">
             <option value="" selected>Choose a Director</option>
@@ -88,7 +88,9 @@
           </select>
           <i></i>
         </div>
+        <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
       </div>
+
       <!-- <div>
         <div id="producerName"></div>
         <div id="producerFilms"></div>
@@ -102,27 +104,31 @@
     </section>
 
     <section id="pagina-personajes">
-      <div id="contenedor-cabecera">
-        <div>
-          <p>Ordenar por pelicula</p>
+      <div class="contenedor-cabecera">
+        <div class="content-select">
           <select id="cboPersonajes">
             <option selected>Tittle Films</option>
           </select>
+          <i></i>
         </div>
-        <div>
-          <input type="text" id="buscador" placeholder="Busca tus personajes aquí" />
-          <button type="button" id="btnBuscador">Find!</button>
+        <div class="contentSearch">
+          <span class="icon"><i class="fas fa-search"></i></span>
+          <input type="search" id="search" placeholder="Search..." />  
         </div>
+        <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
+        
       </div>
+      
       <div>
         <div id="resultado-cbo-titulo"></div>
         <div id="resultado-cbo-personajes"></div>
       </div>
 
 
-      <div class="container-personajes">
+
+      <!-- <div class="container-personajes">
         <div id="div-personajes"></div>
-      </div>
+      </div> -->
 
     </section>
     <h2>About Studio Ghibli</h2>
@@ -147,10 +153,13 @@
     </div>
     </section>
 
-    <section>
-      <h2>Estadisticas</h2>
-      <canvas id="Estadisticas"></canvas>
+    <section id="pagina-estadistics">
+      <div>
+        <canvas id="chart" width="800" height="400"></canvas>
+      </div>
     </section>
+
+
     <footer>
       <div class="contenedor-footer">
         <div class="box_footer">
@@ -170,7 +179,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
     <script src="main.js" type="module"></script>
 </body>
 

@@ -26,25 +26,28 @@ let img_people = peopleFilms[0].map(x => x.img);
 // let img_people_1=peopleFilms[1].map(x=> x.img);
 let cbo = document.getElementById("cboPersonajes");
 cbo.addEventListener('change', () => {
+  document.getElementById("resultado-cbo-personajes").textContent="";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
+  console.log("Selected: ",selected);
+  let filterResult = dataFilms.find(film=>film.title === selected);
+  console.log("Filter Result:",filterResult);
   document.getElementById("resultado-cbo-titulo").innerHTML = selected;
-  if (selected == "Castle in the Sky") {
-    for (let i = 0; i < img_people.length; i++) {
-        console.log(img_people);
-      let img = document.createElement("img");
-      img.src = img_people[i];
-      document.getElementById("resultado-cbo-personajes").appendChild(img);
-    }
+    for (let i = 0; i < filterResult.people.length; i++) {
+        console.log(filterResult.people[i]);
+        let img = document.createElement("img");
+        img.src = filterResult.people[i].img;
+        document.getElementById("resultado-cbo-personajes").appendChild(img);
+    
   } 
 })
 
 // Todas las peliculas con las imagenes de los personaes
-// let dataImg = [];
-// for(let i=0; i<data.films.length; i++){
-// dataImg[i] = data.films[i].people.map(item=>item.img);
-// }
-// console.log("Data de personajes por pelicula: ",dataImg);
+let dataImg = [];
+for(let i=0; i<data.films.length; i++){
+dataImg[i] = data.films[i].people.map(item=>item.img);
+}
+console.log("Data de personajes por pelicula: ",dataImg);
 
 // data.films.forEach((film)=>{
 //   dataImg.push(film.people.map(item=>item.img));
@@ -224,5 +227,22 @@ cargarPeliculas();
 
 
 //Estadisticas
-// let miCanvas=document.getElementById("Estadisticas");
-// let etiquetas = producerFilms; 
+
+// function totalCasesChart(ctx){
+//   const chart = new chart (ctx,{
+//       type: bar,
+//       labels:producerFilms,
+//       datasets: {
+//         labels: 'peliculas',
+//         data:[5,6,7]
+//       }
+//   })
+// }
+
+
+// function renderChart(){
+//   const ctx=document.querySelector('#chart').getContext('2d');
+//   totalCasesChart(ctx);
+// }
+
+// renderChart();
