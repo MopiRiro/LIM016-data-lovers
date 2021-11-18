@@ -56,7 +56,7 @@ export const filterCharacters = (data, condition, itemFilms) => {
   return data.films.filter(itemFilms => itemFilms[condition]);
 }
 
-/* export const filterCharacters = (data, condition, items) => {
+export const filterCharacters = (data, condition, items) => {
   switch (items) {
     case 'director': {
       return data.films.filter(film => film.director === name);
@@ -68,4 +68,4 @@ export const filterCharacters = (data, condition, itemFilms) => {
       break;
     }
   }
-}; */
+};
