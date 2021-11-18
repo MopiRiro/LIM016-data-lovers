@@ -42,6 +42,7 @@
 
 *Prototipo baja fidelidad
 ## El prototipo inicial fue diseñado a mano
+
 ![imagen1](img/prototipo1-1.jpeg)
 ![imagen2](img/prototipo1-2.jpeg)
 ![imagen3](img/prototipo1-3.jpeg)

@@ -1,6 +1,9 @@
-import { filterByProdAndDirec, filterBy, filterPeopleByFilms } from './data.js';
+
+import { filterByProdAndDirec, filterBy, filterCharacters } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
+//console.log(filterCharacters);
+
 
 /*Interacción con el DOM */
 /*Aginando a variables la data extraida de Studio Ghibli */
@@ -60,7 +63,6 @@ console.log("Data de personajes por pelicula: ",dataImg);
 
     
 //   });
-
 
 // Slider
 const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
@@ -129,11 +131,12 @@ function cargarProductores() {
 cargarProductores();
 
 // mostrar el nombre seleccionado
-let select = document.querySelector("#cboProducer");
+
+/* let select = document.querySelector("#cboProducer");
 let result = document.querySelector('#producerName');
 select.addEventListener('change', function () {
   result.textContent = this.value;
-});
+}); */
 
 
 //Directores
@@ -148,7 +151,7 @@ function cargarDirectores() {
 cargarDirectores();
 
 
-//Ordering posters
+//Ordering posters SortBy
 let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
   let selectedFilms = sortBy.options[sortBy.selectedIndex].text;
@@ -178,28 +181,70 @@ sortBy.addEventListener("change", () => {
   }
 });
 
-//Ordering posters
-/* let sortBy = document.getElementById("sortBy");
-sortBy.addEventListener("change", () => {
-  let selected = sortBy.options[sortBy.selectedIndex].text;
-  //   document.getElementById("div1").innerHTML = selected;
-  console.log(selected);
-  let datafiltrada = filterBy(data, selected);
+
+//Ordering posters Director
+let cboDirector = document.getElementById("cboDirector");
+cboDirector.addEventListener("change", () => {
+  let selectedFilm = cboDirector.options[cboDirector.selectedIndex].text;
+  console.log(selectedFilm);
+  let director = "director";
+  document.getElementById("div1").innerHTML = '';
+  let datafiltrada = filterByProdAndDirec(data, selectedFilm, director);
+
   console.log("data: ", datafiltrada);
   for (let i = 0; i < datafiltrada.length; i++) {
     // Mostrar posters de la data filtrada
     let datafilPoster = datafiltrada[i].poster;
-    let datafilRD = datafiltrada[i].release_date;
-    // let containerPosterFilms=document.getElementById("containerPosterFilms");
-    let div1 = document.getElementById("div1");
-    // let divContenedor=document.createElement("div");
     let img = document.createElement("img");
     img.src = datafilPoster;
-    div1.textContent = datafilRD;
-    div1.appendChild(img);
-    console.log(img);
+    document.getElementById("div1").appendChild(img);
+    let datafilTitle = datafiltrada[i].title;
+    let datafilRD = datafiltrada[i].release_date;
+    let datafilRate = datafiltrada[i].rt_score;
+    let datafilDescription = datafiltrada[i].description;
+    let datafilDirector = datafiltrada[i].director;
+    let datafilProducer = datafiltrada[i].producer;
+    let text = document.createElement("p");
+    //let rate = document.createElement("p");
+    text.textContent = "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Director: " + datafilDirector;
+    /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
+    /* rate.textContent = datafilRate; */
+    document.getElementById("div1").appendChild(text);
+    /* document.getElementById("año").appendChild(rate); */
   }
-}); */
+});
+
+//Ordering posters Producer
+let cboProducer = document.getElementById("cboProducer");
+cboProducer.addEventListener("change", () => {
+  let selectedFilm = cboProducer.options[cboProducer.selectedIndex].text;
+  console.log(selectedFilm);
+  let producer = "producer";
+  document.getElementById("div1").innerHTML = '';
+  let datafiltrada = filterByProdAndDirec(data, selectedFilm, producer);
+  console.log("data: ", datafiltrada);
+  for (let i = 0; i < datafiltrada.length; i++) {
+    // Mostrar posters de la data filtrada
+    let datafilPoster = datafiltrada[i].poster;
+    let img = document.createElement("img");
+    img.src = datafilPoster;
+    document.getElementById("div1").appendChild(img);
+    let datafilTitle = datafiltrada[i].title;
+    let datafilRD = datafiltrada[i].release_date;
+    let datafilRate = datafiltrada[i].rt_score;
+    let datafilDescription = datafiltrada[i].description;
+    let datafilDirector = datafiltrada[i].director;
+    let datafilProducer = datafiltrada[i].producer;
+    let text = document.createElement("p");
+    //let rate = document.createElement("p");
+    text.textContent = "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Producer: " + datafilProducer;
+    /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
+    /* rate.textContent = datafilRate; */
+    document.getElementById("div1").appendChild(text);
+    /* document.getElementById("año").appendChild(rate); */
+  }
+});
+
 
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
@@ -219,7 +264,8 @@ cargarPeliculas();
 //     // console.log(formulario.value);
 //     const texto = formulario.value.toLowerCase();
 //     for (let personajesAll of dataImg ){
-//         let 
+//         let
+
 //     }
 
 // }
@@ -227,7 +273,6 @@ cargarPeliculas();
 
 
 //Estadisticas
-
 // function totalCasesChart(ctx){
 //   const chart = new chart (ctx,{
 //       type: bar,
@@ -246,3 +291,4 @@ cargarPeliculas();
 // }
 
 // renderChart();
+

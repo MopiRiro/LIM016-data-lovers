@@ -12,33 +12,6 @@ export const filterByProdAndDirec = (data, name, items) => {
   }
 };
 
-
-//Funciones para pagina personajes
-// export const dataPersonajes = (data) =>{
-
-// }
-
-export const filterByFilms = (data, films) => {
-}
-
-
-
-export const filterByProducer = (producer) => {
-  return data.films.filter((item) => {
-    return item.producer === producer;
-  });
-}
-
-
-export const filterByDirector = (director) => {
-}
-
-export const filterByUpward = (data, upward) => {
-}
-
-export const filterByFalling = (data, falling) => {
-}
-
 export const filterBy = (data, items) => {
   switch (items) {
     case "Year Descending": {
@@ -72,6 +45,24 @@ export const filterBy = (data, items) => {
         return 0;
       })
       return fromZtoA;
+    }
+    default: {
+      break;
+    }
+  }
+};
+
+export const filterCharacters = (data, condition, itemFilms) => {
+  return data.films.filter(itemFilms => itemFilms[condition]);
+}
+
+export const filterCharacters = (data, condition, items) => {
+  switch (items) {
+    case 'director': {
+      return data.films.filter(film => film.director === name);
+    }
+    case 'producer': {
+      return data.films.filter(film => film.producer === name);
     }
     default: {
       break;

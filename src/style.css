@@ -10,8 +10,6 @@
     --LincolnGreen: #14591D;
 }
 
-
-
 * {
 	margin:0;
 	padding:0;
@@ -147,6 +145,8 @@ header nav ul li a {
 
 header nav ul li a:hover {
 	background:var(--LightBlue);
+  color: var(--AcidGreen);
+
 }
 
 
@@ -283,8 +283,6 @@ header nav ul li a:hover {
 }
 
 
-
-
 .contenedor-cabecera {
   display: -ms-flex;
   display: -webkit-flex;
@@ -296,6 +294,7 @@ header nav ul li a:hover {
   filter:alpha(opacity=70);
   -moz-opacity:.70;opacity:.70;
 }
+
 
 .contenedor-cabecera .content-select select {
 	appearance: none;
@@ -311,7 +310,7 @@ header nav ul li a:hover {
 	max-width: 250px;
 	position: relative;
 }
- 
+
 .content-select select{
 	display: inline-block;
 	width: 100%;
@@ -320,12 +319,12 @@ header nav ul li a:hover {
   	height: 4rem;
   	outline: 0; 
   	border: 0;
-	border-radius: 0;
-	background: var(--White);
-	font-size: 1.5rem;
-	color: var(--PrussianBlue);
-	font-family:'Roboto Slab', serif;
-	border:2px solid rgba(0,0,0,0.2);
+	  border-radius: 0;
+  	background: var(--White);
+  	font-size: 1.5rem;
+  	color: var(--PrussianBlue);
+  	font-family:'Roboto Slab', serif;
+  	border:2px solid rgba(0,0,0,0.2);
     border-radius: 1.2rem;
     position: relative;
     transition: all 0.25s ease;
@@ -336,6 +335,7 @@ header nav ul li a:hover {
 }
  
 /* 
+
 Creamos la fecha que aparece a la izquierda del select.
 Realmente este elemento es un cuadrado que sólo tienen
 dos bordes con color y que giramos con transform: rotate(-45deg);
@@ -352,15 +352,14 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	transform: rotate(-45deg); /* Giramos el cuadrado */
 	transition: all 0.25s ease;
 }
- 
+
 .content-select:hover i{
 	margin-top: 3px;
 }
 
-
 .contenedor-cabecera > div{
 	width: 90%;
-    padding: 1rem;
+   padding: 1rem;
 	margin: 1.5rem;
 	
 }
@@ -372,8 +371,8 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	flex-wrap: wrap;
 	margin: 0.5rem;
 	height: 100%;
-  	align-items: center;
-  	justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .containerPoster > img {
@@ -417,6 +416,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	width: 10%;
 	padding: 2rem;
 	border-radius:1rem;
+
 }
 
 #resultado-cbo-titulo{
