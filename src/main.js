@@ -1,5 +1,5 @@
 
-import { filterByProdAndDirec, filterBy, filterCharacters } from './data.js';
+import { filterByProdAndDirec, filterBy} from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
 //console.log(filterCharacters);

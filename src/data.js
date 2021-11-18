@@ -56,21 +56,6 @@ export const filterCharacters = (data, condition, itemFilms) => {
   return data.films.filter(itemFilms => itemFilms[condition]);
 }
 
-export const filterCharacters = (data, condition, items) => {
-  switch (items) {
-    case 'director': {
-      return data.films.filter(film => film.director === name);
-    }
-    case 'producer': {
-      return data.films.filter(film => film.producer === name);
-    }
-    default: {
-      break;
-    }
-  }
-};
-
-
 
 export const filterPeopleByFilms = (data,condition,itemFilms) => {
   return data.filter(itemFilms => itemFilms[condition]);
