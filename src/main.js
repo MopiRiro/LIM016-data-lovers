@@ -1,5 +1,5 @@
 
-import { filterByProdAndDirec, filterBy} from './data.js';
+import { filterByProdAndDirec, filterBy } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
 //console.log(filterCharacters);
@@ -24,33 +24,80 @@ let rt_scoreFilms = dataFilms.map(x => x.rt_score);
 let peopleFilms = dataFilms.map(x => x.people);
 // console.log(peopleFilms);
 
+// Cambio de páginas
+//let inicio = document.getElementById("pagina-peliculas");
+/* const pagPeliculas = document.getElementById("pagina-peliculas");
+const pagPersonajes = document.getElementById("pagina-personajes");
+const pagStadistica = document.getElementById("pagina-stadistics");
+const pagAbout = document.getElementById("pagina-about");
+
+const filmsBtn = document.getElementById("filmsBtn");
+filmsBtn.addEventListener("click",
+  function () {
+    pagPeliculas.style.display = "";
+    pagPersonajes.style.display = "none";
+    pagStadistica.style.display = "";
+    pagAbout.style.display = "none";
+  }
+);
+
+const charactersBtn = document.getElementById("charactersBtn");
+charactersBtn.addEventListener("click",
+  function () {
+    pagPeliculas.style.display = "none";
+    pagPersonajes.style.display = "";
+    pagStadistica.style.display = "none";
+    pagAbout.style.display = "none";
+  }
+);
+
+const stadisticsBtn = document.getElementById("stadisticsBtn"); stadisticsBtn.addEventListener("click",
+  function () {
+    pagPeliculas.style.display = "none";
+    pagPersonajes.style.display = "none";
+    pagStadistica.style.display = "";
+    pagAbout.style.display = "none";
+  }
+);
+
+const aboutBtn = document.getElementById("aboutBtn");
+aboutBtn.addEventListener("click",
+  function () {
+    pagPeliculas.style.display = "none";
+    pagPersonajes.style.display = "none";
+    pagStadistica.style.display = "none";
+    pagAbout.style.display = "";
+  }
+);
+ */
+
 /*Pagina 3 */
 let img_people = peopleFilms[0].map(x => x.img);
 // let img_people_1=peopleFilms[1].map(x=> x.img);
 let cbo = document.getElementById("cboPersonajes");
 cbo.addEventListener('change', () => {
-  document.getElementById("resultado-cbo-personajes").textContent="";
+  document.getElementById("resultado-cbo-personajes").textContent = "";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
-  console.log("Selected: ",selected);
-  let filterResult = dataFilms.find(film=>film.title === selected);
-  console.log("Filter Result:",filterResult);
+  console.log("Selected: ", selected);
+  let filterResult = dataFilms.find(film => film.title === selected);
+  console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").innerHTML = selected;
-    for (let i = 0; i < filterResult.people.length; i++) {
-        console.log(filterResult.people[i]);
-        let img = document.createElement("img");
-        img.src = filterResult.people[i].img;
-        document.getElementById("resultado-cbo-personajes").appendChild(img);
-    
-  } 
+  for (let i = 0; i < filterResult.people.length; i++) {
+    console.log(filterResult.people[i]);
+    let img = document.createElement("img");
+    img.src = filterResult.people[i].img;
+    document.getElementById("resultado-cbo-personajes").appendChild(img);
+
+  }
 })
 
 // Todas las peliculas con las imagenes de los personaes
 let dataImg = [];
-for(let i=0; i<data.films.length; i++){
-dataImg[i] = data.films[i].people.map(item=>item.img);
+for (let i = 0; i < data.films.length; i++) {
+  dataImg[i] = data.films[i].people.map(item => item.img);
 }
-console.log("Data de personajes por pelicula: ",dataImg);
+//console.log("Data de personajes por pelicula: ", dataImg);
 
 // data.films.forEach((film)=>{
 //   dataImg.push(film.people.map(item=>item.img));
@@ -61,7 +108,7 @@ console.log("Data de personajes por pelicula: ",dataImg);
 // dataImg.forEach(filterPeopleByFilms(data,condition,itemFilms)=>{
 
 
-    
+
 //   });
 
 // Slider
@@ -106,19 +153,19 @@ function slidefun(n) {
 }
 
 // Mostrar all the posters
-function cargarPosterPeliculas(){
+function cargarPosterPeliculas() {
   for (let i = 0; i < posterFilms.length; i++) {
-  let img = document.createElement("img");
-  let imgName = titleFilms[i];
-  img.src = posterFilms[i];
-  img.id = "ghibliFilms";
-  document.getElementById("div1").appendChild(img);
+    let img = document.createElement("img");
+    let imgName = titleFilms[i];
+    img.src = posterFilms[i];
+    img.id = "ghibliFilms";
+    document.getElementById("div1").appendChild(img);
   }
 };
 
 cargarPosterPeliculas();
 
-//Poblar productore
+//Poblar productores
 let resultProducer = producerFilms.filter((item, index) => {
   return producerFilms.indexOf(item) === index;
 })

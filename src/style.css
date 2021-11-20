@@ -272,7 +272,7 @@ header nav ul li a:hover {
 }
 
 .myslider {
-	height: 500px;
+	height: 550px;
 }
 
 /*Celulares 2*/
@@ -281,7 +281,6 @@ header nav ul li a:hover {
 		font-size: 30px;
 	}
 }
-
 
 .contenedor-cabecera {
   display: -ms-flex;
@@ -295,12 +294,11 @@ header nav ul li a:hover {
   -moz-opacity:.70;opacity:.70;
 }
 
-
 .contenedor-cabecera .content-select select {
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-}	
+}
 
 .content-select select::-ms-expand {
     display: none;
@@ -315,27 +313,25 @@ header nav ul li a:hover {
 	display: inline-block;
 	width: 100%;
 	cursor: pointer;
-  	padding: 7px 10px;
-  	height: 4rem;
-  	outline: 0; 
-  	border: 0;
-	  border-radius: 0;
-  	background: var(--White);
-  	font-size: 1.5rem;
-  	color: var(--PrussianBlue);
-  	font-family:'Roboto Slab', serif;
-  	border:2px solid rgba(0,0,0,0.2);
-    border-radius: 1.2rem;
-    position: relative;
-    transition: all 0.25s ease;
+  padding: 7px 10px;
+  height: 4rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--White);
+  font-size: 1.5rem;
+  color: var(--PrussianBlue);
+  font-family:'Roboto Slab', serif;
+  border:2px solid rgba(0,0,0,0.2);
+  border-radius: 1.2rem;
+  position: relative;
+  transition: all 0.25s ease;
 }
- 
+
 .content-select select:hover{
 	background: var(--White);
 }
- 
-/* 
-
+/*
 Creamos la fecha que aparece a la izquierda del select.
 Realmente este elemento es un cuadrado que sólo tienen
 dos bordes con color y que giramos con transform: rotate(-45deg);
@@ -359,9 +355,8 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 
 .contenedor-cabecera > div{
 	width: 90%;
-   padding: 1rem;
+  padding: 1rem;
 	margin: 1.5rem;
-	
 }
 
 	/* Contenedor de poster-peliculas */
@@ -383,7 +378,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	padding: 3rem;
 	border-radius: 2rem;
 }
-	  
+
 .containerPoster > p {
 	display: flex;
 	flex-wrap: wrap;
@@ -397,7 +392,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	background-color: whitesmoke;
 	margin-right: 3rem;
 }
-	
+
 #resultado-cbo-personajes {
 	display: flex;
 	justify-content: space-evenly;
@@ -464,22 +459,22 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	-o-transition: all .55s ease;
 	transition: all .55s ease;
 }
-	  
+
 .contentSearch input#search:focus, .contentSearch input#search:active{
-	outline:none; 
+	outline:none;
 }
-	
+
 .contentSearch:hover .icon{
 	margin-top: 1.5rem;
 	color: var(--LincolnGreen);
-	
+
 	-webkit-transform:scale(1.5); /* Safari and Chrome */
 	-moz-transform:scale(1.5); /* Firefox */
 	-ms-transform:scale(1.5); /* IE 9 */
 	-o-transform:scale(1.5); /* Opera */
 	transform:scale(1.5);
 }
-	
+
 .btnRefresh{
 	margin-top: 1.8rem;
 	border: none;
@@ -490,3 +485,28 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	color:#FFFF;
 }
 
+.title {
+  background-color: var(--LightBlue);
+  color: var(--White);
+  /* font-family: 'Roboto Slab', serif; */
+  font-family: 'Reenie Beanie', cursive;
+  border-radius: 2rem;
+  margin: 1rem;
+}
+
+article {
+  display: flex;
+  width: 80%;
+  margin: 2rem 10rem 0 10rem;
+  align-items: center;
+}
+
+article > div {
+  width: 100%;
+}
+#espacio {
+  width: 20rem;
+}
+article > div > img {
+  width: 100%;
+}
