@@ -24,7 +24,7 @@
         <li><a href="#pagina-about"><i class="fas fa-info-circle"></i>About</a></li>
         <li><a href="#pagina-stadistics"><i class="fas fa-chart-pie"></i>Stadistics</a></li>
         <li><a href="#pagina-personajes"><i class="fas fa-users"></i>Characteres</a></li>
-        <li><a href="#pagina-peliculas"><i class="fas fa-film"></i>Films</a></li>
+        <li><a href="#pagina-peliculas" onclick="showFilmsPage()"><i class="fas fa-film"></i>Films</a></li>
       </ul>
     </nav>
   </header>
@@ -107,21 +107,41 @@
       <div class="contenedor-cabecera">
         <div class="content-select">
           <select id="cboPersonajes">
-            <option selected>Tittle Films</option>
+            <option selected>Movie characters</option>
+          </select>
+          <i></i>
+        </div>
+        <div class="content-select">
+          <select id="cboEspeciesPersonajes">
+            <option selected>Choose Specie</option>
           </select>
           <i></i>
         </div>
         <div class="contentSearch">
           <span class="icon"><i class="fas fa-search"></i></span>
-          <input type="search" id="search" placeholder="Search..." />
+          <input type="search" id="search" placeholder="Search for characters..." />  
         </div>
         <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
 
       </div>
-
-      <div>
-        <div id="resultado-cbo-titulo"></div>
-        <div id="resultado-cbo-personajes"></div>
+      <div class="contentTittlePeople">
+        <div id="resultado-cbo-titulo">Which is your favorite character?</div>
+      </div>
+     
+      <div class="contentImagePeople">
+        
+        <div id="resultado-cbo-personajes"> 
+          <img src="../src/img/personajes.jpg" style="width: 95%; height: 55%"/> 
+          
+           <!-- <div>
+            <div class="contentScore">
+              <h3>Score:<span id="result"></span></h3>
+            </div>
+            <div class="grid">
+  
+            </div>
+          </div>          -->
+        </div>
       </div>
 
       <!-- <div class="container-personajes">
@@ -161,12 +181,12 @@
     </div>
     </section>
 
-    <section id="pagina-estadistics">
-      <div>
-        <canvas id="chart" width="800" height="400"></canvas>
+    <section id="pagina-stadistics">
+      <div class="contentChart">
+        <canvas id="myChart" width="400" height="400"></canvas>
       </div>
     </section>
-
+    </main>
 
     <footer>
       <div class="contenedor-footer">
@@ -187,7 +207,7 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
     <script src="main.js" type="module"></script>
 </body>
 
