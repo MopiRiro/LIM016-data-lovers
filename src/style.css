@@ -201,7 +201,7 @@ header nav ul li a:hover {
 	background-color: white;
 }
 .myslider {
-	height: 100rem;
+	height: 100%;
 	display: none;
 	overflow: hidden;
 }
@@ -256,6 +256,7 @@ header nav ul li a:hover {
 	to {opacity: 1}
 }
 .myslider img {
+	object-fit: cover;
 	transform: scale(1.2, 1.2);
 	-webkit-animation-name: zoomin;
 	-webkit-animation-duration: 10s;
@@ -271,10 +272,6 @@ header nav ul li a:hover {
 	to {transform: scale(1.2, 1.2);}
 }
 
-.myslider {
-	height: 500px;
-}
-
 /*Celulares 2*/
 @media screen and (max-width: 520px) {
 	.txt h1 {
@@ -287,6 +284,7 @@ header nav ul li a:hover {
   display: -ms-flex;
   display: -webkit-flex;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   border-radius: 2rem;
   margin: 1rem;
@@ -358,7 +356,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 }
 
 .contenedor-cabecera > div{
-	width: 90%;
+	width: 45%;
    padding: 1rem;
 	margin: 1.5rem;
 	
@@ -371,17 +369,21 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	flex-wrap: wrap;
 	margin: 0.5rem;
 	height: 100%;
-  align-items: center;
-  justify-content: center;
+  	align-items: center;
+  	justify-content: center;
 }
 
 .containerPoster > img {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	width: 15%;
+	width: 30rem;
+	height: 40rem;
+	object-fit: cover;
 	padding: 3rem;
-	border-radius: 2rem;
+	
+
+	
 }
 	  
 .containerPoster > p {
@@ -397,33 +399,55 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	background-color: whitesmoke;
 	margin-right: 3rem;
 }
-	
+
+
 #resultado-cbo-personajes {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	flex-wrap: wrap;
-	margin: 0.5rem;
-	overflow:auto;
+	/* flex-direction: row; */
+	margin: 1rem;
+	align-items: center;
 	height: 100%;
+
+	
+
 }
+
 
 #resultado-cbo-personajes > img{
-	width: 10%;
+	width: 25rem;
+	height: 25rem;
 	padding: 2rem;
+	object-fit: cover;
+	border-radius: 5rem;
+    
+	
+	
+}
+#resultado-cbo-personajes > p{
+	display: flex;
+	justify-content: space-evenly;
+	width: 5%;
+	padding: 2rem;
+	
 }
 
-#resultado-cbo-personajes > img{
-	width: 10%;
-	padding: 2rem;
-	border-radius:1rem;
 
+.contentTittlePeople{
+	background-image: url(../src/img/fondoTitle.jpg);
+	background-image: no-repeat;
+	height: 8rem;
+	
 }
+
 
 #resultado-cbo-titulo{
 	font-family: 'Roboto Slab', serif;
-	font-size: 3rem;
+	font-size: 4rem;
+	padding: 1rem;
 	text-align: center;
-	color: var(--AcidGreen);
+	color:#FFFF;
 }
 
 .contentSearch{
@@ -489,4 +513,52 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	height: 5rem;
 	color:#FFFF;
 }
+
+.contentChart{
+	display: flex;
+	justify-content: center;
+	width: 40rem;
+	height: 40rem;
+}
+
+/* Memory Puzzle */
+/* .grid{
+
+	display: flex;
+	flex-wrap: wrap;
+	height: 30rem;
+	width: 40rem;
+}
+
+.grid > img{
+	width: 10rem;
+	height: 10rem;
+	object-fit: cover;
+	border-radius: 0.5rem;
+}
+
+.contentScore h3{
+	font-family: 'Roboto Slab',sans-serif;
+	font-size: 2.5rem;
+	color: var(--PrussianBlue);
+	padding: 1rem;
+
+} */
+
+/* #pagina-peliculas{
+	display: none;
+}
+#pagina-personajes{
+	display: none;
+}
+#pagina-about{
+	display: none;
+}
+#pagina-stadistics{
+	display: none;
+}
+main{
+	width: 100;
+	height: 0%
+} */
 

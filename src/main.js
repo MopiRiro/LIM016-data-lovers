@@ -22,47 +22,47 @@ let posterFilms = dataFilms.map(x => x.poster);
 let release_dateFilms = dataFilms.map(x => x.release_date);
 let rt_scoreFilms = dataFilms.map(x => x.rt_score);
 let peopleFilms = dataFilms.map(x => x.people);
+
 // console.log(peopleFilms);
 
 /*Pagina 3 */
-let img_people = peopleFilms[0].map(x => x.img);
-// let img_people_1=peopleFilms[1].map(x=> x.img);
+
 let cbo = document.getElementById("cboPersonajes");
 cbo.addEventListener('change', () => {
   document.getElementById("resultado-cbo-personajes").textContent="";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
-  console.log("Selected: ",selected);
+  // console.log("Selected: ",selected);
   let filterResult = dataFilms.find(film=>film.title === selected);
   console.log("Filter Result:",filterResult);
-  document.getElementById("resultado-cbo-titulo").innerHTML = selected;
+  document.getElementById("resultado-cbo-titulo").textContent = selected;
     for (let i = 0; i < filterResult.people.length; i++) {
-        console.log(filterResult.people[i]);
+        // console.log(filterResult.people[i]);
         let img = document.createElement("img");
+        let viewNamePeople=document.createElement("p");
         img.src = filterResult.people[i].img;
+        let namePeople=filterResult.people[i].name;
+        viewNamePeople.textContent="Name: "+ namePeople;
+        document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
         document.getElementById("resultado-cbo-personajes").appendChild(img);
     
   } 
-})
+});
 
-// Todas las peliculas con las imagenes de los personaes
-let dataImg = [];
-for(let i=0; i<data.films.length; i++){
-dataImg[i] = data.films[i].people.map(item=>item.img);
-}
-console.log("Data de personajes por pelicula: ",dataImg);
+function cargarEspeciePeople() {
+  for (var i in peopleFilms) {
+    document.getElementById("cboEspeciesPersonajes").innerHTML += "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
+  }
+};
+cargarEspeciePeople();
 
-// data.films.forEach((film)=>{
-//   dataImg.push(film.people.map(item=>item.img));
-// })
+let cboEspeciePersonajes = document.getElementById("cboEspeciesPersonajes");
+cboEspeciePersonajes.addEventListener('change',()=>{
+  let filterResult = dataFilms.find(film=>film.title === selected);
 
-// /* Intentando el bucle foreach*/
-
-// dataImg.forEach(filterPeopleByFilms(data,condition,itemFilms)=>{
+});
 
 
-    
-//   });
 
 // Slider
 const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
@@ -87,6 +87,7 @@ prev.addEventListener("click",
     slidefun(counter);
   }
 );
+
 function slidefun(n) {
   let i;
   for (i = 0; i < myslide.length; i++) {
@@ -104,6 +105,7 @@ function slidefun(n) {
   myslide[counter - 1].style.display = "block";
   dot[counter - 1].classList.add('active');
 }
+
 
 // Mostrar all the posters
 function cargarPosterPeliculas(){
@@ -129,14 +131,6 @@ function cargarProductores() {
   }
 };
 cargarProductores();
-
-// mostrar el nombre seleccionado
-
-/* let select = document.querySelector("#cboProducer");
-let result = document.querySelector('#producerName');
-select.addEventListener('change', function () {
-  result.textContent = this.value;
-}); */
 
 
 //Directores
@@ -256,39 +250,156 @@ cargarPeliculas();
 
 
 
-// //Buscador de personajes en tiempo real
-// const formulario= document.querySelector('#buscador');
-// const btnBuscador=document.querySelector('#btnBuscador');
+// Estadisticas
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: resultProducer,
+        datasets: [{
+            label: 'Productores',
+            data: [1, 2, 1, 5, 14, 2],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
-// const filtrarPersonajes =()=>{
-//     // console.log(formulario.value);
-//     const texto = formulario.value.toLowerCase();
-//     for (let personajesAll of dataImg ){
-//         let
 
+/*MEMORYPUZZLE */
+
+// let img_people_castle=peopleFilms[0].map(x=> x.img);
+// let img_1=img_people_castle[0];
+// let img_2=img_people_castle[1];
+// let img_3=img_people_castle[2];
+// let img_4=img_people_castle[3];
+// let img_5=img_people_castle[4];
+// let img_6=img_people_castle[5];
+// let img_7=img_people_castle[6];
+// let img_8=img_people_castle[7];
+
+// // console.log("imagenes recuperadas: ",img_people_castle);
+
+// document.addEventListener('DOMContentLoaded', ()=>{
+  
+//   //card options
+//   const cardArray= [
+//     {
+//       name: 'Pazu',
+//       img: img_1
+//     },
+//     {
+//       name: 'Sheeta',
+//       img: img_2
+//     },
+//     {
+//       name: 'Dola',
+//       img: img_3
+//     },
+//     {
+//       name: 'Muzka',
+//       img: img_4
+//     },
+//     {
+//       name: 'Uncle Pom',
+//       img: img_5
+//     },
+//     {
+//       name: 'Muoro',
+//       img: img_6
+//     }
+//   ]
+
+//   cardArray.sort(()=>0.5 - Math.random());
+
+//   const grid=document.querySelector('.grid');
+//   const resultDisplay =document.querySelector('#result');
+//   var cardsChosen=[];
+//   console.log(cardsChosen);
+//   var cardsChosenId=[];
+//   var cardsWon=[];
+
+//   //create your board
+
+//   function createBoard(){
+//     for(let i=0; i<cardArray.length; i++){
+//       var card=document.createElement('img');
+//       console.log(card);
+//       card.setAttribute('src', img_7);
+//       card.setAttribute('data-id', i);
+//       card.addEventListener('click',flipCard);
+//       grid.appendChild(card);
+//     }
+//   }
+
+  
+//   //check for matches
+//   function checkForMatch(){
+//     var cards =document.querySelectorAll('img');
+//     const optionOneId=cardsChosenId[0];
+//     const optionTwoId=cardsChosenId[1];
+//     if(cardsChosen[0] === cardsChosen[1]){
+//       alert('You found a match');
+//       cards[optionOneId].setAttribute('src',img_8);
+//       cards[optionTwoId].setAttribute('src',img_8);
+//       cardsWon.push(cardsChosen);
+//     }else{
+//       cards[optionOneId].setAttribute('src',img_7);
+//       cards[optionTwoId].setAttribute('src',img_7);
+//       alert('Sorry, try again');
+//     }
+    
+//     cardsChosen = [];
+//     cardsChosenId = [];
+//     resultDisplay.textContent = cardsWon.length;
+//     if(cardsWon.length === cardArray.length/2){
+//       resultDisplay.textContent = " Congratulations! You found them all!";
 //     }
 
+//   }
+
+//   createBoard();
+
+//   //flip your card
+//   function flipCard(){
+//     var cardId=this.getAttribute('data-id');
+//     cardsChosen.push(cardArray[cardId].name);
+//     cardsChosenId.push(cardId);
+//     this.setAttribute('src',cardArray[cardId].img);
+//     if(cardsChosen.length===2){
+//         setTimeout(checkForMatch,100);
+//     }
+//   }
+//   }
+// )
+
+
+
+
+// function showFilmsPage(){
+//   document.getElementById('pagina-peliculas').style.display='block';
 // }
-// btnBuscador.addEventListener('click', filtrarPersonajes)
 
-
-//Estadisticas
-// function totalCasesChart(ctx){
-//   const chart = new chart (ctx,{
-//       type: bar,
-//       labels:producerFilms,
-//       datasets: {
-//         labels: 'peliculas',
-//         data:[5,6,7]
-//       }
-//   })
-// }
-
-
-// function renderChart(){
-//   const ctx=document.querySelector('#chart').getContext('2d');
-//   totalCasesChart(ctx);
-// }
-
-// renderChart();
 

@@ -1,4 +1,4 @@
-# StudioGhibliLibrary
+# StudioGhibli Library
 
 ## Índice
 
@@ -50,7 +50,7 @@
 
 *Prototipo alta fidelidad
 ## El segundo prototipo fue diseñado con la herramienta Figma
-![imagen5](img/prototipo2.jpg)
+![imagen5](img/prototipo2.jpeg)
 
 
 ## 6. Decisiones de diseño

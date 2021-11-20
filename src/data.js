@@ -58,6 +58,8 @@ export const filterCharacters = (data, condition, itemFilms) => {
 
 
 export const filterPeopleByFilms = (data,condition,itemFilms) => {
-  return data.filter(itemFilms => itemFilms[condition]);
+  // dataFilms.find(film=>film.title === selected);
 }
+
+
 
