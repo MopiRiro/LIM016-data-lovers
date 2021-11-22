@@ -24,7 +24,7 @@
         <li><a href="#pagina-about"><i class="fas fa-info-circle"></i>About</a></li>
         <li><a href="#pagina-stadistics"><i class="fas fa-chart-pie"></i>Stadistics</a></li>
         <li><a href="#pagina-personajes"><i class="fas fa-users"></i>Characteres</a></li>
-        <li><a href="#pagina-peliculas" onclick="showFilmsPage()"><i class="fas fa-film"></i>Films</a></li>
+        <li><a href="#pagina-peliculas"><i class="fas fa-film"></i>Films</a></li>
       </ul>
     </nav>
   </header>
@@ -119,7 +119,7 @@
         </div>
         <div class="contentSearch">
           <span class="icon"><i class="fas fa-search"></i></span>
-          <input type="search" id="search" placeholder="Search for characters..." />  
+          <input type="search" id="search" class="card-filter" placeholder="Search for characters..." />  
         </div>
         <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
 
@@ -148,9 +148,25 @@
         <div id="div-personajes"></div>
       </div> -->
 
+    </section> 
+    
+    <section id="pagina-stadistics">
+      <div class="contenedor-cabecera">
+        <h2>S T A D I S T I C S</h2>
+      </div>
+      <div class="contentChart" >
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+
+      <div class="contentChart" >
+        <canvas id="myChartScore" width="400" height="400"></canvas>
+      </div>
     </section>
+
     <section id="pagina-about">
-      <h2 class="title">About Studio Ghibli</h2>
+      <div class="contenedor-cabecera">
+        <h2>ABOUT STUDIO GHIBLI</h2>
+      </div>
       <article>
         <div>
           <img src="./img/img54.jpg" alt="">
@@ -175,16 +191,6 @@
             Award nominations for Best Animated Feature Film. The studio is currently working on a new production.</p>
         </div>
       </article>
-    </section>
-    <div>
-
-    </div>
-    </section>
-
-    <section id="pagina-stadistics">
-      <div class="contentChart">
-        <canvas id="myChart" width="400" height="400"></canvas>
-      </div>
     </section>
     </main>
 

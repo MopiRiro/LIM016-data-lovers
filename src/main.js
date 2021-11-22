@@ -25,53 +25,6 @@ let peopleFilms = dataFilms.map(x => x.people);
 
 // console.log(peopleFilms);
 
-// Cambio de páginas
-//let inicio = document.getElementById("pagina-peliculas");
-/* const pagPeliculas = document.getElementById("pagina-peliculas");
-const pagPersonajes = document.getElementById("pagina-personajes");
-const pagStadistica = document.getElementById("pagina-stadistics");
-const pagAbout = document.getElementById("pagina-about");
-
-const filmsBtn = document.getElementById("filmsBtn");
-filmsBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "";
-    pagPersonajes.style.display = "none";
-    pagStadistica.style.display = "";
-    pagAbout.style.display = "none";
-  }
-);
-
-const charactersBtn = document.getElementById("charactersBtn");
-charactersBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "none";
-    pagPersonajes.style.display = "";
-    pagStadistica.style.display = "none";
-    pagAbout.style.display = "none";
-  }
-);
-
-const stadisticsBtn = document.getElementById("stadisticsBtn"); stadisticsBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "none";
-    pagPersonajes.style.display = "none";
-    pagStadistica.style.display = "";
-    pagAbout.style.display = "none";
-  }
-);
-
-const aboutBtn = document.getElementById("aboutBtn");
-aboutBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "none";
-    pagPersonajes.style.display = "none";
-    pagStadistica.style.display = "none";
-    pagAbout.style.display = "";
-  }
-);
- */
-
 /*Pagina 3 */
 
 let cbo = document.getElementById("cboPersonajes");
@@ -96,18 +49,19 @@ cbo.addEventListener('change', () => {
   } 
 });
 
-function cargarEspeciePeople() {
-  for (var i in peopleFilms) {
-    document.getElementById("cboEspeciesPersonajes").innerHTML += "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
-  }
-};
-cargarEspeciePeople();
+/*SELECCIONAR POR ESPCIE*/
+// function cargarEspeciePeople() {
+//   for (var i in peopleFilms) {
+//     document.getElementById("cboEspeciesPersonajes").innerHTML += "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
+//   }
+// };
+// cargarEspeciePeople();
 
-let cboEspeciePersonajes = document.getElementById("cboEspeciesPersonajes");
-cboEspeciePersonajes.addEventListener('change',()=>{
-  let filterResult = dataFilms.find(film=>film.title === selected);
+// let cboEspeciePersonajes = document.getElementById("cboEspeciesPersonajes");
+// cboEspeciePersonajes.addEventListener('change',()=>{
+//   let filterResult = dataFilms.find(film=>film.title === selected);
 
-});
+// });
 
 // Slider
 const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
@@ -293,6 +247,7 @@ function cargarPeliculas() {
 };
 cargarPeliculas();
 
+console.log("Productores para Chart",resultProducer);
 
 
 // Estadisticas
@@ -443,8 +398,5 @@ const myChart = new Chart(ctx, {
 
 
 
-// function showFilmsPage(){
-//   document.getElementById('pagina-peliculas').style.display='block';
-// }
 
 

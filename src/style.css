@@ -46,7 +46,7 @@ footer {
     justify-content: space-between;
     max-width: 120rem;
     margin: auto;
-    margin-top: 40rem;
+    margin-top: 10rem;
 }
 
 .box_footer{
@@ -202,7 +202,7 @@ header nav ul li a:hover {
 }
 .myslider {
 	height: 100%;
-  height: 550px;
+  	height: 75rem;
 	display: none;
 	overflow: hidden;
 }
@@ -258,6 +258,8 @@ header nav ul li a:hover {
 }
 .myslider img {
 	object-fit: cover;
+	width: 100%;
+  	height: auto;
 	transform: scale(1.2, 1.2);
 	-webkit-animation-name: zoomin;
 	-webkit-animation-duration: 10s;
@@ -509,17 +511,18 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	color:#FFFF;
 }
 
-.title {
+/* .title {
   background-color: var(--LightBlue);
   color: var(--White);
-  /* font-family: 'Roboto Slab', serif; */
   font-family: 'Reenie Beanie', cursive;
   border-radius: 2rem;
   margin: 1rem;
-}
+} */
 
 article {
   display: flex;
+  /* flex-direction:initial;
+  flex-wrap: wrap; */
   width: 80%;
   margin: 2rem 10rem 0 10rem;
   align-items: center;
@@ -532,8 +535,18 @@ article > div {
   width: 20rem;
 }
 article > div > img {
-  width: 100%;
+  width: 65rem;
+  height: 40rem;
+  border-radius: 1rem;
 }
+
+article > div > p {
+	text-align: justify;
+	font-size: 1.5rem;
+	font-family: 'Roboto Slab', sans-serif;
+	color: var(--PrussianBlue);
+  }
+
 
 .contentChart{
 	display: flex;
@@ -566,19 +579,8 @@ article > div > img {
 
 } */
 
-/* #pagina-peliculas{
-	display: none;
+.contenedor-cabecera > h2 {
+	padding: 2rem;
+	font-family: 'Roboto Slab',sans-serif;
+	color: #FFFF;
 }
-#pagina-personajes{
-	display: none;
-}
-#pagina-about{
-	display: none;
-}
-#pagina-stadistics{
-	display: none;
-}
-main{
-	width: 100;
-	height: 0%
-} */
