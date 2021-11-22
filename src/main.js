@@ -1,9 +1,7 @@
 
 import { filterByProdAndDirec, filterBy } from './data.js';
-import ghibli from './data/ghibli/ghibli.js';
 import data from './data/ghibli/ghibli.js'
 //console.log(filterCharacters);
-
 
 /*Interacción con el DOM */
 /*Aginando a variables la data extraida de Studio Ghibli */
@@ -22,55 +20,7 @@ let posterFilms = dataFilms.map(x => x.poster);
 let release_dateFilms = dataFilms.map(x => x.release_date);
 let rt_scoreFilms = dataFilms.map(x => x.rt_score);
 let peopleFilms = dataFilms.map(x => x.people);
-
-// console.log(peopleFilms);
-
-// Cambio de páginas
-//let inicio = document.getElementById("pagina-peliculas");
-/* const pagPeliculas = document.getElementById("pagina-peliculas");
-const pagPersonajes = document.getElementById("pagina-personajes");
-const pagStadistica = document.getElementById("pagina-stadistics");
-const pagAbout = document.getElementById("pagina-about");
-
-const filmsBtn = document.getElementById("filmsBtn");
-filmsBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "";
-    pagPersonajes.style.display = "none";
-    pagStadistica.style.display = "";
-    pagAbout.style.display = "none";
-  }
-);
-
-const charactersBtn = document.getElementById("charactersBtn");
-charactersBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "none";
-    pagPersonajes.style.display = "";
-    pagStadistica.style.display = "none";
-    pagAbout.style.display = "none";
-  }
-);
-
-const stadisticsBtn = document.getElementById("stadisticsBtn"); stadisticsBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "none";
-    pagPersonajes.style.display = "none";
-    pagStadistica.style.display = "";
-    pagAbout.style.display = "none";
-  }
-);
-
-const aboutBtn = document.getElementById("aboutBtn");
-aboutBtn.addEventListener("click",
-  function () {
-    pagPeliculas.style.display = "none";
-    pagPersonajes.style.display = "none";
-    pagStadistica.style.display = "none";
-    pagAbout.style.display = "";
-  }
-);
- */
+//console.log("Personajes: ", peopleFilms);
 
 /*Pagina 3 */
 
@@ -80,34 +30,37 @@ cbo.addEventListener('change', () => {
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
   // console.log("Selected: ",selected);
-  let filterResult = dataFilms.find(film=>film.title === selected);
-  console.log("Filter Result:",filterResult);
+  let filterResult = dataFilms.find(film => film.title === selected);
+  console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").textContent = selected;
-    for (let i = 0; i < filterResult.people.length; i++) {
-        // console.log(filterResult.people[i]);
-        let img = document.createElement("img");
-        let viewNamePeople=document.createElement("p");
-        img.src = filterResult.people[i].img;
-        let namePeople=filterResult.people[i].name;
-        viewNamePeople.textContent="Name: "+ namePeople;
-        document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
-        document.getElementById("resultado-cbo-personajes").appendChild(img);
-    
-  } 
+  for (let i = 0; i < filterResult.people.length; i++) {
+    // console.log(filterResult.people[i]);
+    let img = document.createElement("img");
+    let viewNamePeople = document.createElement("p");
+    img.src = filterResult.people[i].img;
+    let namePeople = filterResult.people[i].name;
+    viewNamePeople.textContent = "Name: " + namePeople;
+    document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
+    document.getElementById("resultado-cbo-personajes").appendChild(img);
+  }
 });
 
-function cargarEspeciePeople() {
-  for (var i in peopleFilms) {
-    document.getElementById("cboEspeciesPersonajes").innerHTML += "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
+// Poblar select con especies
+let resultadoEspecies = peopleFilms.map(x => {
+  return [x.map(person => person.specie)]
+});
+console.log(resultadoEspecies);
+
+let resultSpecies = resultadoEspecies.filter((item, index) => {
+  return resultadoEspecies.indexOf(item) === index;
+});
+console.log(resultSpecies[0]);
+function cargarEspecies() {
+  for (var i in resultSpecies) {
+    document.getElementById("cboEspeciesPersonajes").innerHTML += "<option id='" + resultSpecies[i] + "' value='" + resultSpecies[i] + "'>" + resultSpecies[i] + "</option>";
   }
 };
-cargarEspeciePeople();
-
-let cboEspeciePersonajes = document.getElementById("cboEspeciesPersonajes");
-cboEspeciePersonajes.addEventListener('change',()=>{
-  let filterResult = dataFilms.find(film=>film.title === selected);
-
-});
+cargarEspecies();
 
 // Slider
 const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
@@ -151,7 +104,6 @@ function slidefun(n) {
   dot[counter - 1].classList.add('active');
 }
 
-
 // Mostrar all the posters
 function cargarPosterPeliculas() {
   for (let i = 0; i < posterFilms.length; i++) {
@@ -162,14 +114,12 @@ function cargarPosterPeliculas() {
     document.getElementById("div1").appendChild(img);
   }
 };
-
 cargarPosterPeliculas();
 
 //Poblar productores
 let resultProducer = producerFilms.filter((item, index) => {
   return producerFilms.indexOf(item) === index;
-})
-
+});
 function cargarProductores() {
   for (var i in resultProducer) {
     document.getElementById("cboProducer").innerHTML += "<option id='" + resultProducer[i] + "' value='" + resultProducer[i] + "'>" + resultProducer[i] + "</option>";
@@ -188,7 +138,6 @@ function cargarDirectores() {
   }
 }
 cargarDirectores();
-
 
 //Ordering posters SortBy
 let sortBy = document.getElementById("sortBy");
@@ -219,7 +168,6 @@ sortBy.addEventListener("change", () => {
 
   }
 });
-
 
 //Ordering posters Director
 let cboDirector = document.getElementById("cboDirector");
@@ -284,7 +232,6 @@ cboProducer.addEventListener("change", () => {
   }
 });
 
-
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
   for (var i in titleFilms) {
@@ -293,43 +240,41 @@ function cargarPeliculas() {
 };
 cargarPeliculas();
 
-
-
 // Estadisticas
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: resultProducer,
-        datasets: [{
-            label: 'Productores',
-            data: [1, 2, 1, 5, 14, 2],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
+  type: 'bar',
+  data: {
+    labels: resultProducer,
+    datasets: [{
+      label: 'Productores',
+      data: [1, 2, 1, 5, 14, 2],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
     }
+  }
 });
 
 
@@ -348,7 +293,7 @@ const myChart = new Chart(ctx, {
 // // console.log("imagenes recuperadas: ",img_people_castle);
 
 // document.addEventListener('DOMContentLoaded', ()=>{
-  
+
 //   //card options
 //   const cardArray= [
 //     {
@@ -399,7 +344,7 @@ const myChart = new Chart(ctx, {
 //     }
 //   }
 
-  
+
 //   //check for matches
 //   function checkForMatch(){
 //     var cards =document.querySelectorAll('img');
@@ -415,7 +360,7 @@ const myChart = new Chart(ctx, {
 //       cards[optionTwoId].setAttribute('src',img_7);
 //       alert('Sorry, try again');
 //     }
-    
+
 //     cardsChosen = [];
 //     cardsChosenId = [];
 //     resultDisplay.textContent = cardsWon.length;
@@ -448,3 +393,18 @@ const myChart = new Chart(ctx, {
 // }
 
 
+//Get the button:
+const mybutton = document.getElementById("myBtn");
+window.onscroll = function () { scrollFunction() };
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.onclick = function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+};
