@@ -52,14 +52,14 @@ export const filterBy = (data, items) => {
   }
 };
 
-export const filterCharacters = (data, condition, itemFilms) => {
-  return data.films.filter(itemFilms => itemFilms[condition]);
+// export const searchData = (data, condition, value) => {
+//   return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
+// };
+
+
+
+export const filterPeopleByFilms = (data,condition,itemFilms)=> {
+  return data.find(item=>item[condition] === itemFilms);
 }
-
-
-export const filterPeopleByFilms = (data,condition,itemFilms) => {
-  // dataFilms.find(film=>film.title === selected);
-}
-
 
 

@@ -1,92 +1,126 @@
-
-import { filterByProdAndDirec, filterBy } from './data.js';
-import data from './data/ghibli/ghibli.js'
+import { filterByProdAndDirec, filterBy, filterPeopleByFilms } from "./data.js";
+import data from "./data/ghibli/ghibli.js";
 //console.log(filterCharacters);
 
 /*Interacción con el DOM */
 /*Aginando a variables la data extraida de Studio Ghibli */
 let dataFilms = data.films;
 // console.log(data.films);
-let titleFilms = dataFilms.map(x => x.title);
+let titleFilms = dataFilms.map((x) => x.title);
 // console.log(titleFilms);
-let descriptionFilms = dataFilms.map(x => x.description);
+let descriptionFilms = dataFilms.map((x) => x.description);
 // console.log(descriptionFilms);
-let directorFilms = dataFilms.map(x => x.director);
+let directorFilms = dataFilms.map((x) => x.director);
 // console.log(directorFilms);
-let producerFilms = dataFilms.map(x => x.producer);
+let producerFilms = dataFilms.map((x) => x.producer);
 // console.log(producerFilms);
-let posterFilms = dataFilms.map(x => x.poster);
+let posterFilms = dataFilms.map((x) => x.poster);
 //console.log(posterFilms);
-let release_dateFilms = dataFilms.map(x => x.release_date);
-let rt_scoreFilms = dataFilms.map(x => x.rt_score);
-let peopleFilms = dataFilms.map(x => x.people);
+let release_dateFilms = dataFilms.map((x) => x.release_date);
+let rt_scoreFilms = dataFilms.map((x) => x.rt_score);
+let peopleFilms = dataFilms.map((x) => x.people);
 
 // console.log(peopleFilms);
 //console.log("Personajes: ", peopleFilms);
 
-/*Pagina 3 */
+/* Buscador de Pesonajes */
+// let searchCharacteres = document.getElementById("search");
+// searchCharacteres.addEventListener("keyup", (e) => {
+//   document.getElementById("resultado-cbo-personajes").textContent = "";
+  
+//   console.log("view e", e);
+// });
 
+// const dataPersonajes = (claseCharacter) => {
+//   let id = [];
+//   let nameCharacter = [];
+
+//   for (let i = 0; claseCharacter.length; i++) {
+//     id[i] = claseCharacter[i].getAttribute("id");
+//     console.log(id);
+//   }
+
+//     for (let i = 0; i < id.length; i++) {
+//       let filterP = dataFilms.filter((film) => film.title === selected);
+//       for (let i = 0; i < filterP.people.length; i++) {
+//         nameCharacter[i] = filterP.people[i].name;
+        
+//     }
+//   }
+//   return nameCharacter;
+// };
+
+
+/* Filtrado de personajes por pelicula */
 let cbo = document.getElementById("cboPersonajes");
-cbo.addEventListener('change', () => {
+cbo.addEventListener("change", () => {
   document.getElementById("resultado-cbo-personajes").textContent = "";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
-  // console.log("Selected: ",selected);
-  let filterResult = dataFilms.find(film => film.title === selected);
-  console.log("Filter Result:", filterResult);
+  // let filterResult = dataFilms.find(film => film.title === selected);
+  let filterResult = filterPeopleByFilms(dataFilms, "title", selected);
+  // console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").textContent = selected;
   for (let i = 0; i < filterResult.people.length; i++) {
     // console.log(filterResult.people[i]);
     let img = document.createElement("img");
-    let viewNamePeople = document.createElement("p");
     img.src = filterResult.people[i].img;
+    let iconName = document.createElement("i");
+    iconName.classList.add("fas");
+    iconName.classList.add("fa-file-signature");
+    let viewNamePeople = document.createElement("p");
     let namePeople = filterResult.people[i].name;
-    viewNamePeople.textContent = "Name: " + namePeople;
+    viewNamePeople.textContent = namePeople;
+    document.getElementById("resultado-cbo-personajes").appendChild(iconName);
     document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
     document.getElementById("resultado-cbo-personajes").appendChild(img);
   }
 });
 
 // Poblar select con especies
-let resultadoEspecies = peopleFilms.map(x => {
-  return [x.map(person => person.specie)]
+let resultadoEspecies = peopleFilms.map((x) => {
+  return [x.map((person) => person.specie)];
 });
-console.log(resultadoEspecies);
+// console.log(resultadoEspecies);
 
 let resultSpecies = resultadoEspecies.filter((item, index) => {
   return resultadoEspecies.indexOf(item) === index;
 });
-console.log(resultSpecies[0]);
+// console.log(resultSpecies[0]);
 function cargarEspecies() {
   for (var i in resultSpecies) {
-    document.getElementById("cboEspeciesPersonajes").innerHTML += "<option id='" + resultSpecies[i] + "' value='" + resultSpecies[i] + "'>" + resultSpecies[i] + "</option>";
+    document.getElementById("cboEspeciesPersonajes").innerHTML +=
+      "<option id='" +
+      resultSpecies[i] +
+      "' value='" +
+      resultSpecies[i] +
+      "'>" +
+      resultSpecies[i] +
+      "</option>";
   }
-};
+}
 cargarEspecies();
 
 // Slider
-const myslide = document.querySelectorAll('.myslider'), dot = document.querySelectorAll('.dot');
+const myslide = document.querySelectorAll(".myslider"),
+  dot = document.querySelectorAll(".dot");
 let counter = 1;
 let timer = setInterval(autoslide, 8000);
 function autoslide() {
   counter += 1;
   slidefun(counter);
-};
+}
 //Botones del slider
 const next = document.getElementById("next");
-next.addEventListener("click",
-  function () {
-    counter += 1;
-    slidefun(counter);
-  }
-);
+next.addEventListener("click", function () {
+  counter += 1;
+  slidefun(counter);
+});
 const prev = document.getElementById("prev");
-prev.addEventListener("click",
-  function () {
-    counter -= 1;
-    slidefun(counter);
-  }
-);
+prev.addEventListener("click", function () {
+  counter -= 1;
+  slidefun(counter);
+});
 
 function slidefun(n) {
   let i;
@@ -94,7 +128,7 @@ function slidefun(n) {
     myslide[i].style.display = "none";
   }
   for (i = 0; i < dot.length; i++) {
-    dot[i].classList.remove('active');
+    dot[i].classList.remove("active");
   }
   if (n > myslide.length) {
     counter = 1;
@@ -103,7 +137,7 @@ function slidefun(n) {
     counter = myslide.length;
   }
   myslide[counter - 1].style.display = "block";
-  dot[counter - 1].classList.add('active');
+  dot[counter - 1].classList.add("active");
 }
 
 // Mostrar all the posters
@@ -115,7 +149,7 @@ function cargarPosterPeliculas() {
     img.id = "ghibliFilms";
     document.getElementById("div1").appendChild(img);
   }
-};
+}
 cargarPosterPeliculas();
 
 //Poblar productores
@@ -124,19 +158,30 @@ let resultProducer = producerFilms.filter((item, index) => {
 });
 function cargarProductores() {
   for (var i in resultProducer) {
-    document.getElementById("cboProducer").innerHTML += "<option id='" + resultProducer[i] + "' value='" + resultProducer[i] + "'>" + resultProducer[i] + "</option>";
+    document.getElementById("cboProducer").innerHTML +=
+      "<option id='" +
+      resultProducer[i] +
+      "' value='" +
+      resultProducer[i] +
+      "'>" +
+      resultProducer[i] +
+      "</option>";
   }
-};
+}
 cargarProductores();
-
 
 //Directores
 let resultDirector = directorFilms.filter((item, index) => {
   return directorFilms.indexOf(item) === index;
-})
+});
 function cargarDirectores() {
   for (var i in resultDirector) {
-    document.getElementById("cboDirector").innerHTML += "<option value='" + resultDirector[i] + "'>" + resultDirector[i] + "</option>";
+    document.getElementById("cboDirector").innerHTML +=
+      "<option value='" +
+      resultDirector[i] +
+      "'>" +
+      resultDirector[i] +
+      "</option>";
   }
 }
 cargarDirectores();
@@ -145,7 +190,7 @@ cargarDirectores();
 let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
   let selectedFilms = sortBy.options[sortBy.selectedIndex].text;
-  document.getElementById("div1").innerHTML = '';
+  document.getElementById("div1").innerHTML = "";
   let datafiltrada = filterBy(data, selectedFilms);
   //console.log("data: ", datafiltrada);
   for (let i = 0; i < datafiltrada.length; i++) {
@@ -162,12 +207,12 @@ sortBy.addEventListener("change", () => {
     let datafilProducer = datafiltrada[i].producer;
     let text = document.createElement("p");
     let rate = document.createElement("p");
-    text.textContent = "Title: " + datafilTitle + " " + "Release date: " + datafilRD;
+    text.textContent =
+      "Title: " + datafilTitle + " " + "Release date: " + datafilRD;
     /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
     /* rate.textContent = datafilRate; */
     document.getElementById("div1").appendChild(text);
     /* document.getElementById("año").appendChild(rate); */
-
   }
 });
 
@@ -177,7 +222,7 @@ cboDirector.addEventListener("change", () => {
   let selectedFilm = cboDirector.options[cboDirector.selectedIndex].text;
   console.log(selectedFilm);
   let director = "director";
-  document.getElementById("div1").innerHTML = '';
+  document.getElementById("div1").innerHTML = "";
   let datafiltrada = filterByProdAndDirec(data, selectedFilm, director);
 
   console.log("data: ", datafiltrada);
@@ -195,7 +240,15 @@ cboDirector.addEventListener("change", () => {
     let datafilProducer = datafiltrada[i].producer;
     let text = document.createElement("p");
     //let rate = document.createElement("p");
-    text.textContent = "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Director: " + datafilDirector;
+    text.textContent =
+      "Title: " +
+      datafilTitle +
+      " " +
+      "Release date: " +
+      datafilRD +
+      " " +
+      "Director: " +
+      datafilDirector;
     /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
     /* rate.textContent = datafilRate; */
     document.getElementById("div1").appendChild(text);
@@ -209,7 +262,7 @@ cboProducer.addEventListener("change", () => {
   let selectedFilm = cboProducer.options[cboProducer.selectedIndex].text;
   console.log(selectedFilm);
   let producer = "producer";
-  document.getElementById("div1").innerHTML = '';
+  document.getElementById("div1").innerHTML = "";
   let datafiltrada = filterByProdAndDirec(data, selectedFilm, producer);
   console.log("data: ", datafiltrada);
   for (let i = 0; i < datafiltrada.length; i++) {
@@ -226,7 +279,15 @@ cboProducer.addEventListener("change", () => {
     let datafilProducer = datafiltrada[i].producer;
     let text = document.createElement("p");
     //let rate = document.createElement("p");
-    text.textContent = "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Producer: " + datafilProducer;
+    text.textContent =
+      "Title: " +
+      datafilTitle +
+      " " +
+      "Release date: " +
+      datafilRD +
+      " " +
+      "Producer: " +
+      datafilProducer;
     /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
     /* rate.textContent = datafilRate; */
     document.getElementById("div1").appendChild(text);
@@ -237,51 +298,52 @@ cboProducer.addEventListener("change", () => {
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
   for (var i in titleFilms) {
-    document.getElementById("cboPersonajes").innerHTML += "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
+    document.getElementById("cboPersonajes").innerHTML +=
+      "<option value='" + titleFilms[i] + "'>" + titleFilms[i] + "</option>";
   }
-};
+}
 cargarPeliculas();
 
 //console.log("Productores para Chart",resultProducer);
 
-
 // Estadisticas
-const ctx = document.getElementById('myChart').getContext('2d');
+const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
-  type: 'bar',
+  type: "bar",
   data: {
     labels: resultProducer,
-    datasets: [{
-      label: 'Productores',
-      data: [1, 2, 1, 5, 14, 2],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1
-    }]
+    datasets: [
+      {
+        label: "Productores",
+        data: [1, 2, 1, 5, 14, 2],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
   },
   options: {
     scales: {
       y: {
-        beginAtZero: true
-      }
-    }
-  }
+        beginAtZero: true,
+      },
+    },
+  },
 });
-
 
 /*MEMORYPUZZLE */
 
@@ -349,7 +411,6 @@ const myChart = new Chart(ctx, {
 //     }
 //   }
 
-
 //   //check for matches
 //   function checkForMatch(){
 //     var cards =document.querySelectorAll('img');
@@ -390,14 +451,11 @@ const myChart = new Chart(ctx, {
 //   }
 // )
 
-
-
-
-
-
 //Get the button:
 const mybutton = document.getElementById("myBtn");
-window.onscroll = function () { scrollFunction() };
+window.onscroll = function () {
+  scrollFunction();
+};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";

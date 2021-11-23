@@ -150,49 +150,7 @@ header nav ul li a:hover {
 }
 
 
-/* Celulares y tablets */
-@media screen and (max-width:800px ) {
-	header nav {
-		width:80%;
-		height:100%;
-		left:-100%;
-		margin:0;
-		position: fixed;
-	}
 
-	header nav ul li {
-		display:block;
-		float:none;
-		border-bottom:1px solid rgba(255,255,255, .3);
-	}
-
-    header div a .fas{
-        display: block;
-    }
-	.menu_bar {
-		display:inline-block;
-		width:100%;
-		background:var(--BlueGreen);
-	}
-
-	.menu_bar .bt-menu {
-		display:inline-block;
-		padding:2rem;
-		background: var(--BlueGreen);
-		color:var(--White);
-		text-decoration:none;
-		font-weight: bold;
-		font-size:2rem;
-		-webkit-box-sizing:border-box;
-		-moz-box-sizing:border-box;
-		box-sizing:border-box;
-	}
-
-	a span {
-		font-family: 'Reenie Beanie', cursive;
-		font-size:1.5rem;
-	}
-}
 
 /* Slider */
 .slider {
@@ -302,11 +260,11 @@ header nav ul li a:hover {
 }
 
 .content-select select::-ms-expand {
-    display: none;
+    display: block;
 }
 
 .content-select{
-	max-width: 250px;
+	max-width: 20%;
 	position: relative;
 }
 
@@ -360,6 +318,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	margin: 1.5rem;
 }
 
+
 	/* Contenedor de poster-peliculas */
 .containerPoster, #div1, #año {
 	display: flex;
@@ -380,22 +339,26 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	object-fit: cover;
 	padding: 3rem;
 
-
-
 }
 
 .containerPoster > p {
 	display: flex;
 	flex-wrap: wrap;
 	box-sizing: content-box;
-	border: solid 2px;
+	border: transparent 1rem;
+	border-radius: 1rem;
 	justify-content: center;
+	font-size: 2rem;
+	font-style: bold;
+	font-family: 'Roboto Slab', sans-serif;
+	color: var(--White);
 	position: relative;
-	width: 10%;
+	padding: 1.5rem;
+	width: 20%;
 	text-align: center;
 	bottom: -20%;
-	background-color: whitesmoke;
-	margin-right: 3rem;
+	background:url(../src/img/img2.jpg) transparent;
+	margin: 2rem;
 }
 
 #resultado-cbo-personajes {
@@ -451,12 +414,12 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
     vertical-align: middle;
  	white-space: nowrap;
   	position: relative;
-	width: 10rem;
+	max-width: 50%;
 	height: 4rem;
 }
 
 .contentSearch input#search{
-	width: 30rem;
+	max-width: 50%;
 	height: 4rem;
 	background: var(--White);
 	border: none;
@@ -468,7 +431,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 1.2rem;
-	color: var(--White);
+	color: var(--PrussianBlue);
 }
 
 .contentSearch .icon{
@@ -604,19 +567,107 @@ main{
 #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
+  bottom: 2rem; /* Place the button at the bottom of the page */
+  right: 3rem;/* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
   background-color: var(--HoneyYellow); /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  padding: 1.5rem; /* Some padding */
+  border-radius: 3rem; /* Rounded corners */
+  font-size: 1.5rem; /* Increase font size */
 }
 
 #myBtn:hover {
   background-color: var(--Orange); /* Add a dark-grey background on hover */
+}
+
+/* Celulares y tablets */
+@media screen and (max-width:800px ) {
+	header nav {
+		width:80%;
+		height:100%;
+		left:-100%;
+		margin:0;
+		position: fixed;
+	}
+
+	header nav ul li {
+		display:block;
+		float:none;
+		border-bottom:1px solid rgba(255,255,255, .3);
+	}
+
+    header div a .fas{
+        display: block;
+    }
+	.menu_bar {
+		display:inline-block;
+		width:100%;
+		background:var(--BlueGreen);
+	}
+
+	.menu_bar .bt-menu {
+		display:inline-block;
+		padding:2rem;
+		background: var(--BlueGreen);
+		color:var(--White);
+		text-decoration:none;
+		font-weight: bold;
+		font-size:2rem;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+
+	a span {
+		font-family: 'Reenie Beanie', cursive;
+		font-size:1.5rem;
+	}
+
+	.content-select{
+		max-width: 50%;
+		position: relative;
+	}
+
+	.containerPoster > img {
+		width: 10rem;
+		height: 15rem;
+		padding: 1rem;
+	
+	
+	
+	}
+	
+	.containerPoster > p {
+		border-radius: 0.5rem;
+		font-size: 1.5rem;
+		font-style:normal;
+		padding: 1rem;
+		width: 20%;
+		margin: 1rem;
+	}
+
+	.content-select i{
+		right: 3rem;
+		top: calc(60% - 1.5rem);
+		width: 0.8rem;
+		height: 0.8rem;
+	}
+	
+	.contenedor-cabecera > div{
+		width: 50%;
+	  padding: 1rem;
+		margin: 1rem;
+	}
+
+	#pagina-principal{
+		width: 20%;
+	}
+	
+	.slider{
+		width: auto;
+	}
 }
