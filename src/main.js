@@ -78,28 +78,50 @@ cbo.addEventListener("change", () => {
 });
 
 // Poblar select con especies
-let resultadoEspecies = peopleFilms.map((x) => {
-  return [x.map((person) => person.specie)];
+let resultadoEspecies = peopleFilms.map(x => {
+  return x.map(person => person.specie)
 });
-// console.log(resultadoEspecies);
-
-let resultSpecies = resultadoEspecies.filter((item, index) => {
-  return resultadoEspecies.indexOf(item) === index;
+//console.log(resultadoEspecies);
+let integrado = resultadoEspecies.reduce(function (a, b) {
+  return a.concat(b);
 });
-// console.log(resultSpecies[0]);
+//console.log(integrado);
+let resultSpecies = integrado.filter((item, index) => {
+  return integrado.indexOf(item) === index;
+});
+//console.log(resultSpecies);
+let especiesOrdenadas = resultSpecies.sort();
+console.log("especiesOrdenadas", especiesOrdenadas);
 function cargarEspecies() {
-  for (var i in resultSpecies) {
-    document.getElementById("cboEspeciesPersonajes").innerHTML +=
-      "<option id='" +
-      resultSpecies[i] +
-      "' value='" +
-      resultSpecies[i] +
-      "'>" +
-      resultSpecies[i] +
-      "</option>";
+  for (var i in especiesOrdenadas) {
+    document.getElementById("cboEspeciesPersonajes").innerHTML += "<option id='" + especiesOrdenadas[i] + "' value='" + especiesOrdenadas[i] + "'>" + especiesOrdenadas[i] + "</option>";
   }
-}
+};
 cargarEspecies();
+
+//Ordering posters Especies
+let cboEspeciesPersonajes = document.getElementById("cboEspeciesPersonajes");
+cboEspeciesPersonajes.addEventListener("change", () => {
+  let selectedSpecies = cboEspeciesPersonajes.options[cboEspeciesPersonajes.selectedIndex].text;
+  console.log(selectedSpecies);
+  document.getElementById("resultado-cbo-personajes").innerHTML = '';
+  let datafiltrada = filterCharacters(dataFilms, selectedSpecies, selectedSpecies);
+  console.log("data: ", datafiltrada);
+  for (let i = 0; i < datafiltrada.length; i++) {
+    // Mostrar posters de la data filtrada
+    let img = document.createElement("img");
+    img.src = datafiltrada.people[i].img;
+    let iconName = document.createElement("i");
+    iconName.classList.add("fas");
+    iconName.classList.add("fa-file-signature");
+    let viewNamePeople = document.createElement("p");
+    let namePeople = datafiltrada.people[i].name;
+    viewNamePeople.textContent = namePeople;
+    document.getElementById("resultado-cbo-personajes").appendChild(iconName);
+    document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
+    document.getElementById("resultado-cbo-personajes").appendChild(img);
+  }
+});
 
 // Slider
 const myslide = document.querySelectorAll(".myslider"),
