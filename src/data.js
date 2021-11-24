@@ -46,6 +46,18 @@ export const filterBy = (data, items) => {
       })
       return fromZtoA;
     }
+    case "Top rated": {
+      const topRated = data.films.sort((a, b) => {
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+          return 1;
+        }
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+          return -1;
+        }
+        return 0;
+      })
+      return topRated;
+    }
     default: {
       break;
     }
@@ -63,5 +75,5 @@ export const filterPeopleByFilms = (data, condition, itemFilms) => {
 }
 
 export const filterCharacters = (data, condition, itemFilms) => {
-  return data.find(item => item[condition] === itemFilms);
+  return data.filter(item => item[condition] === itemFilms);
 }
