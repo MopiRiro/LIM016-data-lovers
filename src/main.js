@@ -1,4 +1,4 @@
-import { filterByProdAndDirec, filterBy, filterPeopleByFilms } from "./data.js";
+import { filterByProdAndDirec, filterBy, filterPeopleByFilms, filterCharacters } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
 //console.log(filterCharacters);
 
@@ -27,7 +27,6 @@ let peopleFilms = dataFilms.map((x) => x.people);
 // let searchCharacteres = document.getElementById("search");
 // searchCharacteres.addEventListener("keyup", (e) => {
 //   document.getElementById("resultado-cbo-personajes").textContent = "";
-  
 //   console.log("view e", e);
 // });
 
@@ -44,7 +43,6 @@ let peopleFilms = dataFilms.map((x) => x.people);
 //       let filterP = dataFilms.filter((film) => film.title === selected);
 //       for (let i = 0; i < filterP.people.length; i++) {
 //         nameCharacter[i] = filterP.people[i].name;
-        
 //     }
 //   }
 //   return nameCharacter;
@@ -103,23 +101,23 @@ cargarEspecies();
 let cboEspeciesPersonajes = document.getElementById("cboEspeciesPersonajes");
 cboEspeciesPersonajes.addEventListener("change", () => {
   let selectedSpecies = cboEspeciesPersonajes.options[cboEspeciesPersonajes.selectedIndex].text;
-  console.log(selectedSpecies);
-  document.getElementById("resultado-cbo-personajes").innerHTML = '';
-  let datafiltrada = filterCharacters(dataFilms, selectedSpecies, selectedSpecies);
-  console.log("data: ", datafiltrada);
-  for (let i = 0; i < datafiltrada.length; i++) {
-    // Mostrar posters de la data filtrada
-    let img = document.createElement("img");
-    img.src = datafiltrada.people[i].img;
-    let iconName = document.createElement("i");
-    iconName.classList.add("fas");
-    iconName.classList.add("fa-file-signature");
-    let viewNamePeople = document.createElement("p");
-    let namePeople = datafiltrada.people[i].name;
-    viewNamePeople.textContent = namePeople;
-    document.getElementById("resultado-cbo-personajes").appendChild(iconName);
-    document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
+  /* console.log(selectedSpecies); */
+  document.getElementById("resultado-cbo-personajes").textContent = "";
+  /* let cbo = document.getElementById("cboPersonajes"); */
+  let integradoPersonajes = peopleFilms.reduce(function (a, b) {
+    return a.concat(b);
+  });
+  //console.log(peopleFilms);
+  //console.log(integradoPersonajes);
+  let filterResult = filterCharacters(integradoPersonajes, "specie", selectedSpecies);
+  console.log("Filter Result:", filterResult);
+  document.getElementById("resultado-cbo-titulo").textContent = selectedSpecies;
+  for (let i = 0; i < filterResult.specie.length; i++) {
+    console.log(filterResult.specie);
+    let img = document.createElement('img');
+    img.src = filterResult[i];
     document.getElementById("resultado-cbo-personajes").appendChild(img);
+    console.log(filterResult[i]);
   }
 });
 
@@ -182,14 +180,7 @@ let resultProducer = producerFilms.filter((item, index) => {
 });
 function cargarProductores() {
   for (var i in resultProducer) {
-    document.getElementById("cboProducer").innerHTML +=
-      "<option id='" +
-      resultProducer[i] +
-      "' value='" +
-      resultProducer[i] +
-      "'>" +
-      resultProducer[i] +
-      "</option>";
+    document.getElementById("cboProducer").innerHTML += "<option id='" + resultProducer[i] + "' value='" + resultProducer[i] + "'>" + resultProducer[i] + "</option>";
   }
 }
 cargarProductores();
@@ -207,7 +198,7 @@ function cargarDirectores() {
       resultDirector[i] +
       "</option>";
   }
-}
+};
 cargarDirectores();
 
 
