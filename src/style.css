@@ -246,7 +246,7 @@ header nav ul li a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 2rem;
+  border-radius: 1rem;
   margin: 1rem;
   background-color:var(--LightBlue);
   filter:alpha(opacity=70);
@@ -264,7 +264,7 @@ header nav ul li a:hover {
 }
 
 .content-select{
-	max-width: 20%;
+	max-width: 15%;
 	position: relative;
 }
 
@@ -414,7 +414,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
     vertical-align: middle;
  	white-space: nowrap;
   	position: relative;
-	max-width: 50%;
+	max-width: 40%;
 	height: 4rem;
 }
 
