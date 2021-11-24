@@ -411,9 +411,9 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 }
 
 .contentSearch{
-    vertical-align: middle;
- 	white-space: nowrap;
-  	position: relative;
+  vertical-align: middle;
+	white-space: nowrap;
+	position: relative;
 	max-width: 50%;
 	height: 4rem;
 }
@@ -585,6 +585,19 @@ main{
 }
 
 /* Celulares y tablets */
+@media screen and (max-width:1024px ) {
+  #aboutImg {
+    margin-top: 2rem;
+    width: inherit;
+  }
+  article {
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: center;
+    margin: auto;
+    margin-top: 3rem;
+  }
+}
 @media screen and (max-width:800px ) {
 	header nav {
 		width:80%;
@@ -605,7 +618,7 @@ main{
     }
 	.menu_bar {
 		display:inline-block;
-		width:100%;
+		width:90%;
 		background:var(--BlueGreen);
 	}
 
@@ -636,11 +649,8 @@ main{
 		width: 10rem;
 		height: 15rem;
 		padding: 1rem;
-	
-	
-	
 	}
-	
+
 	.containerPoster > p {
 		border-radius: 0.5rem;
 		font-size: 1.5rem;
@@ -656,18 +666,91 @@ main{
 		width: 0.8rem;
 		height: 0.8rem;
 	}
-	
+
 	.contenedor-cabecera > div{
 		width: 50%;
-	  padding: 1rem;
+    padding: 1rem;
 		margin: 1rem;
 	}
-
 	#pagina-principal{
 		width: 20%;
 	}
-	
 	.slider{
-		width: auto;
+    display: flex;
+		width: 77rem;
+    height: 30rem;
+    position: inherit;
+    align-content: center;
 	}
+  .myslider {
+    width: inherit;
+    height: inherit;
+    align-content: center;
+  }
+  .prev, .next {
+    position: absolute;
+    top: 30%;
+    transform: translate(0, 50%);
+    font-size: 50px;
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.1s;
+    user-select: none;
+  }
+  .dotsbox {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 3rem;
+    cursor: pointer;
+  }
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  #aboutImg {
+    margin-top: 2rem;
+    width: inherit;
+  }
+  article {
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: center;
+    margin: auto;
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (max-width:540px ) {
+  .menu_bar {
+    width: 85%;
+  }
+  .slider {
+    width: 54rem;
+  }
+}
+
+@media screen and (max-width:414px ) {
+  .menu_bar {
+    width: 80%;
+  }
+  .slider {
+    height: 47rem;
+    width: 41rem;
+  }
+}
+
+@media screen and (max-width:320px ) {
+  .slider {
+    width: 33.5rem;
+  }
+  #mychart {
+    width: 33.5rem;
+  }
 }
