@@ -169,6 +169,8 @@ function cargarPosterPeliculas() {
     let imgName = titleFilms[i];
     img.src = posterFilms[i];
     img.id = "ghibliFilms";
+    // img.className="classModalImage";
+    img.classList.add("classModalImage");
     document.getElementById("div1").appendChild(img);
   }
 }
@@ -208,6 +210,9 @@ function cargarDirectores() {
 }
 cargarDirectores();
 
+
+
+
 //Ordering posters SortBy
 let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
@@ -220,6 +225,7 @@ sortBy.addEventListener("change", () => {
     let datafilPoster = datafiltrada[i].poster;
     let img = document.createElement("img");
     img.src = datafilPoster;
+    // img.classList.add("classModalImage");
     document.getElementById("div1").appendChild(img);
     let datafilTitle = datafiltrada[i].title;
     let datafilRD = datafiltrada[i].release_date;
@@ -277,6 +283,8 @@ cboDirector.addEventListener("change", () => {
     /* document.getElementById("año").appendChild(rate); */
   }
 });
+
+
 
 //Ordering posters Producer
 let cboProducer = document.getElementById("cboProducer");
@@ -490,3 +498,35 @@ mybutton.onclick = function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 };
+
+//Modal de peliculas
+let cerrar=document.querySelectorAll(".close")[0];
+let abrir=document.querySelectorAll(".classModalImage")[0];
+let modal=document.querySelectorAll(".modal")[0];
+let modalC=document.querySelectorAll(".modal-container")[0];
+
+abrir.addEventListener('click',function (e) {
+
+  console.log("aqui ves:",e);
+  modalC.style.opacity="1";
+  modalC.style.visibility="visible";
+  modal.classList.toggle("modal-close");
+
+});
+
+cerrar.addEventListener('click',function(){
+  modal.classList.toggle("modal-close");
+  setTimeout(function(){
+    modalC.style.opacity="0";
+    modalC.style.visibility="hidden";
+  },500);
+});
+
+window.addEventListener('click',function(e){
+  if(e.target == modalC){
+    setTimeout(function(){
+      modalC.style.opacity="0";
+      modalC.style.visibility="hidden";
+    },900);
+  }
+});
