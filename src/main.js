@@ -20,35 +20,6 @@ let release_dateFilms = dataFilms.map((x) => x.release_date);
 let rt_scoreFilms = dataFilms.map((x) => x.rt_score);
 let peopleFilms = dataFilms.map((x) => x.people);
 
-// console.log(peopleFilms);
-//console.log("Personajes: ", peopleFilms);
-
-/* Buscador de Pesonajes */
-// let searchCharacteres = document.getElementById("search");
-// searchCharacteres.addEventListener("keyup", (e) => {
-//   document.getElementById("resultado-cbo-personajes").textContent = "";
-//   console.log("view e", e);
-// });
-
-// const dataPersonajes = (claseCharacter) => {
-//   let id = [];
-//   let nameCharacter = [];
-
-//   for (let i = 0; claseCharacter.length; i++) {
-//     id[i] = claseCharacter[i].getAttribute("id");
-//     console.log(id);
-//   }
-
-//     for (let i = 0; i < id.length; i++) {
-//       let filterP = dataFilms.filter((film) => film.title === selected);
-//       for (let i = 0; i < filterP.people.length; i++) {
-//         nameCharacter[i] = filterP.people[i].name;
-//     }
-//   }
-//   return nameCharacter;
-// };
-
-
 /* Filtrado de personajes por pelicula */
 let cbo = document.getElementById("cboPersonajes");
 cbo.addEventListener("change", () => {
@@ -330,147 +301,66 @@ cargarPeliculas();
 // Estadisticas
 const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
-  type: "bar",
+  type: "polarArea",
   data: {
-    labels: resultProducer,
+    labels: titleFilms,
     datasets: [
       {
-        label: "Productores",
-        data: [1, 2, 1, 5, 14, 2],
+        label: "Films",
+        data: [13, 10, 6, 5, 11,7,6,9,10,5,10,9,10,8,10,8,8,8,8,10],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
+          "rgba(21, 122, 110, 0.8)",
+          "rgba(26, 20, 35, 0.8)",
+          "rgba(133, 96, 132, 0.8)",
+          "rgba(132, 226, 150, 0.8)",
+          "rgba(214, 245, 153, 0.8)",
+          "rgba(17, 157, 164, 0.8)",
+          "rgba(25, 100, 126, 0.8)",
+          "rgba(255, 224, 102, 0.8)",
+          "rgba(58, 124, 165, 0.8)",
+          "rgba(22, 66, 91, 0.8)",
+          "rgba(104, 142, 38, 0.8)",
+          "rgba(22, 48, 43, 0.8)",
+          "rgba(150, 2, 0, 0.8)",
+          "rgba(127, 126, 255, 0.8)",
+          "rgba(255, 22, 84, 0.8)",
+          "rgba(255, 136, 17, 0.8)",
+          "rgba(251, 159, 137, 0.8)",
+          "rgba(130, 70, 112, 0.8)",
+          "rgba(11, 201, 205, 0.8)",
+          "rgba(255, 208, 70, 0.8)"          
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
+          "rgba(21, 122, 110, 1)",
+          "rgba(26, 20, 35, 1)",
+          "rgba(133, 96, 132, 1)",
+          "rgba(132, 226, 150, 1)",
+          "rgba(214, 245, 153, 1)",
+          "rgba(17, 157, 164, 1)",
+          "rgba(25, 100, 126, 1)",
+          "rgba(255, 224, 102, 1)",
+          "rgba(58, 124, 165, 1)",
+          "rgba(22, 66, 91, 1)",
+          "rgba(104, 142, 38, 1)",
+          "rgba(22, 48, 43, 1)",
+          "rgba(150, 2, 0, 1)",
+          "rgba(127, 126, 255, 1)",
+          "rgba(255, 22, 84, 1)",
+          "rgba(255, 136, 17, 1)",
+          "rgba(251, 159, 137, 1)",
+          "rgba(130, 70, 112, 1)",
+          "rgba(11, 201, 205, 1)",
+          "rgba(255, 208, 70, 1)"     
+          
         ],
         borderWidth: 1,
       },
     ],
   },
   options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
+    
   },
 });
-
-/*MEMORYPUZZLE */
-
-// let img_people_castle=peopleFilms[0].map(x=> x.img);
-// let img_1=img_people_castle[0];
-// let img_2=img_people_castle[1];
-// let img_3=img_people_castle[2];
-// let img_4=img_people_castle[3];
-// let img_5=img_people_castle[4];
-// let img_6=img_people_castle[5];
-// let img_7=img_people_castle[6];
-// let img_8=img_people_castle[7];
-
-// // console.log("imagenes recuperadas: ",img_people_castle);
-
-// document.addEventListener('DOMContentLoaded', ()=>{
-
-//   //card options
-//   const cardArray= [
-//     {
-//       name: 'Pazu',
-//       img: img_1
-//     },
-//     {
-//       name: 'Sheeta',
-//       img: img_2
-//     },
-//     {
-//       name: 'Dola',
-//       img: img_3
-//     },
-//     {
-//       name: 'Muzka',
-//       img: img_4
-//     },
-//     {
-//       name: 'Uncle Pom',
-//       img: img_5
-//     },
-//     {
-//       name: 'Muoro',
-//       img: img_6
-//     }
-//   ]
-
-//   cardArray.sort(()=>0.5 - Math.random());
-
-//   const grid=document.querySelector('.grid');
-//   const resultDisplay =document.querySelector('#result');
-//   var cardsChosen=[];
-//   console.log(cardsChosen);
-//   var cardsChosenId=[];
-//   var cardsWon=[];
-
-//   //create your board
-
-//   function createBoard(){
-//     for(let i=0; i<cardArray.length; i++){
-//       var card=document.createElement('img');
-//       console.log(card);
-//       card.setAttribute('src', img_7);
-//       card.setAttribute('data-id', i);
-//       card.addEventListener('click',flipCard);
-//       grid.appendChild(card);
-//     }
-//   }
-
-//   //check for matches
-//   function checkForMatch(){
-//     var cards =document.querySelectorAll('img');
-//     const optionOneId=cardsChosenId[0];
-//     const optionTwoId=cardsChosenId[1];
-//     if(cardsChosen[0] === cardsChosen[1]){
-//       alert('You found a match');
-//       cards[optionOneId].setAttribute('src',img_8);
-//       cards[optionTwoId].setAttribute('src',img_8);
-//       cardsWon.push(cardsChosen);
-//     }else{
-//       cards[optionOneId].setAttribute('src',img_7);
-//       cards[optionTwoId].setAttribute('src',img_7);
-//       alert('Sorry, try again');
-//     }
-
-//     cardsChosen = [];
-//     cardsChosenId = [];
-//     resultDisplay.textContent = cardsWon.length;
-//     if(cardsWon.length === cardArray.length/2){
-//       resultDisplay.textContent = " Congratulations! You found them all!";
-//     }
-
-//   }
-
-//   createBoard();
-
-//   //flip your card
-//   function flipCard(){
-//     var cardId=this.getAttribute('data-id');
-//     cardsChosen.push(cardArray[cardId].name);
-//     cardsChosenId.push(cardId);
-//     this.setAttribute('src',cardArray[cardId].img);
-//     if(cardsChosen.length===2){
-//         setTimeout(checkForMatch,100);
-//     }
-//   }
-//   }
-// )
 
 //Get the button:
 const mybutton = document.getElementById("myBtn");
@@ -498,10 +388,13 @@ let modalC=document.querySelectorAll(".modal-container")[0];
 
 abrir.addEventListener('click',function (e) {
 
-  console.log("aqui ves:",e);
+  console.log("VER e MODAL :",e);
   modalC.style.opacity="1";
   modalC.style.visibility="visible";
   modal.classList.toggle("modal-close");
+
+  // Creación información de peliculas
+  
 
 });
 

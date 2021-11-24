@@ -130,21 +130,22 @@
             <option selected>Choose Specie</option>
           </select>
           <i></i>
-        </div>
-
-
-
-        
-
-
-
+        </div>    
         <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
       </div>
       <div class="contentTittlePeople">
-        <div id="resultado-cbo-titulo">Which is your favorite character?</div>
+        <div id="resultado-cbo-titulo">
+          <p>Which is your favorite character?</p>
+          
+        </div>
       </div>
       <div class="contentImagePeople">
         <div id="resultado-cbo-personajes">
+          <div id="imgCharacter">
+            <span id="nameImgCharacter"></span>
+          </div>
+          
+          
           <img src="../src/img/personajes.jpg" style="width: 95%; height: 55%" />
           <!-- <div>
             <div class="contentScore">
@@ -167,11 +168,11 @@
         <h2>S T A D I S T I C S</h2>
       </div>
       <div class="contentChart">
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <canvas id="myChart"></canvas>
       </div>
 
       <!-- <div class="contentChart" >
-        <canvas id="myChartScore" width="400" height="400"></canvas>
+        <canvas id="myChartPeopleByFilm" width="800" height="400"></canvas>
       </div> -->
     </section>
 

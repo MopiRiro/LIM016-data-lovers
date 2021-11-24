@@ -238,6 +238,8 @@ header nav ul li a:hover {
 	.txt h1 {
 		font-size: 30px;
 	}
+
+	
 }
 
 .contenedor-cabecera {
@@ -512,11 +514,12 @@ article > div > p {
 
 
 .contentChart{
-	display: flex;
-	justify-content: center;
-	width: 40rem;
-	height: 40rem;
+	width: 100rem;
+	margin-left: 30rem;
 }
+/* #myChart {
+
+} */
 
 /* Memory Puzzle */
 /* .grid{
@@ -649,6 +652,14 @@ body::-webkit-scrollbar-thumb{
 
 
 /* Celulares y tablets */
+
+@media screen and (max-width:1280px) {
+	.contentChart {
+		width: 80rem;
+		margin-left: 25rem;
+	}
+	
+}
 @media screen and (max-width:1024px ) {
   #aboutImg {
     margin-top: 2rem;
@@ -661,7 +672,16 @@ body::-webkit-scrollbar-thumb{
     margin: auto;
     margin-top: 3rem;
   }
+
+  .contentChart {
+    width: 70rem;
+    margin-left: 16rem;
 }
+
+
+}
+
+
 @media screen and (max-width:800px ) {
 	header nav {
 		width:80%;
@@ -746,7 +766,7 @@ body::-webkit-scrollbar-thumb{
     position: inherit;
     align-content: center;
 	}
-	
+
   .myslider {
     width: inherit;
     height: inherit;
@@ -781,6 +801,7 @@ body::-webkit-scrollbar-thumb{
   }
   #aboutImg {
     margin-top: 2rem;
+	object-fit: cover;
     width: inherit;
   }
   article {
@@ -792,6 +813,13 @@ body::-webkit-scrollbar-thumb{
   }
 }
 
+@media screen and (max-width:768px) {
+	.contentChart {
+		width: 70rem;
+		margin-left: 4rem;
+	}
+}
+
 @media screen and (max-width:540px ) {
   .menu_bar {
     width: 85%;
@@ -799,7 +827,17 @@ body::-webkit-scrollbar-thumb{
   .slider {
     width: 54rem;
   }
+  .contentChart {
+    width: 55rem;
+    margin-left: 0rem
+	}
 }
+
+@media screen and (max-width:411px ) {
+	#pagina-stadistics{
+		display: none;
+	}
+  }
 
 @media screen and (max-width:414px ) {
   .menu_bar {
@@ -811,6 +849,12 @@ body::-webkit-scrollbar-thumb{
   }
 }
 
+@media screen and (max-width:375px ) {
+	.contentChart{
+	  display: none;
+  	}
+  }
+
 @media screen and (max-width:320px ) {
   .slider {
     width: 33.5rem;
@@ -818,4 +862,13 @@ body::-webkit-scrollbar-thumb{
   #mychart {
     width: 33.5rem;
   }
+  #pagina-stadistics{
+	display: none;
 }
+}
+
+@media screen and (max-width:280px ) {
+	#pagina-stadistics{
+		display: none;
+	}
+  }
