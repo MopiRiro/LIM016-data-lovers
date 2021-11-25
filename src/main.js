@@ -3,11 +3,11 @@ import data from "./data/ghibli/ghibli.js";
 //console.log(filterCharacters);
 
 /*Interacción con el DOM */
-/*Aginando a variables la data extraida de Studio Ghibli */
+/*Asignando a variables la data extraida de Studio Ghibli */
 let dataFilms = data.films;
 // console.log(data.films);
 let titleFilms = dataFilms.map((x) => x.title);
-console.log(titleFilms);
+//console.log(titleFilms);
 let descriptionFilms = dataFilms.map((x) => x.description);
 // console.log(descriptionFilms);
 let directorFilms = dataFilms.map((x) => x.director);
@@ -172,9 +172,6 @@ function cargarDirectores() {
 };
 cargarDirectores();
 
-
-
-
 //Ordering posters SortBy
 let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
@@ -292,6 +289,28 @@ cboProducer.addEventListener("change", () => {
   }
 });
 
+// Search Bar
+const searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("keyup", (e) => {
+  console.log(e.target.value);
+  let searchString = e.target.value.toLowerCase();
+  let filteredFilms = dataFilms.filter((dataFilms) => {
+    return dataFilms.title.toLowerCase().includes(searchString);
+  });
+  console.log(filteredFilms);
+  document.getElementById("mainMovieContainer").innerHTML = "";
+  for (let i = 0; i < filteredFilms.length; i++) {
+    // Mostrar posters de la data filtrada
+    let filmPoster = filteredFilms[i].poster;
+    let img = document.createElement("img");
+    img.src = filmPoster;
+    console.log(img.src);
+    document.getElementById("mainMovieContainer").appendChild(img);
+  };
+});
+
+
+
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
   for (var i in titleFilms) {
@@ -312,7 +331,7 @@ const myChart = new Chart(ctx, {
     datasets: [
       {
         label: "Films",
-        data: [13, 10, 6, 5, 11,7,6,9,10,5,10,9,10,8,10,8,8,8,8,10],
+        data: [13, 10, 6, 5, 11, 7, 6, 9, 10, 5, 10, 9, 10, 8, 10, 8, 8, 8, 8, 10],
         backgroundColor: [
           "rgba(21, 122, 110, 0.8)",
           "rgba(26, 20, 35, 0.8)",
@@ -333,7 +352,7 @@ const myChart = new Chart(ctx, {
           "rgba(251, 159, 137, 0.8)",
           "rgba(130, 70, 112, 0.8)",
           "rgba(11, 201, 205, 0.8)",
-          "rgba(255, 208, 70, 0.8)"          
+          "rgba(255, 208, 70, 0.8)",
         ],
         borderColor: [
           "rgba(21, 122, 110, 1)",
@@ -355,15 +374,13 @@ const myChart = new Chart(ctx, {
           "rgba(251, 159, 137, 1)",
           "rgba(130, 70, 112, 1)",
           "rgba(11, 201, 205, 1)",
-          "rgba(255, 208, 70, 1)"     
-          
+          "rgba(255, 208, 70, 1)",
         ],
         borderWidth: 1,
       },
     ],
   },
   options: {
-    
   },
 });
 
@@ -393,13 +410,13 @@ let modalC = document.querySelectorAll(".modal-container")[0];
 
 abrir.addEventListener('click', function (e) {
 
-  console.log("VER e MODAL :",e);
-  modalC.style.opacity="1";
-  modalC.style.visibility="visible";
+  console.log("VER e MODAL :", e);
+  modalC.style.opacity = "1";
+  modalC.style.visibility = "visible";
   modal.classList.toggle("modal-close");
 
   // Creación información de peliculas
-  
+
 
 });
 
