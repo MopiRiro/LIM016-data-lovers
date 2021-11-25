@@ -280,16 +280,24 @@ cboProducer.addEventListener("change", () => {
 });
 
 // Search Bar
-const charactersList = document.getElementById("charactersList");
 const searchBar = document.getElementById("searchBar");
-console.log(searchBar);
 searchBar.addEventListener("keyup", (e) => {
   console.log(e.target.value);
-  let searchString = e.target.value;
-
-})
-
-
+  let searchString = e.target.value.toLowerCase();
+  let filteredFilms = dataFilms.filter((dataFilms) => {
+    return dataFilms.title.toLowerCase().includes(searchString);
+  });
+  console.log(filteredFilms);
+  document.getElementById("div1").innerHTML = "";
+  for (let i = 0; i < filteredFilms.length; i++) {
+    // Mostrar posters de la data filtrada
+    let filmPoster = filteredFilms[i].poster;
+    let img = document.createElement("img");
+    img.src = filmPoster;
+    console.log(img.src);
+    document.getElementById("div1").appendChild(img);
+  };
+});
 
 
 
