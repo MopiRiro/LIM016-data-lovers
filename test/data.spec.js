@@ -1,4 +1,4 @@
-import { example, anotherExample } from '../src/data.js';
+import { filterByProdAndDirec, anotherExample } from '../src/data.js';
 
 
 describe('example', () => {
