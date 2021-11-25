@@ -37,7 +37,9 @@ footer {
     background-size: cover;
 	font-family: 'Roboto Slab', serif;
 }
-
+/* main{
+	z-index: -2;
+} */
 .contenedor-footer {
     display:flex;
     /* se ponen uno de bajo del otro cuando no quepan en una sola linea*/
@@ -86,47 +88,100 @@ footer {
 }
 
 /*Navegador*/
-header {
+.header {
+	background: var(--BlueGreen);
 	width:100%;
+	height: 8rem;
+	position: fixed;
     font-family: 'Roboto Slab', serif;
-    background: var(--BlueGreen);
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
 
-a .fas{
-    margin-right:1rem;
-    font-size: 1.5rem;
+.nav{
+	display: flex;
+	justify-content: space-between;
+	max-width: 992px;
+	margin: 0 auto;
 }
-header nav {
+
+.nav-link{
+	color: #fff;
+	text-decoration: none;
+}
+
+.logo{
+	font-size: 3rem;
+	font-weight: bold;
+	padding: 0 4rem;
+	line-height: 8rem;
+}
+
+.nav-menu{
+	display: flex;
+	margin-right: 4rem;
+	list-style: none;
+}
+
+.nav-menu-item{
+	font-size:1.8rem;
+	margin: 0 1rem;
+	line-height: 8rem;
+	text-transform: uppercase;
+	width:max-content
+}
+
+.nav-menu-link{
+	text-decoration: none;
+	color:var(--White);
+	display:block;
+	padding:0.8rem 1.2rem ;
+	font-size: 1.5rem;
+}
+
+.nav-menu-link i{
+	padding-right: 1rem;
+}
+
+.nav-menu-link:hover{
+	/* background:var(--LightBlue); */
+  	color: var(--AcidGreen);
+	  transition: 0.7s;
+	/* border-radius: 2rem; */
+}
+
+/* header nav {
 	width:90%;
 	max-width:100rem;
 	margin: auto;
 	padding: 1rem 2rem;
-}
+} */
 
-header .menu_bar {
+/* header .menu_bar {
     float:left;
 	display:block;
 	padding: 2rem 4rem;
-}
+} */
 
-header div a .fas{
+/* header div a .fas{
     display: none;
-}
+} */
 
-header div a{
+/* header div a{
     font-size: 3rem;
     font-family: 'Roboto Slab', serif;
 	text-decoration: none;
     color: var(--White);
-	/* padding: 1rem 2rem; */
-}
+	padding: 1rem 2rem;
+} */
 
-header div a span{
-    font-size: 3rem;
+.spanLibrary{
+    font-size: 2.5rem;
     font-family: 'Reenie Beanie', cursive ;
     color: var(--White);
 }
-
+/*
 header nav ul {
 	overflow:hidden;
 	list-style:none;
@@ -147,12 +202,24 @@ header nav ul li a:hover {
 	background:var(--LightBlue);
   color: var(--AcidGreen);
 
-}
+} */
 
+/*Navegador Responsive*/
+.nav-toggle{
+	color: white;
+	background: none;
+	border:none;
+	font-size: 3rem;
+	padding: 0 2rem;
+	line-height: 6rem;
+	display: none;
+}
+/*Lo demas esta en la media query max widht 411*/
 /* Slider */
 .slider {
 	position: relative;
 	width: 100%;
+	margin-top: 8rem;
 	background-color: white;
 }
 .myslider {
@@ -182,7 +249,7 @@ header nav ul li a:hover {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
-	bottom: 20px;
+	bottom: -90px;
 	cursor: pointer;
 }
 .dot {
@@ -257,7 +324,7 @@ header nav ul li a:hover {
 }
 
 .content-select select::-ms-expand {
-    display: block;
+  display: block;
 }
 
 .content-select{
@@ -490,55 +557,12 @@ article > div > p {
 	width: 100rem;
 	margin-left: 30rem;
 }
-/* #myChart {
-
-} */
-
-/* Memory Puzzle */
-/* .grid{
-
-	display: flex;
-	flex-wrap: wrap;
-	height: 30rem;
-	width: 40rem;
-}
-
-.grid > img{
-	width: 10rem;
-	height: 10rem;
-	object-fit: cover;
-	border-radius: 0.5rem;
-}
-
-.contentScore h3{
-	font-family: 'Roboto Slab',sans-serif;
-	font-size: 2.5rem;
-	color: var(--PrussianBlue);
-	padding: 1rem;
-
-} */
 
 .contenedor-cabecera > h2 {
 	padding: 2rem;
 	font-family: 'Roboto Slab',sans-serif;
 	color: #FFFF;
 }
-/* #pagina-peliculas{
-	display: none;
-}
-#pagina-personajes{
-	display: none;
-}
-#pagina-about{
-	display: none;
-}
-#pagina-stadistics{
-	display: none;
-}
-main{
-	width: 100;
-	height: 0%
-} */
 
 #myBtn {
   display: none; /* Hidden by default */
@@ -586,7 +610,6 @@ body::-webkit-scrollbar-thumb{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 
 .modal{
@@ -616,9 +639,6 @@ body::-webkit-scrollbar-thumb{
 	cursor: pointer;
 	border-radius: 20%;
 }
-
-
-
 .modal-close{
 	transform: translateY(-200%);
 }
@@ -631,7 +651,6 @@ body::-webkit-scrollbar-thumb{
 		width: 80rem;
 		margin-left: 25rem;
 	}
-
 }
 @media screen and (max-width:1024px ) {
   #aboutImg {
@@ -645,18 +664,15 @@ body::-webkit-scrollbar-thumb{
     margin: auto;
     margin-top: 3rem;
   }
-
   .contentChart {
     width: 70rem;
     margin-left: 16rem;
 }
-
-
 }
 
 
 @media screen and (max-width:800px ) {
-	header nav {
+	/* header nav {
 		width:80%;
 		height:100%;
 		left:-100%;
@@ -695,19 +711,20 @@ body::-webkit-scrollbar-thumb{
 	a span {
 		font-family: 'Reenie Beanie', cursive;
 		font-size:1.5rem;
-	}
+	} */
 
+	.btnRefresh{
+		display: none;
+	}
 	.content-select{
 		max-width: 50%;
 		position: relative;
 	}
-
 	.containerPoster > img {
 		width: 10rem;
 		height: 15rem;
 		padding: 1rem;
 	}
-
 	.containerPoster > p {
 		border-radius: 0.5rem;
 		font-size: 1.5rem;
@@ -716,14 +733,12 @@ body::-webkit-scrollbar-thumb{
 		width: 20%;
 		margin: 1rem;
 	}
-
 	.content-select i{
 		right: 3rem;
 		top: calc(60% - 1.5rem);
 		width: 0.8rem;
 		height: 0.8rem;
 	}
-
 	.contenedor-cabecera > div{
 		width: 50%;
     padding: 1rem;
@@ -734,12 +749,11 @@ body::-webkit-scrollbar-thumb{
 	}
 	.slider{
     display: flex;
-		width: 77rem;
+	width: 77rem;
     height: 30rem;
     position: inherit;
     align-content: center;
 	}
-
   .myslider {
     width: inherit;
     height: inherit;
@@ -791,6 +805,46 @@ body::-webkit-scrollbar-thumb{
 		width: 70rem;
 		margin-left: 4rem;
 	}
+	.header {
+		height: 6rem;
+	}
+	.logo {
+		font-size: 2.5rem;
+		padding: 0 2rem;
+		line-height: 6rem;
+	}
+	.nav-menu{
+		flex-direction: column;
+		align-items: center;
+		margin-right: 2rem;
+		background-color: var(--PrussianBlue);
+		position: fixed;
+		left: 0;
+		top: 6rem;
+		width: 100%;
+		padding: 2rem 0;
+		height: calc(100%);
+		overflow-y: auto;
+		left: 100%;
+		transition: left 0.3s;
+	}
+	.nav-menu-item{
+		line-height: 7rem;
+	}
+	.nav-menu-link i{
+		padding-right: 0.5rem;
+	}
+	.nav-menu-link:hover {
+	  background:none;
+	  color: var(--BlueGreen);
+	  transition: 0.7s;
+	}
+	.nav-toggle{
+		display: block;
+	}
+	.nav-menu_visible{
+		left: 0;
+	}
 }
 
 @media screen and (max-width:540px ) {
@@ -810,7 +864,7 @@ body::-webkit-scrollbar-thumb{
 	#pagina-stadistics{
 		display: none;
 	}
-  }
+}
 
 @media screen and (max-width:414px ) {
   .menu_bar {
@@ -824,9 +878,9 @@ body::-webkit-scrollbar-thumb{
 
 @media screen and (max-width:375px ) {
 	.contentChart{
-	  display: none;
-  	}
+	display: none;
   }
+}
 
 @media screen and (max-width:320px ) {
   .slider {

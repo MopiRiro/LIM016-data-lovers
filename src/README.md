@@ -15,6 +15,7 @@
 
 ## 1. Resumen del proyecto
 
+Studio Ghibli Library
 
 
 
