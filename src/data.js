@@ -67,7 +67,7 @@ export const filterBy = (data, items) => {
 export const searchData = (data, condition, value) => {
   return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
 };
-  
+
 export const filterPeopleByFilms = (data, condition, itemFilms) => {
   return data.find(item => item[condition] === itemFilms);
 }
