@@ -149,9 +149,6 @@ header nav ul li a:hover {
 
 }
 
-
-
-
 /* Slider */
 .slider {
 	position: relative;
@@ -160,7 +157,7 @@ header nav ul li a:hover {
 }
 .myslider {
 	height: 100%;
-  	height: 75rem;
+  height: 75rem;
 	display: none;
 	overflow: hidden;
 }
@@ -217,7 +214,7 @@ header nav ul li a:hover {
 .myslider img {
 	object-fit: cover;
 	width: 100%;
-  	height: auto;
+  height: auto;
 	transform: scale(1.2, 1.2);
 	-webkit-animation-name: zoomin;
 	-webkit-animation-duration: 10s;
@@ -238,8 +235,6 @@ header nav ul li a:hover {
 	.txt h1 {
 		font-size: 30px;
 	}
-
-	
 }
 
 .contenedor-cabecera {
@@ -371,11 +366,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	margin: 1rem;
 	align-items: center;
 	height: 100%;
-
-
-
 }
-
 
 #resultado-cbo-personajes > img{
 	width: 25rem;
@@ -383,26 +374,19 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	padding: 2rem;
 	object-fit: cover;
 	border-radius: 5rem;
-
-
-
 }
 #resultado-cbo-personajes > p{
 	display: flex;
 	justify-content: space-evenly;
 	width: 5%;
 	padding: 2rem;
-
 }
-
 
 .contentTittlePeople{
 	background-image: url(../src/img/fondoTitle.jpg);
 	background-image: no-repeat;
 	height: 8rem;
-
 }
-
 
 #resultado-cbo-titulo{
 	font-family: 'Roboto Slab', serif;
@@ -443,7 +427,6 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	margin-top: 1.7rem;
 	z-index: 1;
 	color: var(--HoneyYellow);
-
 	-webkit-transition: all .55s ease;
 	-moz-transition: all .55s ease;
 	-ms-transition: all .55s ease;
@@ -458,7 +441,6 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 .contentSearch:hover .icon{
 	margin-top: 1.5rem;
 	color: var(--LincolnGreen);
-
 	-webkit-transform:scale(1.5); /* Safari and Chrome */
 	-moz-transform:scale(1.5); /* Firefox */
 	-ms-transform:scale(1.5); /* IE 9 */
@@ -475,14 +457,6 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	height: 5rem;
 	color:#FFFF;
 }
-
-/* .title {
-  background-color: var(--LightBlue);
-  color: var(--White);
-  font-family: 'Reenie Beanie', cursive;
-  border-radius: 2rem;
-  margin: 1rem;
-} */
 
 article {
   display: flex;
@@ -511,7 +485,6 @@ article > div > p {
 	font-family: 'Roboto Slab', sans-serif;
 	color: var(--PrussianBlue);
   }
-
 
 .contentChart{
 	width: 100rem;
@@ -602,7 +575,7 @@ body::-webkit-scrollbar-thumb{
 
 .modal-container{
 	opacity: 0;
-	visibility: hidden; 
+	visibility: hidden;
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
@@ -613,7 +586,7 @@ body::-webkit-scrollbar-thumb{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	 
+
 }
 
 .modal{
@@ -621,7 +594,7 @@ body::-webkit-scrollbar-thumb{
 	height: 50%;
 	background-color: var(--White);
 	/* overflow: hidden; */
-	border-radius: 1rem; 
+	border-radius: 1rem;
 	text-align: center;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -658,7 +631,7 @@ body::-webkit-scrollbar-thumb{
 		width: 80rem;
 		margin-left: 25rem;
 	}
-	
+
 }
 @media screen and (max-width:1024px ) {
   #aboutImg {
@@ -871,4 +844,4 @@ body::-webkit-scrollbar-thumb{
 	#pagina-stadistics{
 		display: none;
 	}
-  }
+}
