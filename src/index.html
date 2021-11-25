@@ -94,12 +94,10 @@
           </select>
           <i></i>
         </div>
-
         <div class="contentSearch">
           <span class="icon"><i class="fas fa-search"></i></span>
-          <input type="search" id="search" class="card-filter" placeholder="Search Films" />
+          <input type="text" name="SearchBar" id="searchBar" placeholder="Search Films" />
         </div>
-
         <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
 
       </div>
@@ -107,8 +105,9 @@
       <div class="containerPoster" id="containerPosterFilms">
         <div id="div1" class="containerPoster"></div>
       </div>
-
-
+      <div id="containerCharactersList">
+        <ul id="charactersList"></ul>
+      </div>
       <!-- Modal -->
       <div class="modal-container">
         <div class="modal modal-close">

@@ -56,7 +56,7 @@ Studio Ghibli Library
 
 ## 6. Decisiones de diseño
 
-- Se utilizo el logo del largometraje y sus colores insignia. 
+- Se utilizo el logo del largometraje y sus colores insignia.
 - Se inserto un pie de página donde se muestran las redes sociales de Studio Ghibli.
 - Se opto por implementar una interfaz fácil de usar, presentando un diseño amigable y sencillo.
 
@@ -65,5 +65,5 @@ Studio Ghibli Library
 
 
 
-## Interfaz final 
+## Interfaz final
 

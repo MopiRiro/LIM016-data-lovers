@@ -774,7 +774,7 @@ body::-webkit-scrollbar-thumb{
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    bottom: 3rem;
+    bottom: 2rem;
     cursor: pointer;
   }
   .dot {

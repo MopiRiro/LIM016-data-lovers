@@ -279,6 +279,20 @@ cboProducer.addEventListener("change", () => {
   }
 });
 
+// Search Bar
+const charactersList = document.getElementById("charactersList");
+const searchBar = document.getElementById("searchBar");
+console.log(searchBar);
+searchBar.addEventListener("keyup", (e) => {
+  console.log(e.target.value);
+  let searchString = e.target.value;
+
+})
+
+
+
+
+
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
   for (var i in titleFilms) {
