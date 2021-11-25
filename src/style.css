@@ -182,7 +182,7 @@ footer {
 }
 .prev, .next {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	transform: translate(0, 50%);
 	font-size: 50px;
 	padding: 15px;
@@ -201,7 +201,7 @@ footer {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
-	bottom: -90px;
+	bottom: 4rem;
 	cursor: pointer;
 }
 .dot {
@@ -683,7 +683,7 @@ body::-webkit-scrollbar-thumb{
     	padding: 0rem;
 		margin: 0.5rem;
 	}
-	#pagina-principal{
+	#main-page{
 		width: 20%;
 	}
 	.slider{
