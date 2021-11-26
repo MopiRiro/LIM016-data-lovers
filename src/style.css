@@ -670,7 +670,7 @@ body::-webkit-scrollbar-thumb{
 	}
 
 	.content-select select{
-		font-size: 1rem;
+		font-size: 1.2rem;
 	}
 
 	.containerPoster > img {
@@ -692,6 +692,19 @@ body::-webkit-scrollbar-thumb{
 		width: 0.8rem;
 		height: 0.8rem;
 	}
+
+	.contentSearch #searchBar{
+		font-size: 1.2rem;
+		max-width: 72%;
+    	height: 3.5rem;
+	}
+
+	.contentSearch .icon{
+		margin-left: 1rem;
+    	margin-top: 1rem;
+	}
+
+
 	.header-container > div{
 		width: 50%;
     	padding: 0rem;
@@ -809,6 +822,22 @@ body::-webkit-scrollbar-thumb{
 
 	.header-container h2{
 		font-size: 1.8rem;
+	}
+
+	.contentSearch{
+		width: 100%;
+	}
+
+	.contentSearch #searchBar{
+		
+		width: 90rem;
+    	
+	}
+
+	.contentSearch:hover .icon{
+		margin-top: 0.6rem;
+		margin-left: 1.8rem;
+		
 	}
 }
 
