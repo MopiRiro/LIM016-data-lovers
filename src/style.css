@@ -122,6 +122,7 @@ footer {
 	display: flex;
 	margin-right: 4rem;
 	list-style: none;
+	
 }
 
 .nav-menu-item{
@@ -222,14 +223,7 @@ footer {
 	animation-name: fade;
 	animation-duration: 1.5s;
 }
-@-webkit-keyframes fade {
-	from {opacity: 0.8}
-	to {opacity: 1}
-}
-@keyframes fade {
-	from {opacity: 0.8}
-	to {opacity: 1}
-}
+
 .myslider img {
 	object-fit: cover;
 	width: 100%;
@@ -240,6 +234,15 @@ footer {
 	animation-name: zoomin;
 	animation-duration: 10s;
 }
+@-webkit-keyframes fade {
+	from {opacity: 0.8}
+	to {opacity: 1}
+}
+@keyframes fade {
+	from {opacity: 0.8}
+	to {opacity: 1}
+}
+
 @-webkit-keyframes zoomin {
 	from {transform: scale(1, 1);}
 	to {transform: scale(1.2, 1.2);}
@@ -255,7 +258,7 @@ footer {
 	}
 }
 
-.contenedor-cabecera {
+.header-container {
   display: -ms-flex;
   display: -webkit-flex;
   display: flex;
@@ -268,7 +271,7 @@ footer {
   -moz-opacity:.70;opacity:.70;
 }
 
-.contenedor-cabecera .content-select select {
+.header-container .content-select select {
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -327,7 +330,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	margin-top: 3px;
 }
 
-.contenedor-cabecera > div{
+.header-container > div{
 	width: 20%;
   padding: 1rem;
 	margin: 1.5rem;
@@ -336,11 +339,10 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 /* Contenedor de poster-peliculas */
 .containerPoster {
 	display: flex;
-	justify-content: space-evenly;
+	
 	flex-wrap: wrap;
 	margin: 0.5rem;
 	height: 100%;
-  	align-items: center;
   	justify-content: center;
 }
 
@@ -353,11 +355,25 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 
 }
 
-.containerPoster > .containerFilImg {
+.containerImgInfo{
+	display: flex ;
+	flex-direction: column;
+	align-items: center;
+	margin: 3rem; 
+
+	
+}
+
+.containerPoster > .containerFilImg img {
 	width: 45rem;
 	height: 60rem;
 	object-fit: cover;
 	padding: 0rem;
+
+	
+
+
+
 }
 
 .containerPoster .containerFilmInfo {
@@ -376,12 +392,10 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	
 }
 
-.containerImgInfo{
-	 display: flex ;
-	flex-direction: column;
-	align-items: center;
-	margin: 3rem; 
-}
+
+
+
+
 
 #resultado-cbo-personajes {
 	display: flex;
@@ -513,7 +527,7 @@ article > div > p {
 	margin-left: 30rem;
 }
 
-.contenedor-cabecera > h2 {
+.header-container > h2 {
 	padding: 2rem;
 	font-family: 'Roboto Slab',sans-serif;
 	color: #FFFF;
@@ -678,7 +692,7 @@ body::-webkit-scrollbar-thumb{
 		width: 0.8rem;
 		height: 0.8rem;
 	}
-	.contenedor-cabecera > div{
+	.header-container > div{
 		width: 50%;
     	padding: 0rem;
 		margin: 0.5rem;
@@ -791,6 +805,10 @@ body::-webkit-scrollbar-thumb{
 	}
 	.nav-menu_visible{
 		left: 0;
+	}
+
+	.header-container h2{
+		font-size: 1.8rem;
 	}
 }
 

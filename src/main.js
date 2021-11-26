@@ -26,23 +26,26 @@ cbo.addEventListener("change", () => {
   document.getElementById("resultado-cbo-personajes").textContent = "";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
-  // let filterResult = dataFilms.find(film => film.title === selected);
   let filterResult = filterPeopleByFilms(dataFilms, "title", selected);
-  // console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").textContent = selected;
   for (let i = 0; i < filterResult.people.length; i++) {
-    // console.log(filterResult.people[i]);
+    let containerPoster=document.createElement("div");
+    containerPoster.classList.add("containerImgInfo");
+    let containerImg=document.createElement("div");
+    containerImg.classList.add("containerFilImg");
+    let containerInfo=document.createElement("div");
+    containerInfo.classList.add("containerFilmInfo");
+    document.getElementById("resultado-cbo-personajes").appendChild(containerPoster);
+    containerPoster.appendChild(containerImg);
+    containerPoster.appendChild(containerInfo); 
     let img = document.createElement("img");
     img.src = filterResult.people[i].img;
-    let iconName = document.createElement("i");
-    iconName.classList.add("fas");
-    iconName.classList.add("fa-file-signature");
     let viewNamePeople = document.createElement("p");
     let namePeople = filterResult.people[i].name;
     viewNamePeople.textContent = namePeople;
-    document.getElementById("resultado-cbo-personajes").appendChild(iconName);
-    document.getElementById("resultado-cbo-personajes").appendChild(viewNamePeople);
-    document.getElementById("resultado-cbo-personajes").appendChild(img);
+    containerImg.appendChild(img);
+    containerInfo.appendChild(viewNamePeople);
+    
   }
 });
 
@@ -78,17 +81,25 @@ cboEspeciesPersonajes.addEventListener("change", () => {
   let integradoPersonajes = peopleFilms.reduce(function (a, b) {
     return a.concat(b);
   });
-  //console.log(peopleFilms);
-  console.log(integradoPersonajes);
   let filterResult = filterCharacters(integradoPersonajes, "specie", selectedSpecies);
-  console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").textContent = selectedSpecies;
   for (let i = 0; i < filterResult.length; i++) {
-    console.log(filterResult[i]);
-    let img = document.createElement('img');
+    let containerPoster=document.createElement("div");
+    containerPoster.classList.add("containerImgInfo");
+    let containerImg=document.createElement("div");
+    containerImg.classList.add("containerFilImg");
+    let containerInfo=document.createElement("div");
+    containerInfo.classList.add("containerFilmInfo");
+    document.getElementById("resultado-cbo-personajes").appendChild(containerPoster);
+    containerPoster.appendChild(containerImg);
+    containerPoster.appendChild(containerInfo); 
+    let img = document.createElement("img");
     img.src = filterResult[i].img;
-    document.getElementById("resultado-cbo-personajes").appendChild(img);
-    //console.log(filterResult[i]);
+    let viewNamePeople = document.createElement("p");
+    let namePeople = filterResult[i].name;
+    viewNamePeople.textContent = namePeople;
+    containerImg.appendChild(img);
+    containerInfo.appendChild(viewNamePeople);
   }
 });
 
@@ -179,6 +190,45 @@ sortBy.addEventListener("change", () => {
   document.getElementById("mainMovieContainer").innerHTML = "";
   let dataFilterFilms = filterBy(data, selectedFilms);
   for (let i = 0; i < dataFilterFilms.length; i++) {
+    let containerPosterFilms=document.createElement("div");
+    containerPosterFilms.classList.add("containerImgInfo");
+    let containerFilImg=document.createElement("div");
+    containerFilImg.classList.add("containerFilImg");
+    let containerFilmInfo=document.createElement("div");
+    containerFilmInfo.classList.add("containerFilmInfo");
+
+    document.getElementById("mainMovieContainer").appendChild(containerPosterFilms);
+    containerPosterFilms.appendChild(containerFilImg);
+    containerPosterFilms.appendChild(containerFilmInfo);   
+    
+    let datafilPoster = dataFilterFilms[i].poster;
+    let img = document.createElement("img");
+    img.src = datafilPoster;
+
+    let datafilTitle = dataFilterFilms[i].title;
+    let datafilRD = dataFilterFilms[i].release_date;
+    let datafilRate = dataFilterFilms[i].rt_score;
+    let text = document.createElement("p");
+    let rate = document.createElement("p");
+
+    text.textContent =
+      "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
+    
+      containerFilImg.appendChild(img);
+      containerFilmInfo.appendChild(text);
+
+  }
+});
+
+//Ordering posters Director
+let cboDirector = document.getElementById("cboDirector");
+cboDirector.addEventListener("change", () => {
+  let selectedFilm = cboDirector.options[cboDirector.selectedIndex].text;
+  console.log(selectedFilm);
+  let director = "director";
+  document.getElementById("mainMovieContainer").innerHTML = "";
+  let dataFilterFilms = filterByProdAndDirec(data, selectedFilm, director);
+  for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
     let containerPosterFilms=document.createElement("div");
     containerPosterFilms.classList.add("containerImgInfo");
@@ -206,47 +256,7 @@ sortBy.addEventListener("change", () => {
     
       containerFilImg.appendChild(img);
       containerFilmInfo.appendChild(text);
-    
-    
-    // document.getElementById("mainMovieContainer").appendChild(text);
-    /* document.getElementById("año").appendChild(rate); */
-  }
-});
 
-//Ordering posters Director
-let cboDirector = document.getElementById("cboDirector");
-cboDirector.addEventListener("change", () => {
-  let selectedFilm = cboDirector.options[cboDirector.selectedIndex].text;
-  console.log(selectedFilm);
-  let director = "director";
-  document.getElementById("mainMovieContainer").innerHTML = "";
-  let dataFilterFilms = filterByProdAndDirec(data, selectedFilm, director);
-  //console.log("data: ", dataFilterFilms);
-  for (let i = 0; i < dataFilterFilms.length; i++) {
-    // Mostrar posters de la data filtrada
-    let datafilPoster = dataFilterFilms[i].poster;
-    let img = document.createElement("img");
-    img.src = datafilPoster;
-    document.getElementById("mainMovieContainer").appendChild(img);
-    let datafilTitle = dataFilterFilms[i].title;
-    let datafilRD = dataFilterFilms[i].release_date;
-    let datafilRate = dataFilterFilms[i].rt_score;
-    let datafilDescription = dataFilterFilms[i].description;
-    let datafilDirector = dataFilterFilms[i].director;
-    let datafilProducer = dataFilterFilms[i].producer;
-    let text = document.createElement("p");
-    //let rate = document.createElement("p");
-    text.textContent =
-      "Title: " +
-      datafilTitle +
-      " " +
-      "Release date: " +
-      datafilRD +
-      " " +
-      "Director: " +
-      datafilDirector;
-    document.getElementById("mainMovieContainer").appendChild(text);
-    /* document.getElementById("año").appendChild(rate); */
   }
 });
 
@@ -261,31 +271,32 @@ cboProducer.addEventListener("change", () => {
   //console.log("data: ", dataFilterFilms);
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
+    let containerPosterFilms=document.createElement("div");
+    containerPosterFilms.classList.add("containerImgInfo");
+    let containerFilImg=document.createElement("div");
+    containerFilImg.classList.add("containerFilImg");
+    let containerFilmInfo=document.createElement("div");
+    containerFilmInfo.classList.add("containerFilmInfo");
+
+    document.getElementById("mainMovieContainer").appendChild(containerPosterFilms);
+    containerPosterFilms.appendChild(containerFilImg);
+    containerPosterFilms.appendChild(containerFilmInfo);   
+    
     let datafilPoster = dataFilterFilms[i].poster;
     let img = document.createElement("img");
     img.src = datafilPoster;
-    document.getElementById("mainMovieContainer").appendChild(img);
+
     let datafilTitle = dataFilterFilms[i].title;
     let datafilRD = dataFilterFilms[i].release_date;
     let datafilRate = dataFilterFilms[i].rt_score;
-    let datafilDescription = dataFilterFilms[i].description;
-    let datafilDirector = dataFilterFilms[i].director;
-    let datafilProducer = dataFilterFilms[i].producer;
     let text = document.createElement("p");
-    //let rate = document.createElement("p");
+    let rate = document.createElement("p");
+
     text.textContent =
-      "Title: " +
-      datafilTitle +
-      " " +
-      "Release date: " +
-      datafilRD +
-      " " +
-      "Producer: " +
-      datafilProducer;
-    /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
-    /* rate.textContent = datafilRate; */
-    document.getElementById("mainMovieContainer").appendChild(text);
-    /* document.getElementById("año").appendChild(rate); */
+      "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
+    
+      containerFilImg.appendChild(img);
+      containerFilmInfo.appendChild(text);
   }
 });
 
@@ -442,18 +453,17 @@ const navToggle= document.querySelector(".nav-toggle");
 const navMenu= document.querySelector(".nav-menu");
 
 navToggle.addEventListener('click',()=>{
-navMenu.classList.toggle("nav-menu_visible");
- 
-
-if(navMenu.classList.contains("nav-menu_visible")){
+  navMenu.classList.toggle("nav-menu_visible");
+  if(navMenu.classList.contains("nav-menu_visible")){
   navToggle.setAttribute("aria-label","Cerrar menú");
-}else{
+  }else{
   navToggle.setAttribute("aria-label","Abrir menú");
-}
-
+  }
 });
 
-
-  // const pageResponsive=document.querySelector(".nav-menu-item");
-  // pageResponsive.addEventListener('click',()=>{
-  //   documen.querySelector('.nav-menu_visible').style.display="none"; })
+const menuLinks= document.querySelectorAll('.nav-menu a[href^="#"]');
+menuLinks.forEach(menuLink => {
+  menuLink.addEventListener('click', function(){
+    navMenu.classList.remove("nav-menu_visible");
+  })
+});

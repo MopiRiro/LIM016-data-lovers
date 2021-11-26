@@ -21,15 +21,15 @@
       <button class="nav-toggle" aria-label="Abrir menu">
         <i class="fas fa-bars"></i>
       </button>
-      <ul class="nav-menu nav-menu_visible">
-        <li class="nav-menu-item"><a href="#pagina-about" class="nav-menu-link"><i
-              class="fas fa-info-circle"></i>About</a></li>
-        <li class="nav-menu-item"><a href="#pagina-stadistics" class="nav-menu-link"><i
-              class="fas fa-chart-pie"></i>Stadistics</a></li>
-        <li class="nav-menu-item"><a href="#characters-pages" class="nav-menu-link"><i
-              class="fas fa-users"></i>Characteres</a></li>
+      <ul class="nav-menu">
         <li class="nav-menu-item"><a href="#films-page" class="nav-menu-link"><i class="fas fa-film"></i>Films</a>
         </li>
+        <li class="nav-menu-item"><a href="#characters-pages" class="nav-menu-link"><i
+              class="fas fa-users"></i>Characteres</a></li>
+        <li class="nav-menu-item"><a href="#pagina-stadistics" class="nav-menu-link"><i
+                class="fas fa-chart-pie"></i>Stadistics</a></li>
+        <li class="nav-menu-item"><a href="#about-page" class="nav-menu-link"><i
+              class="fas fa-info-circle"></i>About</a></li>    
       </ul>
     </nav>
   </header>
@@ -69,8 +69,8 @@
       </div>
     </section>
 
-    <section id="#films-page">
-      <div id="sortFilms" class="contenedor-cabecera">
+    <section id="films-page">
+      <div id="sortFilms" class="header-container">
         <div class="content-select">
           <select name="" id="cboDirector">
             <option value="" selected>Choose a Director</option>
@@ -121,7 +121,7 @@
     </section>
 
     <section id="characters-pages">
-      <div class="contenedor-cabecera">
+      <div class="header-container">
         <div class="content-select">
           <select id="cboPersonajes">
             <option selected>Movie characters</option>
@@ -147,37 +147,21 @@
             <span id="nameImgCharacter"></span>
           </div>
           <img src="../src/img/personajes.jpg" style="width: 95%; height: 55%" />
-          <!-- <div>
-            <div class="contentScore">
-              <h3>Score:<span id="result"></span></h3>
-            </div>
-            <div class="grid">
-            </div>
-          </div>          -->
         </div>
       </div>
-
-      <!-- <div class="container-personajes">
-        <div id="div-personajes"></div>
-      </div> -->
-
     </section>
 
     <section id="pagina-stadistics">
-      <div class="contenedor-cabecera">
+      <div class="header-container">
         <h2>S T A D I S T I C S</h2>
       </div>
       <div class="contentChart">
         <canvas id="myChart"></canvas>
       </div>
-
-      <!-- <div class="contentChart" >
-        <canvas id="myChartPeopleByFilm" width="800" height="400"></canvas>
-      </div> -->
     </section>
 
-    <section id="pagina-about">
-      <div class="contenedor-cabecera">
+    <section id="about-page">
+      <div class="header-container">
         <h2>A B O U T - S T U D I O - G H I B L I</h2>
       </div>
       <article>
