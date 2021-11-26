@@ -442,7 +442,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	height: 4rem;
 }
 
-.contentSearch input#search{
+.contentSearch #searchBar{
 	max-width: 50%;
 	height: 4rem;
 	background: var(--White);
@@ -472,7 +472,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	transition: all .55s ease;
 }
 
-.contentSearch input#search:focus, .contentSearch input#search:active{
+.contentSearch input#searchBar:focus, .contentSearch input#searchBar:active{
 	outline:none;
 }
 
