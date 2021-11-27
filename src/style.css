@@ -40,7 +40,7 @@ footer {
 /* main{
 	z-index: -2;
 } */
-.contenedor-footer {
+.container-footer {
     display:flex;
     /* se ponen uno de bajo del otro cuando no quepan en una sola linea*/
     flex-wrap: wrap;
@@ -397,7 +397,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 
 
 
-#resultado-cbo-personajes {
+#result-characters {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -406,14 +406,14 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	height: 100%;
 }
 
-#resultado-cbo-personajes > img{
+#result-characters > img{
 	width: 25rem;
 	height: 25rem;
 	padding: 2rem;
 	object-fit: cover;
 	border-radius: 5rem;
 }
-#resultado-cbo-personajes > p{
+#result-characters > p{
 	display: flex;
 	justify-content: space-evenly;
 	width: 5%;
@@ -426,7 +426,7 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	height: 8rem;
 }
 
-#resultado-cbo-titulo{
+#result-title-characters{
 	font-family: 'Roboto Slab', serif;
 	font-size: 4rem;
 	padding: 1rem;
@@ -506,7 +506,7 @@ article {
 article > div {
   width: 100%;
 }
-#espacio {
+#room {
   width: 20rem;
 }
 article > div > img {
@@ -765,12 +765,25 @@ body::-webkit-scrollbar-thumb{
     margin-top: 3rem;
   }
 
-  #resultado-cbo-titulo  {
+  #result-title-characters  {
 	  padding-top: 3rem;
 	  font-size: 150%;
 	  align-items: center;
   }
 
+  .box_footer{
+	  padding: 1rem;
+	  margin: 0.5rem;
+	  font-size: 1.2rem;
+  }
+
+ .box_footer h2 {
+
+	margin-bottom: 1rem;
+}
+.logo{
+	line-height: 1rem;
+}
 
 }
 

@@ -26,14 +26,13 @@
         </li>
         <li class="nav-menu-item"><a href="#characters-pages" class="nav-menu-link"><i
               class="fas fa-users"></i>Characteres</a></li>
-        <li class="nav-menu-item"><a href="#pagina-stadistics" class="nav-menu-link"><i
+        <li class="nav-menu-item"><a href="#stadistics-page" class="nav-menu-link"><i
                 class="fas fa-chart-pie"></i>Stadistics</a></li>
         <li class="nav-menu-item"><a href="#about-page" class="nav-menu-link"><i
               class="fas fa-info-circle"></i>About</a></li>    
       </ul>
     </nav>
   </header>
-
   <main>
     <section id="main-page">
       <div class="slider">
@@ -99,52 +98,38 @@
           <span class="icon"><i class="fas fa-search"></i></span>
           <input type="text" name="SearchBar" id="searchBar" placeholder="Search Films" />
         </div>
-        
-        <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
+        <button class="btnRefresh" onclick="window.location.reload();"><i class="fas fa-sync"></i></button>
 
       </div>
       <!-- Se crean solo los posters -->
       <div class="containerPoster" id="containerPosterFilms">
         <div id="mainMovieContainer" class="containerPoster"></div>
       </div>
-      <div id="containerCharactersList">
-        <ul id="charactersList"></ul>
-      </div>
-      <!-- Modal -->
-      <div class="modal-container">
-        <div class="modal modal-close">
-          <p class="close"><i class="fas fa-sign-out-alt"></i></p>
-          <div class="modal-texto">
-            <h2 id="titleFilms"> Info films </h2>
-            <p id="infoFilms">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="characters-pages">
       <div class="header-container">
         <div class="content-select">
-          <select id="cboPersonajes">
+          <select id="selectCharacters">
             <option selected>Movie characters</option>
           </select>
           <i></i>
         </div>
         <div class="content-select">
-          <select id="cboEspeciesPersonajes">
+          <select id="specieCharacters">
             <option selected>Choose Specie</option>
           </select>
           <i></i>
         </div>
-        <button class="btnRefresh" onClick="window.location.reload();"><i class="fas fa-sync"></i></button>
+        <button class="btnRefresh" onclick="window.location.reload();"><i class="fas fa-sync"></i></button>
       </div>
       <div class="contentTittlePeople">
-        <div id="resultado-cbo-titulo">
+        <div id="result-title-characters">
           <p>Which is your favorite character?</p>
         </div>
       </div>
       <div class="contentImagePeople">
-        <div id="resultado-cbo-personajes">
+        <div id="result-characters">
           <div id="imgCharacter">
             <span id="nameImgCharacter"></span>
           </div>
@@ -153,7 +138,7 @@
       </div>
     </section>
 
-    <section id="pagina-stadistics">
+    <section id="stadistics-page">
       <div class="header-container">
         <h2>S T A D I S T I C S</h2>
       </div>
@@ -170,8 +155,8 @@
         <div>
           <img id="aboutImg" src="./img/img54.jpg" alt="">
         </div>
-        <div id="espacio"></div>
-        <div id="texto">
+        <div id="room"></div>
+        <div id="aboutText">
           <p>Studio Ghibli was founded in 1985 by animated film directors Isao Takahata and Hayao Miyazaki, and has
             produced twenty-two feature-length films. Most Studio Ghibli films ranked number one at the box office in
             Japan in the year in which they were released. SPIRITED AWAY, directed by Hayao Miyazaki and released in
@@ -194,7 +179,7 @@
   </main>
   <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
   <footer>
-    <div class="contenedor-footer">
+    <div class="container-footer">
       <div class="box_footer">
         <div class="logo">
           <img src="./img/sg.webp" alt="Logo Studio Ghibli" />
@@ -210,7 +195,6 @@
         <h2>Creadoras</h2>
         <span>© 2021 Pilar Rivera y Luz Torres. All rights reserved.</span>
       </div>
-    </div>
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
