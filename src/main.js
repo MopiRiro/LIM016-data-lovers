@@ -1,23 +1,13 @@
 import { filterByProdAndDirec, filterBy, filterPeopleByFilms, filterCharacters } from "./data.js";
 import data from "./data/ghibli/ghibli.js";
-//console.log(filterCharacters);
 
 /*Interacción con el DOM */
 /*Asignando a variables la data extraida de Studio Ghibli */
 let dataFilms = data.films;
-// console.log(data.films);
 let titleFilms = dataFilms.map((x) => x.title);
-//console.log(titleFilms);
-let descriptionFilms = dataFilms.map((x) => x.description);
-// console.log(descriptionFilms);
 let directorFilms = dataFilms.map((x) => x.director);
-// console.log(directorFilms);
 let producerFilms = dataFilms.map((x) => x.producer);
-// console.log(producerFilms);
 let posterFilms = dataFilms.map((x) => x.poster);
-//console.log(posterFilms);
-let release_dateFilms = dataFilms.map((x) => x.release_date);
-let rt_scoreFilms = dataFilms.map((x) => x.rt_score);
 let peopleFilms = dataFilms.map((x) => x.people);
 
 /* Filtrado de personajes por pelicula */
@@ -26,12 +16,9 @@ cbo.addEventListener("change", () => {
   document.getElementById("resultado-cbo-personajes").textContent = "";
   let cbo = document.getElementById("cboPersonajes");
   let selected = cbo.options[cbo.selectedIndex].text;
-  // let filterResult = dataFilms.find(film => film.title === selected);
   let filterResult = filterPeopleByFilms(dataFilms, "title", selected);
-  // console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").textContent = selected;
   for (let i = 0; i < filterResult.people.length; i++) {
-    // console.log(filterResult.people[i]);
     let img = document.createElement("img");
     img.src = filterResult.people[i].img;
     let iconName = document.createElement("i");
@@ -50,53 +37,43 @@ cbo.addEventListener("change", () => {
 let resultadoEspecies = peopleFilms.map(x => {
   return x.map(person => person.specie)
 });
-//console.log(resultadoEspecies);
 let integrado = resultadoEspecies.reduce(function (a, b) {
   return a.concat(b);
 });
-//console.log(integrado);
 let resultSpecies = integrado.filter((item, index) => {
   return integrado.indexOf(item) === index;
 });
-//console.log(resultSpecies);
 let especiesOrdenadas = resultSpecies.sort();
-//console.log("especiesOrdenadas", especiesOrdenadas);
 function cargarEspecies() {
   for (var i in especiesOrdenadas) {
     document.getElementById("cboEspeciesPersonajes").innerHTML += "<option id='" + especiesOrdenadas[i] + "' value='" + especiesOrdenadas[i] + "'>" + especiesOrdenadas[i] + "</option>";
   }
-};
+}
 cargarEspecies();
 
-//Ordering posters Especies
+/* Ordering posters Especies */
 let cboEspeciesPersonajes = document.getElementById("cboEspeciesPersonajes");
 cboEspeciesPersonajes.addEventListener("change", () => {
   let selectedSpecies = cboEspeciesPersonajes.options[cboEspeciesPersonajes.selectedIndex].text;
-  /* console.log(selectedSpecies); */
   document.getElementById("resultado-cbo-personajes").textContent = "";
-  /* let cbo = document.getElementById("cboPersonajes"); */
   let integradoPersonajes = peopleFilms.reduce(function (a, b) {
     return a.concat(b);
   });
-  //console.log(peopleFilms);
-  console.log(integradoPersonajes);
   let filterResult = filterCharacters(integradoPersonajes, "specie", selectedSpecies);
-  console.log("Filter Result:", filterResult);
   document.getElementById("resultado-cbo-titulo").textContent = selectedSpecies;
   for (let i = 0; i < filterResult.length; i++) {
-    console.log(filterResult[i]);
     let img = document.createElement('img');
     img.src = filterResult[i].img;
     document.getElementById("resultado-cbo-personajes").appendChild(img);
-    //console.log(filterResult[i]);
   }
 });
 
-// Slider
+/* Slider */
 const myslide = document.querySelectorAll(".myslider"),
   dot = document.querySelectorAll(".dot");
 let counter = 1;
 let timer = setInterval(autoslide, 8000);
+timer;
 function autoslide() {
   counter += 1;
   slidefun(counter);
@@ -135,10 +112,8 @@ function slidefun(n) {
 function cargarPosterPeliculas() {
   for (let i = 0; i < posterFilms.length; i++) {
     let img = document.createElement("img");
-    let imgName = titleFilms[i];
     img.src = posterFilms[i];
     img.id = "ghibliFilms";
-    // img.className="classModalImage";
     img.classList.add("classModalImage");
     document.getElementById("mainMovieContainer").appendChild(img);
   }
@@ -169,7 +144,7 @@ function cargarDirectores() {
       resultDirector[i] +
       "</option>";
   }
-};
+}
 cargarDirectores();
 
 //Ordering posters SortBy
@@ -177,39 +152,29 @@ let sortBy = document.getElementById("sortBy");
 sortBy.addEventListener("change", () => {
   let selectedFilms = sortBy.options[sortBy.selectedIndex].text;
   document.getElementById("mainMovieContainer").innerHTML = "";
-  let dataFilterFilms = filterBy(data, selectedFilms);
+  let dataFilterFilms = filterBy(dataFilms, selectedFilms);
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
-    let containerPosterFilms=document.createElement("div");
+    let containerPosterFilms = document.createElement("div");
     containerPosterFilms.classList.add("containerImgInfo");
-    let containerFilImg=document.createElement("div");
+    let containerFilImg = document.createElement("div");
     containerFilImg.classList.add("containerFilImg");
-    let containerFilmInfo=document.createElement("div");
+    let containerFilmInfo = document.createElement("div");
     containerFilmInfo.classList.add("containerFilmInfo");
-
     document.getElementById("mainMovieContainer").appendChild(containerPosterFilms);
     containerPosterFilms.appendChild(containerFilImg);
-    containerPosterFilms.appendChild(containerFilmInfo);   
-    
+    containerPosterFilms.appendChild(containerFilmInfo);
     let datafilPoster = dataFilterFilms[i].poster;
     let img = document.createElement("img");
     img.src = datafilPoster;
-
     let datafilTitle = dataFilterFilms[i].title;
     let datafilRD = dataFilterFilms[i].release_date;
     let datafilRate = dataFilterFilms[i].rt_score;
     let text = document.createElement("p");
-    let rate = document.createElement("p");
-
     text.textContent =
       "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
-    
-      containerFilImg.appendChild(img);
-      containerFilmInfo.appendChild(text);
-    
-    
-    // document.getElementById("mainMovieContainer").appendChild(text);
-    /* document.getElementById("año").appendChild(rate); */
+    containerFilImg.appendChild(img);
+    containerFilmInfo.appendChild(text);
   }
 });
 
@@ -217,11 +182,9 @@ sortBy.addEventListener("change", () => {
 let cboDirector = document.getElementById("cboDirector");
 cboDirector.addEventListener("change", () => {
   let selectedFilm = cboDirector.options[cboDirector.selectedIndex].text;
-  console.log(selectedFilm);
   let director = "director";
   document.getElementById("mainMovieContainer").innerHTML = "";
-  let dataFilterFilms = filterByProdAndDirec(data, selectedFilm, director);
-  //console.log("data: ", dataFilterFilms);
+  let dataFilterFilms = filterByProdAndDirec(dataFilms, selectedFilm, director);
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
     let datafilPoster = dataFilterFilms[i].poster;
@@ -230,12 +193,8 @@ cboDirector.addEventListener("change", () => {
     document.getElementById("mainMovieContainer").appendChild(img);
     let datafilTitle = dataFilterFilms[i].title;
     let datafilRD = dataFilterFilms[i].release_date;
-    let datafilRate = dataFilterFilms[i].rt_score;
-    let datafilDescription = dataFilterFilms[i].description;
     let datafilDirector = dataFilterFilms[i].director;
-    let datafilProducer = dataFilterFilms[i].producer;
     let text = document.createElement("p");
-    //let rate = document.createElement("p");
     text.textContent =
       "Title: " +
       datafilTitle +
@@ -246,7 +205,6 @@ cboDirector.addEventListener("change", () => {
       "Director: " +
       datafilDirector;
     document.getElementById("mainMovieContainer").appendChild(text);
-    /* document.getElementById("año").appendChild(rate); */
   }
 });
 
@@ -254,11 +212,9 @@ cboDirector.addEventListener("change", () => {
 let cboProducer = document.getElementById("cboProducer");
 cboProducer.addEventListener("change", () => {
   let selectedFilm = cboProducer.options[cboProducer.selectedIndex].text;
-  //console.log(selectedFilm);
   let producer = "producer";
   document.getElementById("mainMovieContainer").innerHTML = "";
-  let dataFilterFilms = filterByProdAndDirec(data, selectedFilm, producer);
-  //console.log("data: ", dataFilterFilms);
+  let dataFilterFilms = filterByProdAndDirec(dataFilms, selectedFilm, producer);
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
     let datafilPoster = dataFilterFilms[i].poster;
@@ -267,12 +223,8 @@ cboProducer.addEventListener("change", () => {
     document.getElementById("mainMovieContainer").appendChild(img);
     let datafilTitle = dataFilterFilms[i].title;
     let datafilRD = dataFilterFilms[i].release_date;
-    let datafilRate = dataFilterFilms[i].rt_score;
-    let datafilDescription = dataFilterFilms[i].description;
-    let datafilDirector = dataFilterFilms[i].director;
     let datafilProducer = dataFilterFilms[i].producer;
     let text = document.createElement("p");
-    //let rate = document.createElement("p");
     text.textContent =
       "Title: " +
       datafilTitle +
@@ -282,34 +234,26 @@ cboProducer.addEventListener("change", () => {
       " " +
       "Producer: " +
       datafilProducer;
-    /*+ " " + "Score: " + datafilRate + " " + "Description: " + datafilDescription + " " + "Director: " + datafilDirector + " " + "Producer: " + datafilProducer; */
-    /* rate.textContent = datafilRate; */
     document.getElementById("mainMovieContainer").appendChild(text);
-    /* document.getElementById("año").appendChild(rate); */
   }
 });
 
 // Search Bar
 const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("keyup", (e) => {
-  console.log(e.target.value);
   let searchString = e.target.value.toLowerCase();
   let filteredFilms = dataFilms.filter((dataFilms) => {
     return dataFilms.title.toLowerCase().includes(searchString);
   });
-  console.log(filteredFilms);
   document.getElementById("mainMovieContainer").innerHTML = "";
   for (let i = 0; i < filteredFilms.length; i++) {
     // Mostrar posters de la data filtrada
     let filmPoster = filteredFilms[i].poster;
     let img = document.createElement("img");
     img.src = filmPoster;
-    console.log(img.src);
     document.getElementById("mainMovieContainer").appendChild(img);
-  };
+  }
 });
-
-
 
 //Poblar select con data de titulos de peliculas
 function cargarPeliculas() {
@@ -320,10 +264,9 @@ function cargarPeliculas() {
 }
 cargarPeliculas();
 
-//console.log("Productores para Chart",resultProducer);
-
 // Estadisticas
 const ctx = document.getElementById("myChart").getContext("2d");
+// eslint-disable-next-line no-undef
 const myChart = new Chart(ctx, {
   type: "polarArea",
   data: {
@@ -383,7 +326,7 @@ const myChart = new Chart(ctx, {
   options: {
   },
 });
-
+myChart;
 //Get the button:
 const mybutton = document.getElementById("myBtn");
 window.onscroll = function () {
@@ -402,58 +345,15 @@ mybutton.onclick = function topFunction() {
   document.documentElement.scrollTop = 0;
 };
 
-//Modal de peliculas
-let cerrar = document.querySelectorAll(".close")[0];
-let abrir = document.querySelectorAll(".classModalImage")[0];
-let modal = document.querySelectorAll(".modal")[0];
-let modalC = document.querySelectorAll(".modal-container")[0];
-
-abrir.addEventListener('click', function (e) {
-
-  console.log("VER e MODAL :", e);
-  modalC.style.opacity = "1";
-  modalC.style.visibility = "visible";
-  modal.classList.toggle("modal-close");
-
-  // Creación información de peliculas
-
-
-});
-
-cerrar.addEventListener('click', function () {
-  modal.classList.toggle("modal-close");
-  setTimeout(function () {
-    modalC.style.opacity = "0";
-    modalC.style.visibility = "hidden";
-  }, 500);
-});
-
-window.addEventListener('click', function (e) {
-  if (e.target == modalC) {
-    setTimeout(function () {
-      modalC.style.opacity = "0";
-      modalC.style.visibility = "hidden";
-    }, 900);    
-  }
-});
 
 // NavBar responsive
-const navToggle= document.querySelector(".nav-toggle");
-const navMenu= document.querySelector(".nav-menu");
-
-navToggle.addEventListener('click',()=>{
-navMenu.classList.toggle("nav-menu_visible");
- 
-
-if(navMenu.classList.contains("nav-menu_visible")){
-  navToggle.setAttribute("aria-label","Cerrar menú");
-}else{
-  navToggle.setAttribute("aria-label","Abrir menú");
-}
-
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-menu");
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle("nav-menu_visible");
+  if (navMenu.classList.contains("nav-menu_visible")) {
+    navToggle.setAttribute("aria-label", "Cerrar menú");
+  } else {
+    navToggle.setAttribute("aria-label", "Abrir menú");
+  }
 });
-
-
-  // const pageResponsive=document.querySelector(".nav-menu-item");
-  // pageResponsive.addEventListener('click',()=>{
-  //   documen.querySelector('.nav-menu_visible').style.display="none"; })
