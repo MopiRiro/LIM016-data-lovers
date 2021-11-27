@@ -1,4 +1,4 @@
-import { filterByProdAndDirec, filterBy, filterPeopleByFilms, filterCharacters } from '../src/data.js';
+import { filterByProdAndDirec, filterBy, filterPeopleByFilms, filterCharacters, getOrderAscendent, getOrderDescendent } from '../src/data.js';
 
 const ghibliMock = [
   {
@@ -289,5 +289,50 @@ describe(filterCharacters, () => {
         "name": "Totoro",
         "specie": "Totoro"
       }]);
+  });
+});
+
+describe(getOrderAscendent, () => {
+  it('is a function getOrderAscendent', () => {
+    expect(typeof getOrderAscendent).toBe('function');
+  });
+
+  const ghibliMockPeople = [
+    {
+      "title": "Spirited Away",
+      "name": "Chihiro Ogino/Sen",
+      "specie": "Human"
+    },
+    {
+      "title": "My Neighbor Totoro",
+      "name": "Totoro",
+      "specie": "Totoro"
+    }
+  ];
+  it('returns `My Neighbor Totoro & Spirited Away`', () => {
+    expect(getOrderAscendent(ghibliMockPeople[0], ghibliMockPeople[1])).toEqual(-1);
+  });
+});
+
+describe(getOrderDescendent, () => {
+  it('is a function getOrderDescendent', () => {
+    expect(typeof getOrderDescendent).toBe('function');
+  });
+
+  const ghibliMockPeople = [
+    {
+      "title": "Spirited Away",
+      "name": "Chihiro Ogino/Sen",
+      "specie": "Human"
+    },
+    {
+      "title": "My Neighbor Totoro",
+      "name": "Totoro",
+      "specie": "Totoro"
+    }
+  ];
+  it('returns `Spirited Away & My Neighbor Totoro`', () => {
+    console.log(getOrderDescendent(ghibliMockPeople[1], ghibliMockPeople[0]));
+    expect(getOrderDescendent(ghibliMockPeople[1], ghibliMockPeople[0])).toEqual(-1);
   });
 });
