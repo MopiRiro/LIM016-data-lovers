@@ -7,7 +7,7 @@ export const filterByProdAndDirec = (data, name, items) => {
       return data.filter(film => film.producer === name);
     }
     default: {
-      break;
+      return [];
     }
   }
 };
@@ -26,11 +26,11 @@ export const filterBy = (data, items) => {
       const fromAtoZ = data.sort((a, b) => {
         if (a.title < b.title) {
           return -1;
-        }
-        if (a.title > b.title) {
+        } else if (a.title > b.title) {
           return 1;
+        } else {
+          return 0;
         }
-        return 0;
       })
       return fromAtoZ;
     }
@@ -59,7 +59,7 @@ export const filterBy = (data, items) => {
       return topRated;
     }
     default: {
-      break;
+      return [];
     }
   }
 };
