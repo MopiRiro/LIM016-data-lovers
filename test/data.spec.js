@@ -7,6 +7,8 @@ const ghibliMock = [
     "producer": "Toshio Suzuki",
     "release_date": "2001",
     "rt_score": "97",
+    "people": [
+      {"name": "Chihiro Ogino/Sen"}]
   },
   {
     "title": "My Neighbor Totoro",
@@ -14,14 +16,20 @@ const ghibliMock = [
     "producer": "Hayao Miyazaki",
     "release_date": "1988",
     "rt_score": "93",
+    "people": [
+      {"name": "Satsuki Kusakabe"}]
   },
   {
-    "title": "Howl's Moving Castle",
-    "director": "Hayao Miyazaki",
-    "producer": "Toshio Suzuki",
-    "release_date": "2004",
-    "rt_score": "87",
+    "title": "Grave of the Fireflies",
+    "director": "Isao Takahata",
+    "producer": "Toru Hara",
+    "release_date": "1988",
+    "rt_score": "97",
+    "people": [
+        {"name": "Seita Yokokawa"
+      }]
   }
+
 ];
 
 describe('filterByProdAndDirec', () => {
@@ -32,20 +40,7 @@ describe('filterByProdAndDirec', () => {
   const director = "director";
   it('Should return `Hayao Miyazaki`', () => {
     expect(filterByProdAndDirec(ghibliMock, "Hayao Miyazaki", director)).toEqual(
-      {
-        "title": "Spirited Away",
-        "director": "Hayao Miyazaki",
-        "producer": "Toshio Suzuki",
-        "release_date": "2001",
-        "rt_score": "97",
-      },
-      {
-        "title": "Howl's Moving Castle",
-        "director": "Hayao Miyazaki",
-        "producer": "Toshio Suzuki",
-        "release_date": "2004",
-        "rt_score": "87",
-      });
+      "Hayao Miyazaki");
   });
 });
 
