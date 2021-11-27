@@ -76,7 +76,7 @@ let cboEspeciesPersonajes = document.getElementById("cboEspeciesPersonajes");
 cboEspeciesPersonajes.addEventListener("change", () => {
   let selectedSpecies = cboEspeciesPersonajes.options[cboEspeciesPersonajes.selectedIndex].text;
   /* console.log(selectedSpecies); */
-  document.getElementById("resultado-cbo-personajes").textContent = "";
+  document.getElementById("resultado-cbo-personajes").innerHTML = "";
   /* let cbo = document.getElementById("cboPersonajes"); */
   let integradoPersonajes = peopleFilms.reduce(function (a, b) {
     return a.concat(b);
