@@ -19,15 +19,15 @@ cbo.addEventListener("change", () => {
   let filterResult = filterPeopleByFilms(dataFilms, "title", selected);
   document.getElementById("result-title-characters").textContent = selected;
   for (let i = 0; i < filterResult.people.length; i++) {
-    let containerPoster=document.createElement("div");
+    let containerPoster = document.createElement("div");
     containerPoster.classList.add("containerImgInfo");
-    let containerImg=document.createElement("div");
+    let containerImg = document.createElement("div");
     containerImg.classList.add("containerFilImg");
-    let containerInfo=document.createElement("div");
+    let containerInfo = document.createElement("div");
     containerInfo.classList.add("containerFilmInfo");
     document.getElementById("result-characters").appendChild(containerPoster);
     containerPoster.appendChild(containerImg);
-    containerPoster.appendChild(containerInfo); 
+    containerPoster.appendChild(containerInfo);
     let img = document.createElement("img");
     img.src = filterResult.people[i].img;
     let viewNamePeople = document.createElement("p");
@@ -35,7 +35,7 @@ cbo.addEventListener("change", () => {
     viewNamePeople.textContent = namePeople;
     containerImg.appendChild(img);
     containerInfo.appendChild(viewNamePeople);
-    
+
   }
 });
 
@@ -61,22 +61,22 @@ cargarEspecies();
 let specieCharacters = document.getElementById("specieCharacters");
 specieCharacters.addEventListener("change", () => {
   let selectedSpecies = specieCharacters.options[specieCharacters.selectedIndex].text;
-  document.getElementById("result-characters").innerHTML= "";
+  document.getElementById("result-characters").innerHTML = "";
   let allCharacters = peopleFilms.reduce(function (a, b) {
     return a.concat(b);
   });
   let filterResult = filterCharacters(allCharacters, "specie", selectedSpecies);
   document.getElementById("result-title-characters").textContent = selectedSpecies;
   for (let i = 0; i < filterResult.length; i++) {
-    let containerPoster=document.createElement("div");
+    let containerPoster = document.createElement("div");
     containerPoster.classList.add("containerImgInfo");
-    let containerImg=document.createElement("div");
+    let containerImg = document.createElement("div");
     containerImg.classList.add("containerFilImg");
-    let containerInfo=document.createElement("div");
+    let containerInfo = document.createElement("div");
     containerInfo.classList.add("containerFilmInfo");
     document.getElementById("result-characters").appendChild(containerPoster);
     containerPoster.appendChild(containerImg);
-    containerPoster.appendChild(containerInfo); 
+    containerPoster.appendChild(containerInfo);
     let img = document.createElement("img");
     img.src = filterResult[i].img;
     let viewNamePeople = document.createElement("p");
@@ -206,17 +206,18 @@ cboDirector.addEventListener("change", () => {
   let director = "director";
   document.getElementById("mainMovieContainer").innerHTML = "";
   let dataFilterFilms = filterByProdAndDirec(dataFilms, selectedFilm, director);
+  console.log(filterByProdAndDirec(dataFilms, selectedFilm, "amaru"));
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
-    let containerPosterFilms=document.createElement("div");
+    let containerPosterFilms = document.createElement("div");
     containerPosterFilms.classList.add("containerImgInfo");
-    let containerFilImg=document.createElement("div");
+    let containerFilImg = document.createElement("div");
     containerFilImg.classList.add("containerFilImg");
-    let containerFilmInfo=document.createElement("div");
+    let containerFilmInfo = document.createElement("div");
     containerFilmInfo.classList.add("containerFilmInfo");
     document.getElementById("mainMovieContainer").appendChild(containerPosterFilms);
     containerPosterFilms.appendChild(containerFilImg);
-    containerPosterFilms.appendChild(containerFilmInfo);   
+    containerPosterFilms.appendChild(containerFilmInfo);
     let datafilPoster = dataFilterFilms[i].poster;
     let img = document.createElement("img");
     img.src = datafilPoster;
@@ -226,8 +227,8 @@ cboDirector.addEventListener("change", () => {
     let text = document.createElement("p");
     text.textContent =
       "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
-      containerFilImg.appendChild(img);
-      containerFilmInfo.appendChild(text);
+    containerFilImg.appendChild(img);
+    containerFilmInfo.appendChild(text);
   }
 });
 
@@ -240,15 +241,15 @@ cboProducer.addEventListener("change", () => {
   let dataFilterFilms = filterByProdAndDirec(dataFilms, selectedFilm, producer);
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
-    let containerPosterFilms=document.createElement("div");
+    let containerPosterFilms = document.createElement("div");
     containerPosterFilms.classList.add("containerImgInfo");
-    let containerFilImg=document.createElement("div");
+    let containerFilImg = document.createElement("div");
     containerFilImg.classList.add("containerFilImg");
-    let containerFilmInfo=document.createElement("div");
+    let containerFilmInfo = document.createElement("div");
     containerFilmInfo.classList.add("containerFilmInfo");
     document.getElementById("mainMovieContainer").appendChild(containerPosterFilms);
     containerPosterFilms.appendChild(containerFilImg);
-    containerPosterFilms.appendChild(containerFilmInfo);   
+    containerPosterFilms.appendChild(containerFilmInfo);
     let datafilPoster = dataFilterFilms[i].poster;
     let img = document.createElement("img");
     img.src = datafilPoster;
@@ -374,21 +375,21 @@ mybutton.onclick = function topFunction() {
 
 
 // NavBar responsive
-const navToggle= document.querySelector(".nav-toggle");
-const navMenu= document.querySelector(".nav-menu");
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-menu");
 
-navToggle.addEventListener('click',()=>{
+navToggle.addEventListener('click', () => {
   navMenu.classList.toggle("nav-menu_visible");
-  if(navMenu.classList.contains("nav-menu_visible")){
-  navToggle.setAttribute("aria-label","Close menu");
-  }else{
-  navToggle.setAttribute("aria-label","Open menu");
+  if (navMenu.classList.contains("nav-menu_visible")) {
+    navToggle.setAttribute("aria-label", "Close menu");
+  } else {
+    navToggle.setAttribute("aria-label", "Open menu");
   }
 });
 
-const menuLinks= document.querySelectorAll('.nav-menu a[href^="#"]');
+const menuLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
 menuLinks.forEach(menuLink => {
-  menuLink.addEventListener('click', function(){
+  menuLink.addEventListener('click', function () {
     navMenu.classList.remove("nav-menu_visible");
   })
 });
