@@ -192,9 +192,7 @@ sortBy.addEventListener("change", () => {
     let datafilRD = dataFilterFilms[i].release_date;
     let datafilRate = dataFilterFilms[i].rt_score;
     let text = document.createElement("p");
-    text.textContent =`Title: ${datafilTitle}`+
-    `Release date: ${datafilRD} `+
-    `Score: ${datafilRate} `;
+    text.textContent ="Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
     containerFilImg.appendChild(img);
     containerFilmInfo.appendChild(text);
   }
@@ -207,7 +205,6 @@ cboDirector.addEventListener("change", () => {
   let director = "director";
   document.getElementById("mainMovieContainer").innerHTML = "";
   let dataFilterFilms = filterByProdAndDirec(dataFilms, selectedFilm, director);
-  console.log(filterByProdAndDirec(dataFilms, selectedFilm, "amaru"));
   for (let i = 0; i < dataFilterFilms.length; i++) {
     // Mostrar posters de la data filtrada
     let containerPosterFilms = document.createElement("div");
