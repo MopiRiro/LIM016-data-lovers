@@ -7,7 +7,7 @@ export const filterByProdAndDirec = (data, name, items) => {
       return data.filter(film => film.producer === name);
     }
     default: {
-      break;
+      return [];
     }
   }
 };
@@ -23,27 +23,11 @@ export const filterBy = (data, items) => {
       return ascYear;
     }
     case "A - Z": {
-      const fromAtoZ = data.sort((a, b) => {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
+      const fromAtoZ = data.sort((a, b) => getOrderDescendent(a, b))
       return fromAtoZ;
     }
     case "Z - A": {
-      const fromZtoA = data.sort((a, b) => {
-        if (a.title < b.title) {
-          return 1;
-        }
-        if (a.title > b.title) {
-          return -1;
-        }
-        return 0;
-      })
+      const fromZtoA = data.sort((a, b) => getOrderAscendent(a, b))
       return fromZtoA;
     }
     case "Top rated": {
@@ -59,7 +43,7 @@ export const filterBy = (data, items) => {
       return topRated;
     }
     default: {
-      break;
+      return [];
     }
   }
 };
@@ -70,4 +54,20 @@ export const filterPeopleByFilms = (data, condition, itemFilms) => {
 
 export const filterCharacters = (data, condition, itemFilms) => {
   return data.filter(item => item[condition] === itemFilms);
+}
+
+export const getOrderAscendent = (a, b) => {
+  if (a.title < b.title) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+
+export const getOrderDescendent = (a, b) => {
+  if (a.title < b.title) {
+    return -1;
+  } else {
+    return 1
+  }
 }
