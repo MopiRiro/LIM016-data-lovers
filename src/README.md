@@ -49,7 +49,7 @@ Para su correcto funcionamiento el usuario debera elegir entre los métodos de f
 [Trello Data Lovers](https://trello.com/b/YO0IYHJj/lp2-datalovers-l)
 
 
-### HU01 📖: Yo **COMO** usuario **QUIERO** un pagina de bienvenida dinámica con un menú  **PARA** visualizar las secciones con las que cuenta la página.
+### 📖 HU01: Yo **COMO** usuario **QUIERO** un pagina de bienvenida dinámica con un menú  **PARA** visualizar las secciones con las que cuenta la página.
 
 #### Criterios de Aceptación
 * Botones permiten cambiar entre las imágenes de las películas
@@ -59,7 +59,7 @@ Para su correcto funcionamiento el usuario debera elegir entre los métodos de f
 * Se ejecutaron las pruebas de usabilidad necesarias
 * Se realizaron las modificaciones señaladas en el test de usabilidad
 
-### HU02📖: Yo **COMO** usuario **QUIERO** una sección donde muestre las posters de las películas de Studio Ghibli **PARA** poder ver la información de cada una.
+### 📖HU02: Yo **COMO** usuario **QUIERO** una sección donde muestre las posters de las películas de Studio Ghibli **PARA** poder ver la información de cada una.
 #### Criterios de Aceptación
 * Mostrar los posters de las películas
 * Menú de opciones para el filtrado por director
@@ -74,7 +74,7 @@ Para su correcto funcionamiento el usuario debera elegir entre los métodos de f
 * Test de la función de filtrado por productor
 * Test de la función 'Sort' (Year ascending, year descending, A-Z, Z-A y Rotten Tomatoes)
 
-### HU03📖: Yo **COMO** usuario **QUIERO** ver a los personajes que participan en cada película **PARA** poder listarlo de manera ordenada.
+### 📖HU03: Yo **COMO** usuario **QUIERO** ver a los personajes que participan en cada película **PARA** poder listarlo de manera ordenada.
 #### Criterios de Aceptación
 * Menú de opciones con las películas de Studio Ghibli
 * Menú de opciones con las especies de los personajes
@@ -89,13 +89,13 @@ Para su correcto funcionamiento el usuario debera elegir entre los métodos de f
 * Test de la función de filtrado por especies
 
 
-### HU04📖
+### 📖HU04
 #### Criterios de Aceptación
 #### Definición de Terminado
-### HU05📖
+### 📖HU05
 #### Criterios de Aceptación
 #### Definición de Terminado
-### HU06📖
+### 📖HU06
 #### Criterios de Aceptación
 #### Definición de Terminado
 
