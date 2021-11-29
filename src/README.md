@@ -46,6 +46,59 @@ Para su correcto funcionamiento el usuario debera elegir entre los métodos de f
 
 ## 5. Historias de Usuario 🗂️
 
+[Trello Data Lovers](https://trello.com/b/YO0IYHJj/lp2-datalovers-l)
+
+
+### HU01 📖: Yo **COMO** usuario **QUIERO** un pagina de bienvenida dinámica con un menú  **PARA** visualizar las secciones con las que cuenta la página.
+
+#### Criterios de Aceptación
+* Botones permiten cambiar entre las imágenes de las películas
+* Transiciones en las imágenes
+* Menú de navegación con las diferentes secciones de la pagina
+#### Definición de Terminado
+* Se ejecutaron las pruebas de usabilidad necesarias
+* Se realizaron las modificaciones señaladas en el test de usabilidad
+
+### HU02📖: Yo **COMO** usuario **QUIERO** una sección donde muestre las posters de las películas de Studio Ghibli **PARA** poder ver la información de cada una.
+#### Criterios de Aceptación
+* Mostrar los posters de las películas
+* Menú de opciones para el filtrado por director
+* Menú de opciones para el filtrado por productor
+* Menú de selección para ordenar por años de estreno ascendente, descendente, A-Z, Z-A y según el puntaje de Rotten tomatoes
+* Botón para borrar los filtros realizados por el usuario
+
+#### Definición de Terminado
+* Test de usabilidad
+* Modificaciones señaladas en el test de usabilidad
+* Test de la función de filtrado por director
+* Test de la función de filtrado por productor
+* Test de la función 'Sort' (Year ascending, year descending, A-Z, Z-A y Rotten Tomatoes)
+
+### HU03📖: Yo **COMO** usuario **QUIERO** ver a los personajes que participan en cada película **PARA** poder listarlo de manera ordenada.
+#### Criterios de Aceptación
+* Menú de opciones con las películas de Studio Ghibli
+* Menú de opciones con las especies de los personajes
+* Botón para borrar los filtros hechos por el usuario
+* Sección con el titulo de cada pelicula
+* Sección con las imágenes de cada personaje con su respectivo nombre
+
+#### Definición de Terminado
+* Test de usabilidad
+* Modificaciones señaladas en el test de usabilidad
+* Test de la función de filtrado por película
+* Test de la función de filtrado por especies
+
+
+### HU04📖
+#### Criterios de Aceptación
+#### Definición de Terminado
+### HU05📖
+#### Criterios de Aceptación
+#### Definición de Terminado
+### HU06📖
+#### Criterios de Aceptación
+#### Definición de Terminado
+
 
 ## 6. Prototipo ⚒️
 
@@ -105,3 +158,10 @@ Se realizo varios testeos en los cuales pudimos detectar diversos problemas para
 ![imagen12](img/iu_7.JPG)
 ![imagen13](img/iu_8.JPG)
 ![imagen14](img/iu_9.JPG)
+
+
+Autoras ✒️
+
+* Luz Elany Torres Villavicencio [GitHub](https://github.com/ElannyTorres)
+
+* Mónica del Pilar Rivera Romero [GitHub](https://github.com/MopiRiro)
