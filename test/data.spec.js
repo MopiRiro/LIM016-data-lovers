@@ -332,7 +332,6 @@ describe(getOrderDescendent, () => {
     }
   ];
   it('returns `Spirited Away & My Neighbor Totoro`', () => {
-    console.log(getOrderDescendent(ghibliMockPeople[1], ghibliMockPeople[0]));
     expect(getOrderDescendent(ghibliMockPeople[1], ghibliMockPeople[0])).toEqual(-1);
   });
 });

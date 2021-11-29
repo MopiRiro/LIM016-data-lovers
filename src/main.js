@@ -192,7 +192,9 @@ sortBy.addEventListener("change", () => {
     let datafilRD = dataFilterFilms[i].release_date;
     let datafilRate = dataFilterFilms[i].rt_score;
     let text = document.createElement("p");
-    text.textContent ="Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
+    text.textContent =`Title: ${datafilTitle}
+    Release date: ${datafilRD}
+    Score: ${datafilRate} `;
     containerFilImg.appendChild(img);
     containerFilmInfo.appendChild(text);
   }
@@ -223,8 +225,9 @@ cboDirector.addEventListener("change", () => {
     let datafilRD = dataFilterFilms[i].release_date;
     let datafilRate = dataFilterFilms[i].rt_score;
     let text = document.createElement("p");
-    text.textContent =
-      "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
+    text.textContent =`Title: ${datafilTitle}
+    Release date: ${datafilRD}
+    Score: ${datafilRate} `;
     containerFilImg.appendChild(img);
     containerFilmInfo.appendChild(text);
   }
@@ -255,8 +258,9 @@ cboProducer.addEventListener("change", () => {
     let datafilRD = dataFilterFilms[i].release_date;
     let datafilRate = dataFilterFilms[i].rt_score;
     let text = document.createElement("p");
-    text.textContent =
-      "Title: " + datafilTitle + " " + "Release date: " + datafilRD + " " + "Score: " + datafilRate;
+    text.textContent =`Title: ${datafilTitle}
+    Release date: ${datafilRD}
+    Score: ${datafilRate} `;
     containerFilImg.appendChild(img);
     containerFilmInfo.appendChild(text);
   }

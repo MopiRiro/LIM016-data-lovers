@@ -384,6 +384,8 @@ dos bordes con color y que giramos con transform: rotate(-45deg);
 	width: 70%;
 	text-align: center;
 	background:url(../src/img/img2.jpg) transparent;
+	white-space: pre-line;
+
 	
 }
 
