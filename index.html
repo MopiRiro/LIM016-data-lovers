@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href="../src/img/sg.webp">
+  <title>Studio Ghibli Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c26e936b31.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo nav-link">Studio Ghibli<span class="spanLibrary">Library</span></a>
+      <button class="nav-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-menu-item"><a id="filmsItem" href="#films-page" class="nav-menu-link"><i class="fas fa-film"></i>Films</a>
+        </li>
+        <li class="nav-menu-item"><a id="characterssItem" href="#characters-pages" class="nav-menu-link"><i
+              class="fas fa-users"></i>Characteres</a></li>
+        <li class="nav-menu-item"><a id="stadisticsItem" href="#stadistics-page" class="nav-menu-link"><i
+                class="fas fa-chart-pie"></i>Stadistics</a></li>
+        <li class="nav-menu-item"><a id="aboutItem"  href="#about-page" class="nav-menu-link"><i
+              class="fas fa-info-circle"></i>About</a></li>    
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="main-page">
+      <div class="slider">
+        <div class="myslider fade">
+          <img class="img-carousel" src="./img/img1.jpg" style="width: 100%; height: 100%;">
+        </div>
+        <div class="myslider fade">
+          <div class="txt">
+          </div>
+          <img class="img-carousel" src="./img/img2.jpg" style="width: 100%; height: 100%;">
+        </div>
+        <div class="myslider fade" style="display: block;">
+          <div class="txt">
+          </div>
+          <img class="img-carousel" src="./img/img3.jpg" style="width: 100%; height: 100%;">
+        </div>
+        <div class="myslider fade">
+          <div class="txt">
+          </div>
+          <img class="img-carousel" src="./img/img4.jpg" style="width: 100%; height: 100%;">
+        </div>
+        <!--Flechas para pasar las imágenes-->
+        <a class="prev" id="prev">&#10094;</a>
+        <a class="next" id="next">&#10095;</a>
+
+        <!--Puntos para las imágenes-->
+        <div class="dotsbox" style="text-align: center;">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="films-page">
+      <div id="sortFilms" class="header-container">
+        <div class="content-select">
+          <select name="" id="cboDirector">
+            <option value="" selected>Choose a Director</option>
+          </select>
+          <i></i>
+        </div>
+        <div class="content-select">
+          <select name="" id="cboProducer">
+            <option value="" selected>Choose a Producer</option>
+          </select>
+          <i></i>
+        </div>
+        <div class="content-select">
+          <select name="" id="sortBy">
+            <option value="" selected>Sort films by</option>
+            <option value="">Year Ascending</option>
+            <option value="">Year Descending</option>
+            <option value="">A - Z</option>
+            <option value="">Z - A</option>
+            <option value="">Top rated</option>
+          </select>
+          <i></i>
+        </div>
+
+        <div class="contentSearch">
+          <span class="icon"><i class="fas fa-search"></i></span>
+          <input type="text" name="SearchBar" id="searchBar" placeholder="Search Films" />
+        </div>
+        <button class="btnRefresh" onclick="window.location.reload();"><i class="fas fa-sync"></i></button>
+
+      </div>
+      <!-- Se crean solo los posters -->
+      <div class="containerPoster" id="containerPosterFilms">
+        <div id="mainMovieContainer" class="containerPoster"></div>
+      </div>
+    </section>
+
+    <section id="characters-pages">
+      <div class="header-container">
+        <div class="content-select">
+          <select id="selectCharacters">
+            <option selected>Movie characters</option>
+          </select>
+          <i></i>
+        </div>
+        <div class="content-select">
+          <select id="specieCharacters">
+            <option selected>Choose Specie</option>
+          </select>
+          <i></i>
+        </div>
+        <button class="btnRefresh" onclick="window.location.reload();"><i class="fas fa-sync"></i></button>
+      </div>
+      <div class="contentTittlePeople">
+        <div id="result-title-characters">
+          <p>Which is your favorite character?</p>
+        </div>
+      </div>
+      <div class="contentImagePeople">
+        <div id="result-characters">
+          <div id="imgCharacter">
+            <span id="nameImgCharacter"></span>
+          </div>
+          <img src="../src/img/personajes.jpg" style="width: 95%; height: 55%" />
+        </div>
+      </div>
+    </section>
+
+    <section id="stadistics-page">
+      <div class="header-container">
+        <h2>S T A D I S T I C S</h2>
+      </div>
+      <div class="contentChart">
+        <canvas id="myChart"></canvas>
+      </div>
+    </section>
+
+    <section id="about-page">
+      <div class="header-container">
+        <h2>A B O U T - S T U D I O - G H I B L I</h2>
+      </div>
+      <article>
+        <div>
+          <img id="aboutImg" src="./img/img54.jpg" alt="">
+        </div>
+        <div id="room"></div>
+        <div id="aboutText">
+          <p>Studio Ghibli was founded in 1985 by animated film directors Isao Takahata and Hayao Miyazaki, and has
+            produced twenty-two feature-length films. Most Studio Ghibli films ranked number one at the box office in
+            Japan in the year in which they were released. SPIRITED AWAY, directed by Hayao Miyazaki and released in
+            2001,
+            is the all-time highest grossing film in Japan, earning over 30 billion yen at the box office.</p>
+          <br>
+          <p>Studio Ghibli films have garnered numerous awards and critical acclaim from film critics and animation
+            specialists around the world. SPIRITED AWAY was awarded the Golden Bear as the Best Feature Film at the 2002
+            Berlin International Film Festival and won the 2002 Academy Award for Best Animated Feature Film. In October
+            2001, Studio Ghibli, in conjunction with The Tokuma Memorial Cultural Foundation for Animation, founded the
+            Ghibli Museum, Mitaka, designed by Hayao Miyazaki.</p>
+          <br>
+          <p>THE WIND RISES (2013), THE TALE OF THE PRINCESS KAGUYA (2013), WHEN MARNIE WAS THERE (2014) and THE RED
+            TURTLE (2016), the last four films released by Studio Ghibli, have earned the studio four consecutive
+            Academy
+            Award nominations for Best Animated Feature Film. The studio is currently working on a new production.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+  <footer>
+    <div class="container-footer">
+      <div class="box_footer">
+        <div class="logo">
+          <img src="./img/sg.webp" alt="Logo Studio Ghibli" />
+        </div>
+      </div>
+      <div class="box_footer">
+        <h2>Redes sociales</h2>
+        <a href="https://youtu.be/XKd-qdNNko4" target="_blank"><i class="fab fa-youtube"></i>Youtube</a>
+        <a href="https://www.facebook.com/FansOfStudioGhibli" target="_blank"><i class="fab fa-facebook"></i>Facebook</a>
+        <a href="https://www.instagram.com/ghibliarchives/?hl=es" target="_blank"><i class="fab fa-instagram-square"></i>Instragram</a>
+      </div>
+      <div class="box_footer">
+        <h2>Creadoras</h2>
+        <span>© 2021 Pilar Rivera y Luz Torres. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>
