@@ -43,17 +43,17 @@ cbo.addEventListener("change", () => {
 let fillInSpecies = peopleFilms.map(x => {
   return x.map(person => person.specie)
 });
-console.log("AQUI: ",fillInSpecies);
+
 let allSpecies = fillInSpecies.reduce(function (a, b) {
   return a.concat(b);
 });
 
-console.log("allSpecies", allSpecies);
+
 
 let resultSpecies = allSpecies.filter((item, index) => {
   return allSpecies.indexOf(item) === index;
 });
-console.log("RESULT ESPECIES: ",resultSpecies);
+
 
 
 let sortedSpecies = resultSpecies.sort();
